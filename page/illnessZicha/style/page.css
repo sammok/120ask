@@ -1,0 +1,109 @@
+/* Page:疾病自查 */
+/* 疾病按钮组*/
+.m_illnessBtnGroup{ padding: 10px 0 0 0;}
+.illnessBtnGroup_bd{}
+
+.m_illnessBtnGroup2{ padding: 40px 0 0 0;}
+.m_illnessBtnGroup2 .illnessBtnGroup_hd{ width: 100%; padding:  0 0 0 5%; border-left: 5px solid #5db23d; left: 0; top: 0;}
+.m_illnessBtnGroup2 .illnessBtnGroup_hd .more{ margin-top: 2px;}
+.m_illnessBtnGroup2 .illnessBtnGroup_bd { padding: 10px 10px 10px 10px;}
+.m_illnessBtnGroup2 .illnessBtnGroup_bd .btn_long{ width: 29.7%!important;}
+.m_illnessBtnGroup2 .illnessBtnGroup_bd .btn_single{ width: 10%!important;}
+.illnessBtnGroup_bd .feature{ display: -webkit-box; background: #acd598; border: 1px solid #777;}
+.illnessBtnGroup_bd .feature li{ -webkit-box-flex: 1; line-height: 50px; text-align: center;}
+.illnessBtnGroup_bd .feature li:active{ background: #fff;}
+.illnessBtnGroup_bd .feature li a{ display: block; height: 100%;}
+/* 疾病按钮组 end*/
+
+/* Page:疾病自查 end */
+
+.m_subMenu{}
+.m_subMenu ul{ display: -webkit-box;}
+.m_subMenu li{ -webkit-box-flex: 1; border-left: 1px solid #a0a0a0;}
+.m_subMenu li:first-child{ border-left: none;}
+.m_subMenu li.current a{ padding-bottom: 0; border-bottom: 5px solid #5db23d;}
+.m_subMenu li a{ display:block; line-height: 30px; text-align: center; background: #fff; padding: 5px 0;}
+
+/* Page:概述  */
+.m_illnessGaishu{}
+.illnessGaishu_hd{}
+.illnessGaishu_hd ul{ display: -webkit-box;}
+.illnessGaishu_hd li{ -webkit-box-flex: 1; border-left: 1px solid #a0a0a0;}
+.illnessGaishu_hd li:first-child{ border-left: none;}
+.illnessGaishu_hd li.current a{ padding-bottom: 0; border-bottom: 5px solid #5db23d;}
+.illnessGaishu_hd li a{ display:block; line-height: 30px; text-align: center; background: #fff; padding: 5px 0;}
+.illnessGaishu_bd{}
+.illnessGaishu_bd .mainTt span{ margin-top: 6px;}
+.illnessGaishu_bd .hd .thumb{ width: 81px; height: 81px; border: 1px solid #a6a6a6;}
+.illnessGaishu_bd .hd .thumb img{ max-width: 100%;}
+.illnessGaishu_bd .hd .disc{ width: 62%; line-height: 18px; margin-top: -4px;}
+.illnessGaishu_bd .hd .disc a{ right: 0; bottom:0;}
+.illnessGaishu_bd .bd{}
+.illnessGaishu_bd .bd li{ float: left; width: 50%; line-height: 18px; padding: 0 0 0 28px; margin-bottom: 15px; font-size: 12px; background: url("../images/bg_listStyle_plus.png") no-repeat left center; background-size: 17px;}
+.illnessGaishu_bd .bd li a{ color: #5db23d;}
+
+/* 文章列表 */
+.m_arcList{}
+.arcList_hd{}
+.arcList_bd{}
+.arcList_bd li{ padding: 24px 0; border-bottom: 1px dotted #aaa; font-size: 12px;}
+.arcList_bd li:last-child{ border-bottom: none;}
+.arcList_bd li a{ color: #595757;}
+.arcList_bd li a:active, .arcList_bd li a:hover{ color: #333; text-decoration: underline;}
+.arcList_bd li strong{ margin: 0 12px 0 -5px; font-size: 15px;}
+.arcList_bd li span{ float:right; color: #595757;}
+.m_arcList_listStyle .arcList_bd li{ padding-left: 18px; background: url("../images/bg_listStyle01.png") no-repeat left center; background-size: 11px 11px;}
+/* 文章列表 end */
+/* Page:概述 end */
+
+/* Page:简介 */
+.m_illnessIntro{}
+.illnessIntro_hd{}
+.illnessIntro_hd .thumb{ width: 81px; height: 81px ; border:1px solid #a6a6a6; background: #fff;}
+.illnessIntro_hd .thumb img{ display: block;}
+.illnessIntro_hd .disc{ width: 62%; line-height: 18px; margin-top: -4px;}
+.illnessIntro_hd .disc a{ right: 0; bottom: 0;}
+.illnessIntro_hd .moreInfo{ line-height: 20px; padding: 10px 0; margin-top: 19px; border-top: 1px dotted #acacac; }
+.illnessIntro_hd .moreInfo span{ margin-right: 10px;}
+.illnessIntro_hd .moreInfo span:last-child{ margin-right: 0;}
+.illnessIntro_hd .ft{ background: #dcdcdc; line-height: 30px;}
+.illnessIntro_bd{}
+
+/* 文章容器 */
+.m_arcModule{ margin-left: 5%; margin-right: 5%; padding: 0 15px 16px 15px;}
+.arcModule_hd{}
+.arcModule_bd li a{ color: #000;}
+.arcModule_bd li a:hover, .arcModule_bd li a:active{ text-decoration: underline;}
+.arcModule_arcBox{ color: #000;}
+.arcModule_arcBox *{ margin-bottom: 6px; line-height: 22px;}
+.arcModule_arcBox{}
+/* 文章容器 end */
+/* Page:简介 end */
+
+/* Page:经验 */
+.m_illnessArcList{ padding: 25px 5% 20px 5%; border-top: 1px solid #a0a0a0;}
+.illnessArcList_bd{}
+.illnessArcList_bd .arcList{}
+.illnessArcList_bd .arcList li{ padding: 14px 15px; margin-bottom: 25px; border:1px solid #a6a6a6; background: #fff;}
+.illnessArcList_bd .arcList li:last-child{ margin-bottom: 0;}
+.illnessArcList_bd .arcList li:hover,
+.illnessArcList_bd .arcList li:active{ outline: 0; background-image: none; -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125); box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125);}
+.illnessArcList_bd .arcList .thumb{ width: 40px; height: 35px; margin-right: 22px; border: 1px dotted #b5b5b5; background: #fff;}
+.illnessArcList_bd .arcList .thumb img{ display: block; max-width: 100%;}
+.illnessArcList_bd .arcList .disc{ width: 70%; margin-top: -4px;}
+.illnessArcList_bd .arcList .disc dd{ margin-top: 2px;}
+.illnessArcList_bd .arcList .arrow{ width: 10px; height: 17px; margin-top: 9px; background: url("../images/bg_rightArrow.png") no-repeat; background-size: 10px 17px;}
+/* Page:经验 end */
+
+/* Page:问题 */
+.m_questionList{}
+.questionList_bd{}
+.questionList_bd dl{ padding: 15px 0 15px 15px; margin-bottom: 25px; border: 1px solid #a6a6a6;}
+.questionList_bd dl:last-child{ margin-bottom: 0;}
+.questionList_bd dt{ color: #000; font-size: 1.5rem;}
+.questionList_bd dd{ color: #000; font-size: 1.2rem; line-height: 1.8em;}
+.questionList_bd dt h2{ padding: 0 0 0 11px; margin-left: -16px; border-left: 5px solid #5db23d;}
+.questionList_bd dd .thumb{ float:left; width: 40px; height: 40px; margin-right: 12px; border: 1px dotted #cbcbcb; background: #fff;}
+.questionList_bd dd .thumb img{ max-width: 100%; width: 100%;}
+.questionList_bd dd .disc{ float:left; width: 76%; margin-top: -2px; color: #595757;}
+/* Page:问题 end */

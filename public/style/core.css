@@ -1,0 +1,105 @@
+/*
+ * author: sam mok 狼哥哥,
+ * begin at: 2014年9月16日 10:05:47 AM ;
+ * end at: ;
+*/
+*, *:before, *:after{ box-sizing: border-box; -webkit-box-sizing: border-box;}
+a:hover{ text-decoration: none;}
+.img50{ display: block; max-width: 100%;}
+.bg50{ background-size: 100%; background-repeat: no-repeat;}
+.bg_fff{ background: #fff;}
+html, .bg_eee{ background: #eee;}
+.mAuto.bg_eee{ height: 100%;}
+
+/* line height*/
+.lh_1em{ line-height: 1em;}
+.lh14{ line-height: 14px;}
+.lh15{ line-height: 15px;}
+.lh16{ line-height: 16px;}
+.lh18{ line-height: 18px;}
+.lh20{ line-height: 20px;}
+.lh26{ line-height: 26px;}
+.lh28{ line-height: 28px;}
+.lh30{ line-height: 30px;}
+.lh40{ line-height: 40px;}
+
+/* color */
+.c_fff{ color: #fff;}
+.c_000{ color: #000;}
+.c_5db23d{ color: #5db23d;}
+.c_595757{ color: #595757;}
+.c_4b4b4b{ color: #515050;}
+.c_515050{ color: #515050;}
+.c_9fa0a0{ color: #9fa0a0;}
+.c_807f7f{ color: #807f7f;}
+.c_898989{ color: #898989;}
+
+/* width percent */
+.wp10{ width: 10%;}
+.wp15{ width: 15%;}
+.wp20{ width: 20%;}
+.wp33{ width: 33.33333%;}
+.wp25{ width: 25%;}
+.wp50{ width: 50%;}
+.wp75{ width: 75%;}
+.wp100{ width: 100%;}
+
+/* margin percent */
+.mlp_25{ margin-left: 2.5% !important;}
+.mrp_25{ margin-right: 2.5% !important;}
+.mlp_5{ margin-left: 5% !important;}
+.mrp_5{ margin-right: 5% !important;}
+.mlp_10{ margin-left: 10% !important;}
+.mrp_10{ margin-right: 10% !important;}
+.mlp_15{ margin-left: 15% !important;}
+.mrp_15{ margin-right: 15% !important;}
+.mlp_20{ margin-left: 20% !important;}
+.mrp_20{ margin-right: 20% !important;}
+
+/* padding percent */
+.plp_25{ padding-left: 2.5% !important;}
+.prp_25{ padding-right: 2.5% !important;}
+.plp_5{ padding-left: 5% !important;}
+.prp_5{ padding-right: 5% !important;}
+.plp_3_448{ padding-left: 3.448% !important;}
+.prp_3_448{ padding-right: 3.448% !important;}
+.plp_5{ padding-left: 5% !important;}
+.plp_10{ padding-left: 10% !important;}
+.prp_5{ padding-right: 5% !important;}
+.prp_10{ padding-right: 10% !important;}
+.plp_15{ padding-left: 15% !important;}
+.prp_15{ padding-right: 15% !important;}
+.plp_20{ padding-left: 20% !important;}
+.prp_20{ padding-right: 20% !important;}
+
+/* border */
+.b_radius0{ border-radius: 0 !important;}
+.b_radius4{ border-radius: 4px !important;}
+
+
+/* button */
+.btn{ display: block; line-height: 30px; color: #595757; background: #fff; text-align: center;}
+.btn:active,
+.btn.am-active {
+    outline: 0;
+    background-image: none;
+    -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125);
+    background: #eee;
+}
+.btn_xlarge{ width: 100% !important;}
+.btn_single{ width: 9.59% !important;}
+.btn_short{ width: 18.965% !important;}
+.btn_long{ width: 29.98% !important;}
+.btn_h30{ line-height: 30px !important;}
+/* button - background */
+.btn_white{ background: #fff;}
+/* button - border */
+.btn_bd_a0a0a0{ border: 1px solid #a0a0a0;}
+/* button -group */
+.btn_group{ margin-left: -5px; margin-right: -5px;}
+.btn_group .btn{ float:left; width: 29.7%; margin: 0 5px 10px  5px;}
+.am-btn-green{ display: block; line-height: 40px; width: auto; padding: 0; font-size: 18px; background: #5db23d; color: #fff; border: none;}
+.am-btn-green:hover,.am-btn-green:active{ color: #fff; background: #63bf41;}
+.am-btn-gray{ display: block; line-height: 40px; width: 75% !important; padding: 0; font-size: 18px; background: #eee; color: #525050; border: none;}
+.am-btn-gray:hover,.am-btn-gray:active{ color: #525050; background: #c2c2c2;}

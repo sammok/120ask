@@ -1,0 +1,30 @@
+/* Page:内科医生列表 */
+/* 医生列表 */
+.m_docList{}
+.m_docList .item{margin: 18px 0 0 0; background: #fff;}
+.m_docList a{ padding: 15px 5%;}
+.m_docList .am-thumbnail{ width: 56px; height: 71px; margin-bottom: 0;}
+.m_docList .am-thumbnail img{ width: 50px;}
+.m_docList dl{ margin-left: 25px; width: 70%;}
+.m_docList dd{ margin-top: 6px;}
+/* 医生列表 end */
+/* Page:内科医生列表 end */
+
+/* Page:医生详细信息 */
+.m_docList_single{}
+.m_docList_single a{ padding-left: 7.81%;}
+.m_docList_single .am-thumbnail:before{ content: ''; width:0;height:0; line-height:0; border-width:14px; border-style:solid; border-color: #fff transparent transparent transparent; position: absolute; left: -25%; bottom: -44px; }
+.am-tabs.m_doctorDetail{}
+.am-tabs.m_doctorDetail .am-panel-b{ border: 1px solid #a0a0a0;}
+.am-tabs.m_doctorDetail .am-panel-b .am-panel-hd{ padding-left: 0;}
+.am-tabs.m_doctorDetail .am-panel-b .am-panel-title{ border-left: 5px solid #5db23d; padding: 0 0 0 3.555%; margin-left: -1px;}
+
+/* 图文模块 左图右文 */
+.m_disc{}
+.m_disc .thumb{ overflow: hidden; width: 40px; height: 40px; border: 1px dotted #b9b9b9;}
+.m_disc .thumb img{ width: 100%; height: 100%;}
+.m_disc .info{ width: 72.4%;}
+/* 图文模块 左图右文 end */
+
+/* 医生详细信息 end */
+

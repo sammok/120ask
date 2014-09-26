@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+<title>120ask 首页</title>
+
+<link href="../../public/style/base.css" rel="stylesheet" type="text/css" />
+<link href="../../public/style/amui.all.css" rel="stylesheet" type="text/css" />
+<link href="../../public/style/core.css" rel="stylesheet" type="text/css" />
+<link href="../../public/style/module.css" rel="stylesheet" type="text/css" />
+<link href="style/page.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../public/script/zepto.min.js"></script>
+<script type="text/javascript" src="../../public/script/public.js"></script>
+<script type="text/javascript" src="../../public/script/amui.js"></script>
+<script type="text/javascript" src="../../public/script/amui.widget.helper.js"></script>
+<script type="text/javascript">
+    window.onload=function(){
+        document.body.addEventListener('touchstart',function(){});//让A支持active 效果
+    }
+</script>
+<!-- 上线后删除 -->
+<script src="//localhost:35729/livereload.js"></script>
+<!-- 上线后删除 end -->
+</head>
+
+<body>
+<button class="am-btn am-btn-primary" data-am-collapse="{target: '#collapse-nav'}">Menu <i class="am-icon-bars"></i></button>
+<nav>
+    <ul id="collapse-nav" class="am-nav am-collapse">
+        <li><a href="">开始使用</a></li>
+        <li><a href="">CSS 介绍</a></li>
+        <li class="am-active"><a href="">JS 介绍</a></li>
+        <li><a href="">功能定制</a></li>
+    </ul>
+</nav>
+<script type="text/javascript">
+    $('#collapse-nav').collapse({
+        opened: function(){aler}
+    });
+</script>
+</body>
+</html>

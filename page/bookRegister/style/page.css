@@ -1,0 +1,24 @@
+/* Page:预约挂号 */
+/* 医院列表 */
+.m_hospitalList{}
+.m_hospitalList .item{margin: 18px 0 0 0; background: #fff;}
+.m_hospitalList a{ padding: 15px 5%;}
+.m_hospitalList .am-thumbnail{ overflow: hidden; width: 56px; margin-bottom: 0;}
+.m_hospitalList .am-thumbnail img{ width: 50px; height: 60px;}
+.m_hospitalList dl{ margin-left: 20px; width: 70%;}
+.m_hospitalList dd{ margin-top: 10px; color: #898989;}
+.m_hospitalList .more{ right:0; bottom: 0px;}
+/* 医院列表 end */
+
+/* 医院详情 */
+.m_hospitalDetail{}
+.m_hospitalDetail .item{margin: 18px 0 0 0; background: #fff;}
+.m_hospitalDetail a{ padding: 15px 5%;}
+.m_hospitalDetail .am-thumbnail{ width: 56px; height: 73px; margin-bottom: 0;}
+.m_hospitalDetail .am-thumbnail img{ width: 50px; height: 67px;}
+.m_hospitalDetail dl{ margin-left: 25px; width: 67.5%;}
+.m_hospitalDetail dt span{ color: #898989;}
+.m_hospitalDetail dd{ margin-top: 7px;}
+.m_hospitalDetail .am-thumbnail:before{ content: ''; width:0;height:0; line-height:0; border-width:14px; border-style:solid; border-color: #fff transparent transparent transparent; position: absolute; left: -25%; bottom: -43px; }
+/* 医院详情 end */
+/* Page:预约挂号 end */

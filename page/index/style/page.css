@@ -1,0 +1,78 @@
+/*
+ * author: sam mok 狼哥哥,
+ * begin at: 2014年9月16日 10:05:47 AM ;
+ * end at: ;
+*/
+/* Main Begain */
+
+
+/* Page: index */
+.body_greeting .title dt{ letter-spacing: 0.4rem;}
+.body_greeting dl:last-child{ width: 125px; text-align: right;}
+.body_greeting dl:last-child dt{ width: 32px; height: 30px;}
+.body_greeting dl:last-child dt img{ height: 100%;}
+.body_greeting dl:last-child dd{ color: #515050;}
+/* Page: index end */
+
+/* 入口列表 */
+.m_entryList01{}
+.entryList01_bd a{width: 50%; margin-top: 35px;}
+.entryList01_bd a:hover{text-decoration: none;}
+.entryList01_bd .item02 i,
+.entryList01_bd .item04 i{ right: 0;}
+.entryList01_bd i{ overflow: hidden; position: absolute; top: -6px; left:0; width: 65px; height: 65px; border: 4px solid #f8b551; border-radius: 65px; background: #fff; text-align: center;}
+.entryList01_bd i img{ width: 61px; height: 61px;}
+.entryList01_bd p{ height: 53px; line-height: 53px; color: #fff;}
+.entryList01_bd .item01 i{ border-color: #f8b551;}
+.entryList01_bd .item02 i{ border-color: #84ccc9; right: 0; left: auto;}
+.entryList01_bd .item03 i{ border-color: #89c997;}
+.entryList01_bd .item04 i{ border-color: #f29c9f; right: 0; left: auto;}
+.entryList01_bd .item01 p{padding: 0 14px 0 36px; margin-left: 30px; background: #f8b551;}
+.entryList01_bd .item02 p{ padding: 0 36px 0 14px; margin-left: 0; margin-right: 30px; background: #84ccc9;}
+.entryList01_bd .item03 p{padding: 0 14px 0 36px; margin-left: 30px; background: #89c997;}
+.entryList01_bd .item04 p{ padding: 0 36px 0 14px; margin-left: 0; margin-right: 30px; background:#f29c9f;}
+.entryList01_bd .item01 p:after,
+.entryList01_bd .item03 p:after{ content: ""; width: 10px; height: 55px; background: #eee; position: absolute; right: -2px; top:-2px; -webkit-transform: rotate(-3deg);}
+.entryList01_bd .item02 p:after,
+.entryList01_bd .item04 p:after{ content: ""; width: 10px; height: 55px; background: #eee; position: absolute; left: -2px; top:-2px; -webkit-transform: rotate(3deg);}
+/* 入口列表 e */
+
+/* 入口切换卡 */
+.m_entryTab{}
+.entryTab_hd{ line-height: 39px; }
+.entryTab_hd li{ text-align: center; color: #000; border: 1px solid #ccc; border-right: none; background: #fff; cursor: pointer; }
+.entryTab_hd li.am-active{ background: #5db23d; border-color: #5db23d!important;}
+.entryTab_hd li:last-child{ border-right: 1px solid #ccc;}
+.entryTab_hd a:hover{ text-decoration: none;}
+.entryTab_hd li.am-active a{ color: #fff;}
+.entryTab_bd{ border: none!important;}
+.entryTab_bd .am-tab-panel{ padding: 0 !important;}
+.entryTab_bd ul{ display: -webkit-box;}
+.entryTab_bd li{ -webkit-box-flex: 1; padding: 0; margin: 0 3.33% 0 0; text-align: center; background: #fff; border: 1px solid #cdcdcd;}
+.entryTab_bd li:last-child{ margin: 0;}
+.entryTab_bd a:hover{ text-decoration: none;}
+.entryTab_bd img{ width: 25px; height: 25px; margin-top: 6px; vertical-align: middle;}
+/* 入口切换卡 e */
+
+/* 健康经验切换卡 */
+.m_arclistTab{ background: #fff; padding: 16px 5%;}
+.arclistTab_hd{}
+.arclistTab_hd .more{ margin-top: 4px;}
+.arclistTab_hd li{ line-height: 40px; text-align: center; color: #000; border: 1px solid #ccc; border-right: none; background: #fff; cursor: pointer; }
+.arclistTab_hd li:last-child{ border-right: 1px solid #ccc;}
+.arclistTab_hd li.am-active{ background: #5db23d; border-color: #5db23d!important;}
+.arclistTab_hd li.am-active a{ color: #fff;}
+.arclistTab_hd a:hover{ text-decoration: none;}
+.m_arclistTab .am-tabs-bd{ border:none;}
+.m_arclistTab .am-tab-panel{ padding: 0;}
+/* 健康经验切换卡 e */
+
+/* 关注我们 && 合作伙伴 */
+.m_links{}
+.m_links img{ width: 20px; height: 20px; margin-top: 4px;}
+.m_links .followUs,.m_links .friendLink{ background: #fff; padding: 10px 0;}
+.m_links .tt{ width: 26%; border-right: 1px solid #eee;}
+.m_links .bd{ width: 74%; line-height: 28px; padding: 0 20px;}
+.m_links .bd a{ display: inline-block; width: 41.86%;}
+.m_links .followUs .bd{ line-height: 50px;}
+/* 关注我们 && 合作伙伴 e */

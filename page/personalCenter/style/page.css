@@ -1,0 +1,95 @@
+/* Page:个人中心 */
+/* 主切换卡 */
+.m_tab_myZone{ margin-left: 0; margin-right: 0; margin-top: 0;}
+.m_tab_myZone .am-tabs-nav{ display: -webkit-box;}
+.m_tab_myZone .am-tabs-nav:before,
+.m_tab_myZone .am-tabs-nav:after{ content: ''; display: none;}
+.m_tab_myZone .am-tabs-nav li{ display: block; -webkit-box-flex: 1; text-align: center; line-height: 40px;background: rgba(255,255,255,0.8);}
+.m_tab_myZone .am-tabs-nav li a{ color: #595757;}
+.m_tab_myZone .am-tabs-nav li.am-active{ background: rgba(93, 178, 61, 0.8);}
+.m_tab_myZone .am-tabs-nav li.am-active a{ color: #fff; position: relative; overflow: visible;}
+.m_tab_myZone .am-tabs-nav li.am-active a:before{ content: ' '; width:0;height:0; line-height:0; border-width:14px; border-style:solid; border-color: #78b62c transparent transparent transparent; position: absolute; left: 50%; top: 40px; margin-left: -14px; z-index: 10;}
+.m_tab_myZone .am-tabs-nav a:hover{ text-decoration: none;}
+.m_tab_myZone .am-tabs-bd{ border: none; margin-top: 15px; background: #fff;}
+.m_tab_myZone .am-tabs-bd .am-tab-panel{ padding: 15px 0 0 0;}
+/* 主切换卡 end */
+
+.m_myZone{}
+.myZone_hd .userGreeting{ top: 15px ;left: 15px;}
+.myZone_hd .userGreeting a:hover, .myZone_hd .userGreeting a:active{ text-decoration: underline; color: #fff;}
+.myZone_bd{ margin-top: -55px;}
+
+/* 我的问提 */
+.questionList{}
+.questionList .item{ padding: 0 5% 15px 7.8125%; border-bottom: 1px solid #a0a0a0;}
+.questionList [class^='col-']{ padding: 0;}
+.questionList .moreArrow{ height: 42px; cursor: pointer;}
+.questionList .moreArrow img{ display: block; width: 11px; height: 26px; max-width: 50px;}
+
+.questionList dt{ line-height: 1em;}
+.questionList dd{ margin-top: 12px; line-height: 15px;}
+.questionList dt a:hover,
+.questionList dd a:hover{ text-decoration: underline;}
+.questionList .comment .icon{ display: inline-block; width: 15px; height: 10px; background: url("../images/icon_comment.png") no-repeat; background-size: 100%; margin-right: 5px;}
+.questionList .favorite .icon{ display: inline-block; width: 15px; height: 10px; background: url("../images/icon_heart.png") no-repeat; background-size: 100%; margin-right: 5px;}
+.myZone_bd .moreBtn .am-btn{ background: #fff; border-radius: 0; border: 1px solid #a0a0a0; color: #5db23d; padding: 0.625em 1.2em}
+/* 我的问提 end */
+
+/* 我的回复 */
+.questionResultList{ margin-top: -30px;}
+.questionResultList [class^='col-']{ padding: 0;}
+.questionResultList .item{ border-bottom: 1px solid #a0a0a0; padding: 30px 0 15px 5%;}
+.questionResultList .item:active{ background: #eee;}
+.questionResultList dt .pubdate{ right: 14px; bottom: 0;}
+.questionResultList dt,
+.questionResultList dd{ font-size: 15px; color: #000;}
+.questionResultList .ask{}
+/* 我的回复 end */
+
+/* 设置 */
+.settingList{}
+/* 设置 end */
+
+/* 设置 - 新密码 */
+.modifyUserInfo{}
+.modifyUserInfo input[type='text']{ padding: 0 0.5em; line-height: 38px; border-radius: 4px;}
+.modifyUserInfo .am-btn-green{ width:  100%;}
+/* 设置 - 新密码 end */
+/* Page:个人中心 end */
+
+/* Page:登录页  */
+.m_login{}
+.login_bd{}
+.login_bd .input_text_group{ line-height: 38px; background: #fff; border:1px solid #a6a6a6;}
+.login_bd .input_text_group *{ outline: none; margin: 0}
+.login_bd .input_text_group [class^='col-']{ padding: 0 10px;}
+.login_bd .input_text_group input[type='text']{ line-height: 30px; margin-top: 4px; padding-left: 0; border: none; background: none;}
+.login_bd .input_text_group:first-child{border-radius: 4px 4px 0 0;}
+.login_bd .input_text_group:last-child{ border-top: none; border-radius: 0 0 4px 4px;}
+.login_ft{}
+.login_ft h2 a:hover{ text-decoration: underline;}
+.login_ft .am-btn-icon{ width: 80%; margin: 0 10%;  line-height: 28px; padding-top: 4px; padding-bottom: 4px; background: #fff; border-color: #a6a6a6;}
+.login_ft .am-btn-icon:active{ background: #e6e6e6;}
+.login_ft .am-icon-tencent-qq{ display: inline-block; width: 22px; height: 28px; margin-right: 4px; background-size: 100%; background-image: url("../images/icon_tencent.png"); background-repeat: no-repeat; vertical-align: middle;}
+/* Page:登录页 end */
+
+/* Page:登录页 - 个人QQ登录 不需要写此页面 */
+/*.m_login .tt{ margin-top: 22px;}*/
+/*.m_login .tt [class^='col-']{ padding: 0; margin: 0;}*/
+/*.m_login .tt .tencentLogo{ width: 102px; height: 34px;}*/
+/* Page:登录页 - 个人QQ登录 end */
+
+/* Page:个人注册页 */
+.m_register{}
+.register_hd{}
+.register_bd{}
+.register_bd .am-btn-icon{ line-height: 20px; padding-top: 9px; padding-bottom: 9px; background: #fff; border-color: #a6a6a6;}
+.register_bd .am-btn-icon:active{ background: #e6e6e6;}
+
+.register_bd .am-icon-mail2,
+.register_bd .am-icon-tele2{ display: inline-block; width: 30px; height: 20px; margin-right: 10px; background-size: 100%; background-repeat: no-repeat; vertical-align: middle;}
+.register_bd .am-icon-mail2{background-image: url("../images/icon_mail.png"); }
+.register_bd .am-icon-tele2{background-image: url("../images/icon_tele.png");;}
+/* Page:个人注册页 end */
+
+

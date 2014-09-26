@@ -1,0 +1,68 @@
+/* Page:免费电话 */
+.wechartConsult{}
+.wechartConsult_hd{ padding: 15px 3.444%; background: #fff; }
+.wechartConsult_hd .hd{ border-bottom: 1px solid #a0a0a0;}
+.wechartConsult_hd .wechartImg img{ width: 35px; height: 35px; margin-right: 3.444%;}
+.wechartConsult_hd .wechartImg{margin-right: 3.444%;}
+.wechartConsult_hd .bd .thumb{ border: 1px solid #cdcdcd; margin-right: 1.8666%;}
+.wechartConsult_hd .bd .thumb:last-child{ margin-right: 0;}
+.wechartConsult_hd .bd .thumb img{ width: 32px; height: 46px;}
+.wechartConsult_bd{ padding: 15px 3.444%; background: #fff; }
+.wechartConsult_bd .wechartFollow{ width: 270px; margin: 0 auto;}
+/* 图文咨询 */
+    .messageWrap{ background: #fff;}
+    .messageWrap_hd{ border-bottom: 1px dashed #a0a0a0;}
+    .messageWrap .col-sm-2{ padding: 0; margin: 0;}
+    .messageWrap .col-sm-10{ padding: 0; margin: 0;}
+    .messageWrap input[type='text']{ display: block; border: none; line-height: 20px; height: 20px; padding: 0;}
+    .messageWrap .am-form-label{ line-height: 20px; text-align: left;}
+    .messageWrap .am-form-group{ margin-bottom: 0;}
+    .messageWrap textarea{ display: block; padding: 2%; height: 85px; line-height: 20px; overflow: auto; border: none; resize: none;}
+    /* 图片上传 */
+    .imgSend{}
+    .imgSend .col-sm-4,
+    .imgSend .col-sm-8{ padding: 0;}
+    .imgSend .keshiSelect select{ display: block; padding: 8px 10px; border-radius: 4px;}
+    .imgSend .am-btn{ display: block; background: #fff;}
+    .imgSend .imgUpdata .imgUpdata_value{ display: none;}
+    .formSubmit{}
+    .formSubmit .am-btn{ width: 100%; display: block; background: #5db23d; color: #fff;}
+/* 图文咨询 end  */
+
+/* Page:内科医生列表 */
+/* 医生列表 */
+.m_docList{}
+.m_docList .item{margin: 18px 0 0 0; background: #fff;}
+.m_docList a{ padding: 15px 5%;}
+.m_docList .am-thumbnail{ width: 75px; height: 92px; margin-bottom: 0; background: url("../images/img_doctorThumbBg.png") no-repeat; border:none; padding: 0;}
+.m_docList .am-thumbnail img{ width: 74px;}
+.m_docList dl{ margin-left: 10px; width: 67.5%;}
+.m_docList dt span{ color: #898989;}
+.m_docList dd{ margin-top: 4px;}
+.m_docList .more{ color: #ff0000; margin-top: 0;}
+
+.m_docList_single{}
+.m_docList_single a{ padding-left: 7.81%;}
+.m_docList_single .am-thumbnail{ width: 56px; height: 71px; margin-bottom: 0;}
+.m_docList_single .am-thumbnail img{ width: 50px;}
+.m_docList_single .am-thumbnail:before{ content: ''; width:0;height:0; line-height:0; border-width:14px; border-style:solid; border-color: #fff transparent transparent transparent; position: absolute; left: -25%; bottom: -43px; }
+
+.am-tabs.m_doctorDetail{}
+.am-tabs.m_doctorDetail .am-panel-b{ border: 1px solid #a0a0a0;}
+.am-tabs.m_doctorDetail .am-panel-b .am-panel-hd{ padding-left: 0;}
+.am-tabs.m_doctorDetail .am-panel-b .am-panel-title{ border-left: 5px solid #5db23d; padding: 0 0 0 3.555%; margin-left: -1px;}
+
+.consultPanel{}
+.consultPanel_bd{}
+.consultPanel_bd [class*='col-']{ padding: 0; margin: 0;}
+.consultPanel_bd input{ height: 40px; line-height: 40px;}
+.consultPanel_bd input[type='tel']{ color: #595757;}
+.consultPanel_bd .am-btn{ display: block; width: 100%; padding: 0; line-height: 40px; background: #5db23d; border-radius: 0;}
+.consultPanel_bd .am-btn:hover{ color: #fff;}
+.consultPanel_bd .tips{ text-indent: 1em;}
+/* 医生详细信息 end */
+
+
+
+/* Page:免费电话 end */
+
