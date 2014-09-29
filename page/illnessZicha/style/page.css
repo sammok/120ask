@@ -1,3 +1,12 @@
+/* 页面导航 */
+.m_subMenu{}
+.m_subMenu ul{ display: -webkit-box;}
+.m_subMenu li{ -webkit-box-flex: 1; border-left: 1px solid #a0a0a0;}
+.m_subMenu li:first-child{ border-left: none;}
+.m_subMenu li.current a{ padding-bottom: 0; border-bottom: 5px solid #5db23d;}
+.m_subMenu li a{ display:block; line-height: 30px; text-align: center; background: #fff; padding: 5px 0;}
+/* 页面导航 end */
+
 /* Page:疾病自查 */
 /* 疾病按钮组*/
 .m_illnessBtnGroup{ padding: 10px 0 0 0;}
@@ -16,13 +25,6 @@
 /* 疾病按钮组 end*/
 
 /* Page:疾病自查 end */
-
-.m_subMenu{}
-.m_subMenu ul{ display: -webkit-box;}
-.m_subMenu li{ -webkit-box-flex: 1; border-left: 1px solid #a0a0a0;}
-.m_subMenu li:first-child{ border-left: none;}
-.m_subMenu li.current a{ padding-bottom: 0; border-bottom: 5px solid #5db23d;}
-.m_subMenu li a{ display:block; line-height: 30px; text-align: center; background: #fff; padding: 5px 0;}
 
 /* Page:概述  */
 .m_illnessGaishu{}
@@ -50,9 +52,8 @@
 .arcList_bd li:last-child{ border-bottom: none;}
 .arcList_bd li a{ color: #595757;}
 .arcList_bd li a:active, .arcList_bd li a:hover{ color: #333; text-decoration: underline;}
-.arcList_bd li strong{ margin: 0 12px 0 -5px; font-size: 15px;}
-.arcList_bd li span{ float:right; color: #595757;}
-.m_arcList_listStyle .arcList_bd li{ padding-left: 18px; background: url("../images/bg_listStyle01.png") no-repeat left center; background-size: 11px 11px;}
+.arcList_bd li strong.tt{ margin: 0 12px 0 -5px; font-size: 15px;}
+.arcList_bd li span.count{ float:right; color: #595757;}
 /* 文章列表 end */
 /* Page:概述 end */
 
@@ -84,15 +85,16 @@
 .m_illnessArcList{ padding: 25px 5% 20px 5%; border-top: 1px solid #a0a0a0;}
 .illnessArcList_bd{}
 .illnessArcList_bd .arcList{}
-.illnessArcList_bd .arcList li{ padding: 14px 15px; margin-bottom: 25px; border:1px solid #a6a6a6; background: #fff;}
+.illnessArcList_bd .arcList li{ margin-bottom: 25px; border:1px solid #a6a6a6; background: #fff;}
 .illnessArcList_bd .arcList li:last-child{ margin-bottom: 0;}
-.illnessArcList_bd .arcList li:hover,
-.illnessArcList_bd .arcList li:active{ outline: 0; background-image: none; -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125); box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125);}
+.illnessArcList_bd .arcList li a{ display: block; padding: 14px 15px;}
+.illnessArcList_bd .arcList li a:hover,
+.illnessArcList_bd .arcList li a:active{ outline: 0; background-image: none; -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125); box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125);}
 .illnessArcList_bd .arcList .thumb{ width: 40px; height: 35px; margin-right: 22px; border: 1px dotted #b5b5b5; background: #fff;}
 .illnessArcList_bd .arcList .thumb img{ display: block; max-width: 100%;}
 .illnessArcList_bd .arcList .disc{ width: 70%; margin-top: -4px;}
 .illnessArcList_bd .arcList .disc dd{ margin-top: 2px;}
-.illnessArcList_bd .arcList .arrow{ width: 10px; height: 17px; margin-top: 9px; background: url("../images/bg_rightArrow.png") no-repeat; background-size: 10px 17px;}
+.illnessArcList_bd .arcList .arrow{ width: 10px; height: 17px; margin-top: 9px; background: url("../../../public/images/bg_rightArrow_thin.png") no-repeat; background-size: 10px 17px;}
 /* Page:经验 end */
 
 /* Page:问题 */

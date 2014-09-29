@@ -39,19 +39,20 @@
 
 /* 入口切换卡 */
 .m_entryTab{}
-.entryTab_hd{ line-height: 39px; }
-.entryTab_hd li{ text-align: center; color: #000; border: 1px solid #ccc; border-right: none; background: #fff; cursor: pointer; }
+.entryTab_hd{ display: -webkit-box; line-height: 39px; }
+.entryTab_hd li{ -webkit-box-flex: 1; text-align: center; color: #000; border: 1px solid #ccc; border-right: none; background: #fff; cursor: pointer; }
 .entryTab_hd li.am-active{ background: #5db23d; border-color: #5db23d!important;}
 .entryTab_hd li:last-child{ border-right: 1px solid #ccc;}
+.entryTab_hd a{ display: block; height: 100%;}
 .entryTab_hd a:hover{ text-decoration: none;}
 .entryTab_hd li.am-active a{ color: #fff;}
 .entryTab_bd{ border: none!important;}
 .entryTab_bd .am-tab-panel{ padding: 0 !important;}
-.entryTab_bd ul{ display: -webkit-box;}
-.entryTab_bd li{ -webkit-box-flex: 1; padding: 0; margin: 0 3.33% 0 0; text-align: center; background: #fff; border: 1px solid #cdcdcd;}
-.entryTab_bd li:last-child{ margin: 0;}
-.entryTab_bd a:hover{ text-decoration: none;}
-.entryTab_bd img{ width: 25px; height: 25px; margin-top: 6px; vertical-align: middle;}
+.entryTab_bd .panel_bd { display: -webkit-box;}
+.entryTab_bd .panel_bd li{ -webkit-box-flex: 1; padding: 0; margin: 0 3.33% 0 0; text-align: center; background: #fff; border: 1px solid #cdcdcd;}
+.entryTab_bd .panel_bd li:last-child{ margin: 0;}
+.entryTab_bd .panel_bd a:hover{ text-decoration: none;}
+.entryTab_bd .panel_bd li img{ width: 25px; height: 25px; margin-top: 6px; vertical-align: middle;}
 /* 入口切换卡 e */
 
 /* 健康经验切换卡 */

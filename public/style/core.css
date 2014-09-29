@@ -101,5 +101,11 @@ html, .bg_eee{ background: #eee;}
 .btn_group .btn{ float:left; width: 29.7%; margin: 0 5px 10px  5px;}
 .am-btn-green{ display: block; line-height: 40px; width: auto; padding: 0; font-size: 18px; background: #5db23d; color: #fff; border: none;}
 .am-btn-green:hover,.am-btn-green:active{ color: #fff; background: #63bf41;}
-.am-btn-gray{ display: block; line-height: 40px; width: 75% !important; padding: 0; font-size: 18px; background: #eee; color: #525050; border: none;}
+.am-btn-gray{ display: block; line-height: 40px; width: 75%; padding: 0; font-size: 18px; background: #eee; color: #525050; border: none;}
+.btn_group .am-btn-gray{ width: 75%;}
 .am-btn-gray:hover,.am-btn-gray:active{ color: #525050; background: #c2c2c2;}
+
+
+/* list style */
+.listStyle_trangle{}
+.listStyle_trangle [class*="_bd"] li{ padding-left: 18px; background: url("../images/bg_listStyle_trangle.png") no-repeat left center; background-size: 11px 11px;}
