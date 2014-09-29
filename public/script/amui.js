@@ -1,4 +1,5 @@
-/*! AmazeUI - v1.0.0 | (c) 2014 AllMobilize, Inc. | @license MIT | 2014-09-05 16:09:09 */ /*! Sea.js 2.2.1 | seajs.org/LICENSE.md */
+/*! Amaze UI v1.0.0-beta2 | by Amaze UI Team | (c) 2014 AllMobilize, Inc. | Licensed under MIT | 2014-09-29T02:09:47 UTC */ 
+/*! Sea.js 2.2.1 | seajs.org/LICENSE.md */
 !function(a,b){function c(a){return function(b){return{}.toString.call(b)=="[object "+a+"]"}}function d(){return A++}function e(a){return a.match(D)[0]}function f(a){for(a=a.replace(E,"/");a.match(F);)a=a.replace(F,"/");return a=a.replace(G,"$1/")}function g(a){var b=a.length-1,c=a.charAt(b);return"#"===c?a.substring(0,b):".js"===a.substring(b-2)||a.indexOf("?")>0||".css"===a.substring(b-3)||"/"===c?a:a+".js"}function h(a){var b=v.alias;return b&&x(b[a])?b[a]:a}function i(a){var b=v.paths,c;return b&&(c=a.match(H))&&x(b[c[1]])&&(a=b[c[1]]+c[2]),a}function j(a){var b=v.vars;return b&&a.indexOf("{")>-1&&(a=a.replace(I,function(a,c){return x(b[c])?b[c]:a})),a}function k(a){var b=v.map,c=a;if(b)for(var d=0,e=b.length;e>d;d++){var f=b[d];if(c=z(f)?f(a)||a:a.replace(f[0],f[1]),c!==a)break}return c}function l(a,b){var c,d=a.charAt(0);if(J.test(a))c=a;else if("."===d)c=f((b?e(b):v.cwd)+a);else if("/"===d){var g=v.cwd.match(K);c=g?g[0]+a.substring(1):a}else c=v.base+a;return 0===c.indexOf("//")&&(c=location.protocol+c),c}function m(a,b){if(!a)return"";a=h(a),a=i(a),a=j(a),a=g(a);var c=l(a,b);return c=k(c)}function n(a){return a.hasAttribute?a.src:a.getAttribute("src",4)}function o(a,b,c){var d=S.test(a),e=L.createElement(d?"link":"script");if(c){var f=z(c)?c(a):c;f&&(e.charset=f)}p(e,b,d,a),d?(e.rel="stylesheet",e.href=a):(e.async=!0,e.src=a),T=e,R?Q.insertBefore(e,R):Q.appendChild(e),T=null}function p(a,c,d,e){function f(){a.onload=a.onerror=a.onreadystatechange=null,d||v.debug||Q.removeChild(a),a=null,c()}var g="onload"in a;return!d||!V&&g?(g?(a.onload=f,a.onerror=function(){C("error",{uri:e,node:a}),f()}):a.onreadystatechange=function(){/loaded|complete/.test(a.readyState)&&f()},b):(setTimeout(function(){q(a,c)},1),b)}function q(a,b){var c=a.sheet,d;if(V)c&&(d=!0);else if(c)try{c.cssRules&&(d=!0)}catch(e){"NS_ERROR_DOM_SECURITY_ERR"===e.name&&(d=!0)}setTimeout(function(){d?b():q(a,b)},20)}function r(){if(T)return T;if(U&&"interactive"===U.readyState)return U;for(var a=Q.getElementsByTagName("script"),b=a.length-1;b>=0;b--){var c=a[b];if("interactive"===c.readyState)return U=c}}function s(a){var b=[];return a.replace(X,"").replace(W,function(a,c,d){d&&b.push(d)}),b}function t(a,b){this.uri=a,this.dependencies=b||[],this.exports=null,this.status=0,this._waitings={},this._remain=0}if(!a.seajs){var u=a.seajs={version:"2.2.1"},v=u.data={},w=c("Object"),x=c("String"),y=Array.isArray||c("Array"),z=c("Function"),A=0,B=v.events={};u.on=function(a,b){var c=B[a]||(B[a]=[]);return c.push(b),u},u.off=function(a,b){if(!a&&!b)return B=v.events={},u;var c=B[a];if(c)if(b)for(var d=c.length-1;d>=0;d--)c[d]===b&&c.splice(d,1);else delete B[a];return u};var C=u.emit=function(a,b){var c=B[a],d;if(c)for(c=c.slice();d=c.shift();)d(b);return u},D=/[^?#]*\//,E=/\/\.\//g,F=/\/[^/]+\/\.\.\//,G=/([^:/])\/\//g,H=/^([^/:]+)(\/.+)$/,I=/{([^{]+)}/g,J=/^\/\/.|:\//,K=/^.*?\/\/.*?\//,L=document,M=e(L.URL),N=L.scripts,O=L.getElementById("seajsnode")||N[N.length-1],P=e(n(O)||M);u.resolve=m;var Q=L.head||L.getElementsByTagName("head")[0]||L.documentElement,R=Q.getElementsByTagName("base")[0],S=/\.css(?:\?|$)/i,T,U,V=+navigator.userAgent.replace(/.*(?:AppleWebKit|AndroidWebKit)\/(\d+).*/,"$1")<536;u.request=o;var W=/"(?:\\"|[^"])*"|'(?:\\'|[^'])*'|\/\*[\S\s]*?\*\/|\/(?:\\\/|[^\/\r\n])+\/(?=[^\/])|\/\/.*|\.\s*require|(?:^|[^$])\brequire\s*\(\s*(["'])(.+?)\1\s*\)/g,X=/\\\\/g,Y=u.cache={},Z,$={},_={},ab={},bb=t.STATUS={FETCHING:1,SAVED:2,LOADING:3,LOADED:4,EXECUTING:5,EXECUTED:6};t.prototype.resolve=function(){for(var a=this,b=a.dependencies,c=[],d=0,e=b.length;e>d;d++)c[d]=t.resolve(b[d],a.uri);return c},t.prototype.load=function(){var a=this;if(!(a.status>=bb.LOADING)){a.status=bb.LOADING;var c=a.resolve();C("load",c);for(var d=a._remain=c.length,e,f=0;d>f;f++)e=t.get(c[f]),e.status<bb.LOADED?e._waitings[a.uri]=(e._waitings[a.uri]||0)+1:a._remain--;if(0===a._remain)return a.onload(),b;var g={};for(f=0;d>f;f++)e=Y[c[f]],e.status<bb.FETCHING?e.fetch(g):e.status===bb.SAVED&&e.load();for(var h in g)g.hasOwnProperty(h)&&g[h]()}},t.prototype.onload=function(){var a=this;a.status=bb.LOADED,a.callback&&a.callback();var b=a._waitings,c,d;for(c in b)b.hasOwnProperty(c)&&(d=Y[c],d._remain-=b[c],0===d._remain&&d.onload());delete a._waitings,delete a._remain},t.prototype.fetch=function(a){function c(){u.request(g.requestUri,g.onRequest,g.charset)}function d(){delete $[h],_[h]=!0,Z&&(t.save(f,Z),Z=null);var a,b=ab[h];for(delete ab[h];a=b.shift();)a.load()}var e=this,f=e.uri;e.status=bb.FETCHING;var g={uri:f};C("fetch",g);var h=g.requestUri||f;return!h||_[h]?(e.load(),b):$[h]?(ab[h].push(e),b):($[h]=!0,ab[h]=[e],C("request",g={uri:f,requestUri:h,onRequest:d,charset:v.charset}),g.requested||(a?a[g.requestUri]=c:c()),b)},t.prototype.exec=function(){function a(b){return t.get(a.resolve(b)).exec()}var c=this;if(c.status>=bb.EXECUTING)return c.exports;c.status=bb.EXECUTING;var e=c.uri;a.resolve=function(a){return t.resolve(a,e)},a.async=function(b,c){return t.use(b,c,e+"_async_"+d()),a};var f=c.factory,g=z(f)?f(a,c.exports={},c):f;return g===b&&(g=c.exports),delete c.factory,c.exports=g,c.status=bb.EXECUTED,C("exec",c),g},t.resolve=function(a,b){var c={id:a,refUri:b};return C("resolve",c),c.uri||u.resolve(c.id,b)},t.define=function(a,c,d){var e=arguments.length;1===e?(d=a,a=b):2===e&&(d=c,y(a)?(c=a,a=b):c=b),!y(c)&&z(d)&&(c=s(""+d));var f={id:a,uri:t.resolve(a),deps:c,factory:d};if(!f.uri&&L.attachEvent){var g=r();g&&(f.uri=g.src)}C("define",f),f.uri?t.save(f.uri,f):Z=f},t.save=function(a,b){var c=t.get(a);c.status<bb.SAVED&&(c.id=b.id||a,c.dependencies=b.deps||[],c.factory=b.factory,c.status=bb.SAVED)},t.get=function(a,b){return Y[a]||(Y[a]=new t(a,b))},t.use=function(b,c,d){var e=t.get(d,y(b)?b:[b]);e.callback=function(){for(var b=[],d=e.resolve(),f=0,g=d.length;g>f;f++)b[f]=Y[d[f]].exec();c&&c.apply(a,b),delete e.callback},e.load()},t.preload=function(a){var b=v.preload,c=b.length;c?t.use(b,function(){b.splice(0,c),t.preload(a)},v.cwd+"_preload_"+d()):a()},u.use=function(a,b){return t.preload(function(){t.use(a,b,v.cwd+"_use_"+d())}),u},t.define.cmd={},a.define=t.define,u.Module=t,v.fetchedList=_,v.cid=d,u.require=function(a){var b=t.get(t.resolve(a));return b.status<bb.EXECUTING&&(b.onload(),b.exec()),b.exports};var cb=/^(.+?\/)(\?\?)?(seajs\/)+/;v.base=(P.match(cb)||["",P])[1],v.dir=P,v.cwd=M,v.charset="utf-8",v.preload=function(){var a=[],b=location.search.replace(/(seajs-\w+)(&|$)/g,"$1=1$2");return b+=" "+L.cookie,b.replace(/(seajs-\w+)=1/g,function(b,c){a.push(c)}),a}(),u.config=function(a){for(var b in a){var c=a[b],d=v[b];if(d&&w(d))for(var e in c)d[e]=c[e];else y(d)?c=d.concat(c):"base"===b&&("/"!==c.slice(-1)&&(c+="/"),c=l(c)),v[b]=c}return C("config",a),u}}}(this);
 
 define("core", [ "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector" ], function(require, exports, module) {
@@ -9,24 +10,10 @@ define("core", [ "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector"
     // Zepto selector extend
     require("zepto.extend.selector");
     var $ = window.Zepto, UI = $.AMUI || {}, $win = $(window), doc = window.document, $html = $("html");
-    if (UI.fn) {
-        return UI;
-    }
-    UI.fn = function(command, options) {
-        var args = arguments, cmd = command.match(/^([a-z\-]+)(?:\.([a-z]+))?/i), component = cmd[1], method = cmd[2];
-        if (!UI[component]) {
-            log.error('Amaze UI component [" + component + "] does not exist.');
-            return this;
-        }
-        return this.each(function() {
-            var $this = $(this), data = $this.data(component);
-            if (!data) $this.data(component, data = UI[component](this, method ? undefined : options));
-            if (method) data[method].apply(data, Array.prototype.slice.call(args, 1));
-        });
-    };
     UI.support = {};
     UI.support.transition = function() {
         var transitionEnd = function() {
+            // https://developer.mozilla.org/en-US/docs/Web/Events/transitionend#Browser_compatibility
             var element = doc.body || doc.documentElement, transEndEventNames = {
                 WebkitTransition: "webkitTransitionEnd",
                 MozTransition: "transitionend",
@@ -120,11 +107,7 @@ define("core", [ "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector"
         } while (document.getElementById(uid));
         return uid;
     };
-    UI.utils.event = {};
-    UI.utils.event.click = UI.support.touch ? "tap" : "click";
     $.AMUI = UI;
-    $.fn.amui = UI.fn;
-    $.AMUI.langdirection = $("html").attr("dir") == "rtl" ? "right" : "left";
     // http://blog.alexmaccaw.com/css-transitions
     $.fn.emulateTransitionEnd = function(duration) {
         var called = false, $el = this;
@@ -135,8 +118,9 @@ define("core", [ "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector"
             if (!called) {
                 $($el).trigger(UI.support.transition.end);
             }
+            $el.transitionHandle = undefined;
         };
-        setTimeout(callback, duration);
+        this.transitionHandle = setTimeout(callback, duration);
         return this;
     };
     $.fn.redraw = function() {
@@ -281,11 +265,47 @@ define("core", [ "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector"
             });
         });
     }
+    // via http://davidwalsh.name/detect-scrollbar-width
+    UI.utils.measureScrollbar = function() {
+        if (document.body.clientWidth >= window.innerWidth) return 0;
+        // if ($html.width() >= window.innerWidth) return;
+        // var scrollbarWidth = window.innerWidth - $html.width();
+        var $measure = $('<div style="width: 100px;height: 100px;overflow: scroll;position: absolute;top: -9999px;"></div>');
+        $(document.body).append($measure);
+        var scrollbarWidth = $measure[0].offsetWidth - $measure[0].clientWidth;
+        $measure.remove();
+        return scrollbarWidth;
+    };
+    UI.utils.imageLoader = function($image, callback) {
+        function loaded() {
+            callback($image[0]);
+        }
+        function bindLoad() {
+            this.one("load", loaded);
+            if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)) {
+                var src = this.attr("src"), param = src.match(/\?/) ? "&" : "?";
+                param += "random=" + new Date().getTime();
+                this.attr("src", src + param);
+            }
+        }
+        if (!$image.attr("src")) {
+            loaded();
+            return;
+        }
+        if ($image[0].complete || $image[0].readyState === 4) {
+            loaded();
+        } else {
+            bindLoad.call($image);
+        }
+    };
     $(function() {
+        var $body = $("body");
         // trigger domready event
         $(document).trigger("domready:amui");
         $html.removeClass("no-js").addClass("js");
         UI.support.animation && $html.addClass("cssanimations");
+        $(".am-topbar-fixed-top").length && $body.addClass("am-with-topbar-fixed-top");
+        $(".am-topbar-fixed-bottom").length && $body.addClass("am-with-topbar-fixed-bottom");
         // Remove responsive classes in .am-layout
         var $layout = $(".am-layout");
         $layout.find('[class*="md-block-grid"]').alterClass("md-block-grid-*");
@@ -301,921 +321,3509 @@ define("core", [ "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector"
     });
     module.exports = UI;
 });
-define("accordion", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "ui.collapse" ], function(require, exports, module) {
-    require("core");
-    require("ui.collapse");
-    var $ = window.Zepto, UI = $.AMUI, accordionInit = function() {
-        var $accordion = $('[data-am-widget="accordion"]'), selector = {
-            item: ".am-accordion-item",
-            title: ".am-accordion-title",
-            content: ".am-accordion-content"
-        };
-        $accordion.each(function(i, item) {
-            var options = UI.utils.parseOptions($(item).attr("data-am-accordion")), $title = $accordion.find(selector.title);
-            $title.on("click", function() {
-                var $content = $(this).next(selector.content), $parent = $(this).parent(selector.item), data = $content.data("amui.collapse");
-                $parent.toggleClass("am-active");
-                if (!data) {
-                    $content.collapse();
-                } else {
-                    $content.collapse("toggle");
-                }
-                !options.multiple && $(item).children(".am-active").not($parent).removeClass("am-active").find(".am-accordion-content.am-in").collapse("close");
-            });
-        });
-    };
-    // Init on DOM ready
-    $(function() {
-        accordionInit();
-    });
-    exports.init = accordionInit;
-});
-define("divider", [], function(require, exports, module) {});
-define("duoshuo", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector" ], function(require, exports, module) {
-    require("core");
+define("util.fastclick", [], function(require, exports, module) {
     var $ = window.Zepto;
-    function duoshuoInit() {
-        var $dsThread = $(".ds-thread"), dsShortName = $dsThread.parent('[data-am-widget="duoshuo"]').attr("data-ds-short-name"), dsSrc = (document.location.protocol == "https:" ? "https:" : "http:") + "//static.duoshuo.com/embed.js";
-        if (!$dsThread.length || !dsShortName) return;
-        window.duoshuoQuery = {
-            short_name: dsShortName
-        };
-        // 已经有多说脚本
-        if ($('script[src="' + dsSrc + '"]').length) return;
-        var $dsJS = $("<script>", {
-            async: true,
-            type: "text/javascript",
-            src: dsSrc,
-            charset: "utf-8"
-        });
-        $("body").append($dsJS);
-    }
-    $(window).on("load", duoshuoInit);
-    exports.init = duoshuoInit;
-});
-define("figure", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "zepto.pinchzoom" ], function(require, exports, module) {
-    require("core");
-    var $ = window.Zepto;
-    // PinchZoom Plugin
-    var PinchZoom = require("zepto.pinchzoom");
     /**
-     * Is Images zoomable
-     * @return {Boolean}
+     * FastClick: polyfill to remove click delays on browsers with touch UIs.
+     *
+     * @version 1.0.2
+     * @codingstandard ftlabs-jsv2
+     * @copyright The Financial Times Limited [All Rights Reserved]
+     * @license MIT License (see LICENSE.txt)
      */
-    $.isImgZoomAble = function(imgElement) {
-        var t = new Image();
-        t.src = imgElement.src;
-        var zoomAble = $(imgElement).width() < t.width;
-        if (zoomAble) {
-            $(imgElement).parent(".am-figure").addClass("am-figure-zoomable");
+    /*jslint browser:true, node:true*/
+    /*global define, Event, Node*/
+    /**
+     * Instantiate fast-clicking listeners on the specified layer.
+     *
+     * @constructor
+     * @param {Element} layer The layer to listen on
+     * @param {Object} options The options to override the defaults
+     */
+    function FastClick(layer, options) {
+        "use strict";
+        var oldOnClick;
+        options = options || {};
+        /**
+         * Whether a click is currently being tracked.
+         *
+         * @type boolean
+         */
+        this.trackingClick = false;
+        /**
+         * Timestamp for when click tracking started.
+         *
+         * @type number
+         */
+        this.trackingClickStart = 0;
+        /**
+         * The element being tracked for a click.
+         *
+         * @type EventTarget
+         */
+        this.targetElement = null;
+        /**
+         * X-coordinate of touch start event.
+         *
+         * @type number
+         */
+        this.touchStartX = 0;
+        /**
+         * Y-coordinate of touch start event.
+         *
+         * @type number
+         */
+        this.touchStartY = 0;
+        /**
+         * ID of the last touch, retrieved from Touch.identifier.
+         *
+         * @type number
+         */
+        this.lastTouchIdentifier = 0;
+        /**
+         * Touchmove boundary, beyond which a click will be cancelled.
+         *
+         * @type number
+         */
+        this.touchBoundary = options.touchBoundary || 10;
+        /**
+         * The FastClick layer.
+         *
+         * @type Element
+         */
+        this.layer = layer;
+        /**
+         * The minimum time between tap(touchstart and touchend) events
+         *
+         * @type number
+         */
+        this.tapDelay = options.tapDelay || 200;
+        if (FastClick.notNeeded(layer)) {
+            return;
         }
-        return zoomAble;
-    };
-    $.fn.imgZoomToggle = function() {
-        return this.each(function() {
-            var zoomAble = $.isImgZoomAble(this), $wrapDom = $('<div class="am-figure-wrap"><div class="pinch-zoom"></div></div>');
-            $zoomWrap = $(".am-figure-wrap");
-            if ($zoomWrap.length == 0) {
-                $("body").append($wrapDom);
-                $zoomWrap = $(".am-figure-wrap");
-                $pinch = $zoomWrap.find(".pinch-zoom");
-                $pinch.each(function() {
-                    new PinchZoom($(this), {});
-                });
-            }
-            if (zoomAble) {
-                //$zoomWrap.empty().html(this.outerHTML);
-                $pinch.empty().html(this.outerHTML);
-                $zoomWrap.find("img").width($(window).width());
-                $(this).parent(".am-figure").on("click", function() {
-                    $zoomWrap.toggleClass("am-active");
-                });
-                $zoomWrap.on("click", function(e) {
-                    e.preventDefault();
-                    var target = e.target;
-                    // Img is using pinch zoom
-                    if (!$(target).is("img")) {
-                        $(this).toggleClass("am-active");
-                    }
-                });
-            }
-        });
-    };
-    var figureInit = function() {
-        $(".am-figure img").imgZoomToggle();
-    };
-    $(window).on("load", function() {
-        figureInit();
-    });
-    exports.init = figureInit;
-});
-define("footer", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "ui.add2home", "util.cookie", "ui.modal", "ui.dimmer" ], function(require, exports, module) {
-    require("core");
-    // add2home
-    require("ui.add2home");
-    var cookie = require("util.cookie"), modal = require("ui.modal"), $ = window.Zepto, footerInit = function() {
-        // modal mode
-        $(".am-footer-ysp").on("click", function() {
-            $("#am-footer-mode").modal();
-        });
-        // switch mode
-        // switch to desktop
-        $('[data-rel="desktop"]').on("click", function(e) {
-            e.preventDefault();
-            if (window.AMPlatform) {
-                // front end
-                AMPlatform.util.goDesktop();
-            } else {
-                // back end
-                cookie.set("allmobilize", "desktop", "", "/");
-                window.location = window.location;
-            }
-        });
-    };
-    $(window).on("load", function() {
-        footerInit();
-    });
-    exports.init = footerInit;
-});
-define("gallery", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "zepto.touchgallery", "zepto.extend.touch", "zepto.pinchzoom" ], function(require, exports, module) {
-    require("core");
-    var touchGallery = require("zepto.touchgallery");
-    var $ = window.Zepto, UI = $.AMUI;
-    var galleryInit = function() {
-        var $gallery = $('[data-am-widget="gallery"]'), $galleryOne = $gallery.filter(".am-gallery-one");
-        $gallery.each(function() {
-            var options = UI.utils.parseOptions($(this).attr("data-am-gallery"));
-            options.lightbox && $(this).find("a").touchTouch();
-        });
-        $galleryOne.each(function() {
-            galleryMore($(this));
-        });
-    };
-    function galleryMore(object) {
-        var moreData = $("<li class='am-gallery-more'><a href='javascript:;'>更多 &gt;&gt;</a></li>");
-        if (object.children().length > 6) {
-            object.children().each(function(index) {
-                if (index > 5) {
-                    $(this).hide();
-                }
-            });
-            object.find(".am-gallery-more").remove();
-            object.append(moreData);
+        // Some old versions of Android don't have Function.prototype.bind
+        function bind(method, context) {
+            return function() {
+                return method.apply(context, arguments);
+            };
         }
-        object.find(".am-gallery-more").on("click", function() {
-            object.children().show();
-            $(this).hide();
-        });
-    }
-    $(function() {
-        galleryInit();
-    });
-    exports.init = galleryInit;
-});
-define("gotop", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "ui.smooth-scroll" ], function(require, exports, module) {
-    require("core");
-    require("ui.smooth-scroll");
-    var $ = window.Zepto;
-    var UI = $.AMUI;
-    var goTopInit = function() {
-        $(".am-gotop").find("a").on("click", function(e) {
-            e.preventDefault();
-            $("body").smoothScroll(0);
-        });
-    };
-    $(function() {
-        goTopInit();
-    });
-    exports.init = goTopInit;
-});
-define("header", [], function(require, exports, module) {
-    var $ = window.Zepto;
-});
-define("intro", [], function(require, exports, module) {
-    var $ = window.Zepto;
-});
-define("list_news", [], function(require, exports, module) {
-    var $ = window.Zepto, listNewsInit = function() {
-        $(".am-list-news-one").each(function() {
-            amListNewsMore($(this));
-        });
-    };
-    function amListNewsMore(object) {
-        var $amList = object.find(".am-list");
-        var $listMore = "<a class='am-list-news-more am-btn am-btn-default' href='###'>更多 &gt;&gt;</a>";
-        if ($amList.children().length > 6) {
-            $amList.children().each(function(index) {
-                if (index > 5) {
-                    $(this).hide();
-                }
-            });
-            object.find(".am-list-news-more").remove();
-            object.append($listMore);
+        var methods = [ "onMouse", "onClick", "onTouchStart", "onTouchMove", "onTouchEnd", "onTouchCancel" ];
+        var context = this;
+        for (var i = 0, l = methods.length; i < l; i++) {
+            context[methods[i]] = bind(context[methods[i]], context);
         }
-        object.find(".am-list-news-more").on("click", function() {
-            $amList.children().show();
-            $(this).hide();
-        });
-    }
-    $(function() {
-        listNewsInit();
-    });
-    exports.init = listNewsInit;
-});
-define("map", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector" ], function(require, exports, module) {
-    require("core");
-    var $ = window.Zepto;
-    function addMapApi(callback) {
-        var $mapApi0 = $("<script/>", {
-            src: "http://api.map.baidu.com/getscript?type=quick&file=api&ak=WVAXZ05oyNRXS5egLImmentg&t=20140109092002"
-        });
-        $("body").append($mapApi0);
-        $mapApi0.on("load", function() {
-            var $mapApi1 = $("<script/>", {
-                src: "http://api.map.baidu.com/getscript?type=quick&file=feature&ak=WVAXZ05oyNRXS5egLImmentg&t=20140109092002"
-            });
-            $("body").append($mapApi1);
-            $mapApi1.on("load", function() {
-                var script = document.createElement("script");
-                script.textContent = "(" + callback.toString() + ")();";
-                $("body")[0].appendChild(script);
-            });
-        });
-    }
-    function addBdMap() {
-        // 如果使用 $ 选择符，minify 以后会报错: $ is undefined
-        // 即使传入 $ 也无效，改为使用原生方法
-        // 这个函数作为 callback 会插入到 body 以后才执行，应该是 $ 引用错误导致
-        var content = document.querySelector(".am-map"), defaultLng = 116.331398, //经度默认值
-        defaultLat = 39.897445, //纬度默认值
-        name = content.getAttribute("data-name"), address = content.getAttribute("data-address"), lng = content.getAttribute("data-longitude") || defaultLng, lat = content.getAttribute("data-latitude") || defaultLat;
-        var map = new BMap.Map("bd-map");
-        //实例化一个地理坐标点
-        var point = new BMap.Point(lng, lat);
-        //设初始化地图, options: 3-18
-        map.centerAndZoom(point, 18);
-        //添加地图缩放控件
-        map.addControl(new BMap.ZoomControl());
-        var opts = {
-            width: 200,
-            // 信息窗口宽度
-            //height: 'auto',     // 信息窗口高度
-            title: name
-        };
-        // 创建信息窗口对象
-        var infoWindow = new BMap.InfoWindow("地址：" + address, opts);
-        // 创建地址解析器实例
-        var myGeo = new BMap.Geocoder();
-        //判断有没有使用经纬度
-        if (lng == defaultLng && lat == defaultLat) {
-            // 使用地址反解析来设置地图
-            // 将地址解析结果显示在地图上,并调整地图视野
-            myGeo.getPoint(address, function(point) {
-                if (point) {
-                    map.centerAndZoom(point, 17);
-                    map.addOverlay(new BMap.Marker(point));
-                    map.openInfoWindow(infoWindow, point);
+        // Set up event handlers as required
+        if (deviceIsAndroid) {
+            layer.addEventListener("mouseover", this.onMouse, true);
+            layer.addEventListener("mousedown", this.onMouse, true);
+            layer.addEventListener("mouseup", this.onMouse, true);
+        }
+        layer.addEventListener("click", this.onClick, true);
+        layer.addEventListener("touchstart", this.onTouchStart, false);
+        layer.addEventListener("touchmove", this.onTouchMove, false);
+        layer.addEventListener("touchend", this.onTouchEnd, false);
+        layer.addEventListener("touchcancel", this.onTouchCancel, false);
+        // Hack is required for browsers that don't support Event#stopImmediatePropagation (e.g. Android 2)
+        // which is how FastClick normally stops click events bubbling to callbacks registered on the FastClick
+        // layer when they are cancelled.
+        if (!Event.prototype.stopImmediatePropagation) {
+            layer.removeEventListener = function(type, callback, capture) {
+                var rmv = Node.prototype.removeEventListener;
+                if (type === "click") {
+                    rmv.call(layer, type, callback.hijacked || callback, capture);
+                } else {
+                    rmv.call(layer, type, callback, capture);
                 }
-            }, "");
+            };
+            layer.addEventListener = function(type, callback, capture) {
+                var adv = Node.prototype.addEventListener;
+                if (type === "click") {
+                    adv.call(layer, type, callback.hijacked || (callback.hijacked = function(event) {
+                        if (!event.propagationStopped) {
+                            callback(event);
+                        }
+                    }), capture);
+                } else {
+                    adv.call(layer, type, callback, capture);
+                }
+            };
+        }
+        // If a handler is already declared in the element's onclick attribute, it will be fired before
+        // FastClick's onClick handler. Fix this by pulling out the user-defined handler function and
+        // adding it as listener.
+        if (typeof layer.onclick === "function") {
+            // Android browser on at least 3.2 requires a new reference to the function in layer.onclick
+            // - the old one won't work if passed to addEventListener directly.
+            oldOnClick = layer.onclick;
+            layer.addEventListener("click", function(event) {
+                oldOnClick(event);
+            }, false);
+            layer.onclick = null;
+        }
+    }
+    /**
+     * Android requires exceptions.
+     *
+     * @type boolean
+     */
+    var deviceIsAndroid = navigator.userAgent.indexOf("Android") > 0;
+    /**
+     * iOS requires exceptions.
+     *
+     * @type boolean
+     */
+    var deviceIsIOS = /iP(ad|hone|od)/.test(navigator.userAgent);
+    /**
+     * iOS 4 requires an exception for select elements.
+     *
+     * @type boolean
+     */
+    var deviceIsIOS4 = deviceIsIOS && /OS 4_\d(_\d)?/.test(navigator.userAgent);
+    /**
+     * iOS 6.0(+?) requires the target element to be manually derived
+     *
+     * @type boolean
+     */
+    var deviceIsIOSWithBadTarget = deviceIsIOS && /OS ([6-9]|\d{2})_\d/.test(navigator.userAgent);
+    /**
+     * Determine whether a given element requires a native click.
+     *
+     * @param {EventTarget|Element} target Target DOM element
+     * @returns {boolean} Returns true if the element needs a native click
+     */
+    FastClick.prototype.needsClick = function(target) {
+        "use strict";
+        switch (target.nodeName.toLowerCase()) {
+          // Don't send a synthetic click to disabled inputs (issue #62)
+            case "button":
+          case "select":
+          case "textarea":
+            if (target.disabled) {
+                return true;
+            }
+            break;
+
+          case "input":
+            // File inputs need real clicks on iOS 6 due to a browser bug (issue #68)
+            if (deviceIsIOS && target.type === "file" || target.disabled) {
+                return true;
+            }
+            break;
+
+          case "label":
+          case "video":
+            return true;
+        }
+        return /\bneedsclick\b/.test(target.className);
+    };
+    /**
+     * Determine whether a given element requires a call to focus to simulate click into element.
+     *
+     * @param {EventTarget|Element} target Target DOM element
+     * @returns {boolean} Returns true if the element requires a call to focus to simulate native click.
+     */
+    FastClick.prototype.needsFocus = function(target) {
+        "use strict";
+        switch (target.nodeName.toLowerCase()) {
+          case "textarea":
+            return true;
+
+          case "select":
+            return !deviceIsAndroid;
+
+          case "input":
+            switch (target.type) {
+              case "button":
+              case "checkbox":
+              case "file":
+              case "image":
+              case "radio":
+              case "submit":
+                return false;
+            }
+            // No point in attempting to focus disabled inputs
+            return !target.disabled && !target.readOnly;
+
+          default:
+            return /\bneedsfocus\b/.test(target.className);
+        }
+    };
+    /**
+     * Send a click event to the specified element.
+     *
+     * @param {EventTarget|Element} targetElement
+     * @param {Event} event
+     */
+    FastClick.prototype.sendClick = function(targetElement, event) {
+        "use strict";
+        var clickEvent, touch;
+        // On some Android devices activeElement needs to be blurred otherwise the synthetic click will have no effect (#24)
+        if (document.activeElement && document.activeElement !== targetElement) {
+            document.activeElement.blur();
+        }
+        touch = event.changedTouches[0];
+        // Synthesise a click event, with an extra attribute so it can be tracked
+        clickEvent = document.createEvent("MouseEvents");
+        clickEvent.initMouseEvent(this.determineEventType(targetElement), true, true, window, 1, touch.screenX, touch.screenY, touch.clientX, touch.clientY, false, false, false, false, 0, null);
+        clickEvent.forwardedTouchEvent = true;
+        targetElement.dispatchEvent(clickEvent);
+    };
+    FastClick.prototype.determineEventType = function(targetElement) {
+        "use strict";
+        //Issue #159: Android Chrome Select Box does not open with a synthetic click event
+        if (deviceIsAndroid && targetElement.tagName.toLowerCase() === "select") {
+            return "mousedown";
+        }
+        return "click";
+    };
+    /**
+     * @param {EventTarget|Element} targetElement
+     */
+    FastClick.prototype.focus = function(targetElement) {
+        "use strict";
+        var length;
+        // Issue #160: on iOS 7, some input elements (e.g. date datetime) throw a vague TypeError on setSelectionRange. These elements don't have an integer value for the selectionStart and selectionEnd properties, but unfortunately that can't be used for detection because accessing the properties also throws a TypeError. Just check the type instead. Filed as Apple bug #15122724.
+        if (deviceIsIOS && targetElement.setSelectionRange && targetElement.type.indexOf("date") !== 0 && targetElement.type !== "time") {
+            length = targetElement.value.length;
+            targetElement.setSelectionRange(length, length);
         } else {
-            // 使用经纬度来设置地图
-            myGeo.getLocation(point, function(result) {
-                map.centerAndZoom(point, 17);
-                map.addOverlay(new BMap.Marker(point));
-                if (address) {
-                    map.openInfoWindow(infoWindow, point);
-                } else {
-                    map.openInfoWindow(new BMap.InfoWindow(address, opts), point);
+            targetElement.focus();
+        }
+    };
+    /**
+     * Check whether the given target element is a child of a scrollable layer and if so, set a flag on it.
+     *
+     * @param {EventTarget|Element} targetElement
+     */
+    FastClick.prototype.updateScrollParent = function(targetElement) {
+        "use strict";
+        var scrollParent, parentElement;
+        scrollParent = targetElement.fastClickScrollParent;
+        // Attempt to discover whether the target element is contained within a scrollable layer. Re-check if the
+        // target element was moved to another parent.
+        if (!scrollParent || !scrollParent.contains(targetElement)) {
+            parentElement = targetElement;
+            do {
+                if (parentElement.scrollHeight > parentElement.offsetHeight) {
+                    scrollParent = parentElement;
+                    targetElement.fastClickScrollParent = parentElement;
+                    break;
                 }
-            });
+                parentElement = parentElement.parentElement;
+            } while (parentElement);
+        }
+        // Always update the scroll top tracker if possible.
+        if (scrollParent) {
+            scrollParent.fastClickLastScrollTop = scrollParent.scrollTop;
+        }
+    };
+    /**
+     * @param {EventTarget} targetElement
+     * @returns {Element|EventTarget}
+     */
+    FastClick.prototype.getTargetElementFromEventTarget = function(eventTarget) {
+        "use strict";
+        // On some older browsers (notably Safari on iOS 4.1 - see issue #56) the event target may be a text node.
+        if (eventTarget.nodeType === Node.TEXT_NODE) {
+            return eventTarget.parentNode;
+        }
+        return eventTarget;
+    };
+    /**
+     * On touch start, record the position and scroll offset.
+     *
+     * @param {Event} event
+     * @returns {boolean}
+     */
+    FastClick.prototype.onTouchStart = function(event) {
+        "use strict";
+        var targetElement, touch, selection;
+        // Ignore multiple touches, otherwise pinch-to-zoom is prevented if both fingers are on the FastClick element (issue #111).
+        if (event.targetTouches.length > 1) {
+            return true;
+        }
+        targetElement = this.getTargetElementFromEventTarget(event.target);
+        touch = event.targetTouches[0];
+        if (deviceIsIOS) {
+            // Only trusted events will deselect text on iOS (issue #49)
+            selection = window.getSelection();
+            if (selection.rangeCount && !selection.isCollapsed) {
+                return true;
+            }
+            if (!deviceIsIOS4) {
+                // Weird things happen on iOS when an alert or confirm dialog is opened from a click event callback (issue #23):
+                // when the user next taps anywhere else on the page, new touchstart and touchend events are dispatched
+                // with the same identifier as the touch event that previously triggered the click that triggered the alert.
+                // Sadly, there is an issue on iOS 4 that causes some normal touch events to have the same identifier as an
+                // immediately preceeding touch event (issue #52), so this fix is unavailable on that platform.
+                if (touch.identifier === this.lastTouchIdentifier) {
+                    event.preventDefault();
+                    return false;
+                }
+                this.lastTouchIdentifier = touch.identifier;
+                // If the target element is a child of a scrollable layer (using -webkit-overflow-scrolling: touch) and:
+                // 1) the user does a fling scroll on the scrollable layer
+                // 2) the user stops the fling scroll with another tap
+                // then the event.target of the last 'touchend' event will be the element that was under the user's finger
+                // when the fling scroll was started, causing FastClick to send a click event to that layer - unless a check
+                // is made to ensure that a parent layer was not scrolled before sending a synthetic click (issue #42).
+                this.updateScrollParent(targetElement);
+            }
+        }
+        this.trackingClick = true;
+        this.trackingClickStart = event.timeStamp;
+        this.targetElement = targetElement;
+        this.touchStartX = touch.pageX;
+        this.touchStartY = touch.pageY;
+        // Prevent phantom clicks on fast double-tap (issue #36)
+        if (event.timeStamp - this.lastClickTime < this.tapDelay) {
+            event.preventDefault();
+        }
+        return true;
+    };
+    /**
+     * Based on a touchmove event object, check whether the touch has moved past a boundary since it started.
+     *
+     * @param {Event} event
+     * @returns {boolean}
+     */
+    FastClick.prototype.touchHasMoved = function(event) {
+        "use strict";
+        var touch = event.changedTouches[0], boundary = this.touchBoundary;
+        if (Math.abs(touch.pageX - this.touchStartX) > boundary || Math.abs(touch.pageY - this.touchStartY) > boundary) {
+            return true;
+        }
+        return false;
+    };
+    /**
+     * Update the last position.
+     *
+     * @param {Event} event
+     * @returns {boolean}
+     */
+    FastClick.prototype.onTouchMove = function(event) {
+        "use strict";
+        if (!this.trackingClick) {
+            return true;
+        }
+        // If the touch has moved, cancel the click tracking
+        if (this.targetElement !== this.getTargetElementFromEventTarget(event.target) || this.touchHasMoved(event)) {
+            this.trackingClick = false;
+            this.targetElement = null;
+        }
+        return true;
+    };
+    /**
+     * Attempt to find the labelled control for the given label element.
+     *
+     * @param {EventTarget|HTMLLabelElement} labelElement
+     * @returns {Element|null}
+     */
+    FastClick.prototype.findControl = function(labelElement) {
+        "use strict";
+        // Fast path for newer browsers supporting the HTML5 control attribute
+        if (labelElement.control !== undefined) {
+            return labelElement.control;
+        }
+        // All browsers under test that support touch events also support the HTML5 htmlFor attribute
+        if (labelElement.htmlFor) {
+            return document.getElementById(labelElement.htmlFor);
+        }
+        // If no for attribute exists, attempt to retrieve the first labellable descendant element
+        // the list of which is defined here: http://www.w3.org/TR/html5/forms.html#category-label
+        return labelElement.querySelector("button, input:not([type=hidden]), keygen, meter, output, progress, select, textarea");
+    };
+    /**
+     * On touch end, determine whether to send a click event at once.
+     *
+     * @param {Event} event
+     * @returns {boolean}
+     */
+    FastClick.prototype.onTouchEnd = function(event) {
+        "use strict";
+        var forElement, trackingClickStart, targetTagName, scrollParent, touch, targetElement = this.targetElement;
+        if (!this.trackingClick) {
+            return true;
+        }
+        // Prevent phantom clicks on fast double-tap (issue #36)
+        if (event.timeStamp - this.lastClickTime < this.tapDelay) {
+            this.cancelNextClick = true;
+            return true;
+        }
+        // Reset to prevent wrong click cancel on input (issue #156).
+        this.cancelNextClick = false;
+        this.lastClickTime = event.timeStamp;
+        trackingClickStart = this.trackingClickStart;
+        this.trackingClick = false;
+        this.trackingClickStart = 0;
+        // On some iOS devices, the targetElement supplied with the event is invalid if the layer
+        // is performing a transition or scroll, and has to be re-detected manually. Note that
+        // for this to function correctly, it must be called *after* the event target is checked!
+        // See issue #57; also filed as rdar://13048589 .
+        if (deviceIsIOSWithBadTarget) {
+            touch = event.changedTouches[0];
+            // In certain cases arguments of elementFromPoint can be negative, so prevent setting targetElement to null
+            targetElement = document.elementFromPoint(touch.pageX - window.pageXOffset, touch.pageY - window.pageYOffset) || targetElement;
+            targetElement.fastClickScrollParent = this.targetElement.fastClickScrollParent;
+        }
+        targetTagName = targetElement.tagName.toLowerCase();
+        if (targetTagName === "label") {
+            forElement = this.findControl(targetElement);
+            if (forElement) {
+                this.focus(targetElement);
+                if (deviceIsAndroid) {
+                    return false;
+                }
+                targetElement = forElement;
+            }
+        } else if (this.needsFocus(targetElement)) {
+            // Case 1: If the touch started a while ago (best guess is 100ms based on tests for issue #36) then focus will be triggered anyway. Return early and unset the target element reference so that the subsequent click will be allowed through.
+            // Case 2: Without this exception for input elements tapped when the document is contained in an iframe, then any inputted text won't be visible even though the value attribute is updated as the user types (issue #37).
+            if (event.timeStamp - trackingClickStart > 100 || deviceIsIOS && window.top !== window && targetTagName === "input") {
+                this.targetElement = null;
+                return false;
+            }
+            this.focus(targetElement);
+            this.sendClick(targetElement, event);
+            // Select elements need the event to go through on iOS 4, otherwise the selector menu won't open.
+            // Also this breaks opening selects when VoiceOver is active on iOS6, iOS7 (and possibly others)
+            if (!deviceIsIOS || targetTagName !== "select") {
+                this.targetElement = null;
+                event.preventDefault();
+            }
+            return false;
+        }
+        if (deviceIsIOS && !deviceIsIOS4) {
+            // Don't send a synthetic click event if the target element is contained within a parent layer that was scrolled
+            // and this tap is being used to stop the scrolling (usually initiated by a fling - issue #42).
+            scrollParent = targetElement.fastClickScrollParent;
+            if (scrollParent && scrollParent.fastClickLastScrollTop !== scrollParent.scrollTop) {
+                return true;
+            }
+        }
+        // Prevent the actual click from going though - unless the target node is marked as requiring
+        // real clicks or if it is in the whitelist in which case only non-programmatic clicks are permitted.
+        if (!this.needsClick(targetElement)) {
+            event.preventDefault();
+            this.sendClick(targetElement, event);
+        }
+        return false;
+    };
+    /**
+     * On touch cancel, stop tracking the click.
+     *
+     * @returns {void}
+     */
+    FastClick.prototype.onTouchCancel = function() {
+        "use strict";
+        this.trackingClick = false;
+        this.targetElement = null;
+    };
+    /**
+     * Determine mouse events which should be permitted.
+     *
+     * @param {Event} event
+     * @returns {boolean}
+     */
+    FastClick.prototype.onMouse = function(event) {
+        "use strict";
+        // If a target element was never set (because a touch event was never fired) allow the event
+        if (!this.targetElement) {
+            return true;
+        }
+        if (event.forwardedTouchEvent) {
+            return true;
+        }
+        // Programmatically generated events targeting a specific element should be permitted
+        if (!event.cancelable) {
+            return true;
+        }
+        // Derive and check the target element to see whether the mouse event needs to be permitted;
+        // unless explicitly enabled, prevent non-touch click events from triggering actions,
+        // to prevent ghost/doubleclicks.
+        if (!this.needsClick(this.targetElement) || this.cancelNextClick) {
+            // Prevent any user-added listeners declared on FastClick element from being fired.
+            if (event.stopImmediatePropagation) {
+                event.stopImmediatePropagation();
+            } else {
+                // Part of the hack for browsers that don't support Event#stopImmediatePropagation (e.g. Android 2)
+                event.propagationStopped = true;
+            }
+            // Cancel the event
+            event.stopPropagation();
+            event.preventDefault();
+            return false;
+        }
+        // If the mouse event is permitted, return true for the action to go through.
+        return true;
+    };
+    /**
+     * On actual clicks, determine whether this is a touch-generated click, a click action occurring
+     * naturally after a delay after a touch (which needs to be cancelled to avoid duplication), or
+     * an actual click which should be permitted.
+     *
+     * @param {Event} event
+     * @returns {boolean}
+     */
+    FastClick.prototype.onClick = function(event) {
+        "use strict";
+        var permitted;
+        // It's possible for another FastClick-like library delivered with third-party code to fire a click event before FastClick does (issue #44). In that case, set the click-tracking flag back to false and return early. This will cause onTouchEnd to return early.
+        if (this.trackingClick) {
+            this.targetElement = null;
+            this.trackingClick = false;
+            return true;
+        }
+        // Very odd behaviour on iOS (issue #18): if a submit element is present inside a form and the user hits enter in the iOS simulator or clicks the Go button on the pop-up OS keyboard the a kind of 'fake' click event will be triggered with the submit-type input element as the target.
+        if (event.target.type === "submit" && event.detail === 0) {
+            return true;
+        }
+        permitted = this.onMouse(event);
+        // Only unset targetElement if the click is not permitted. This will ensure that the check for !targetElement in onMouse fails and the browser's click doesn't go through.
+        if (!permitted) {
+            this.targetElement = null;
+        }
+        // If clicks are permitted, return true for the action to go through.
+        return permitted;
+    };
+    /**
+     * Remove all FastClick's event listeners.
+     *
+     * @returns {void}
+     */
+    FastClick.prototype.destroy = function() {
+        "use strict";
+        var layer = this.layer;
+        if (deviceIsAndroid) {
+            layer.removeEventListener("mouseover", this.onMouse, true);
+            layer.removeEventListener("mousedown", this.onMouse, true);
+            layer.removeEventListener("mouseup", this.onMouse, true);
+        }
+        layer.removeEventListener("click", this.onClick, true);
+        layer.removeEventListener("touchstart", this.onTouchStart, false);
+        layer.removeEventListener("touchmove", this.onTouchMove, false);
+        layer.removeEventListener("touchend", this.onTouchEnd, false);
+        layer.removeEventListener("touchcancel", this.onTouchCancel, false);
+    };
+    /**
+     * Check whether FastClick is needed.
+     *
+     * @param {Element} layer The layer to listen on
+     */
+    FastClick.notNeeded = function(layer) {
+        "use strict";
+        var metaViewport;
+        var chromeVersion;
+        // Devices that don't support touch don't need FastClick
+        if (typeof window.ontouchstart === "undefined") {
+            return true;
+        }
+        // Chrome version - zero for other browsers
+        chromeVersion = +(/Chrome\/([0-9]+)/.exec(navigator.userAgent) || [ , 0 ])[1];
+        if (chromeVersion) {
+            if (deviceIsAndroid) {
+                metaViewport = document.querySelector("meta[name=viewport]");
+                if (metaViewport) {
+                    // Chrome on Android with user-scalable="no" doesn't need FastClick (issue #89)
+                    if (metaViewport.content.indexOf("user-scalable=no") !== -1) {
+                        return true;
+                    }
+                    // Chrome 32 and above with width=device-width or less don't need FastClick
+                    if (chromeVersion > 31 && document.documentElement.scrollWidth <= window.outerWidth) {
+                        return true;
+                    }
+                }
+            } else {
+                return true;
+            }
+        }
+        // IE10 with -ms-touch-action: none, which disables double-tap-to-zoom (issue #97)
+        if (layer.style.msTouchAction === "none") {
+            return true;
+        }
+        return false;
+    };
+    /**
+     * Factory method for creating a FastClick object
+     *
+     * @param {Element} layer The layer to listen on
+     * @param {Object} options The options to override the defaults
+     */
+    FastClick.attach = function(layer, options) {
+        "use strict";
+        return new FastClick(layer, options);
+    };
+    module.exports = FastClick;
+});
+define("util.hammer", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector" ], function(require, exports, module) {
+    require("core");
+    var $ = window.Zepto, UI = $.AMUI;
+    /**
+     * Hammer.js
+     * @via https://github.com/hammerjs/hammer.js
+     * @copyright Copyright (C) 2011-2014 by Jorik Tangelder (Eight Media)
+     * @license https://github.com/hammerjs/hammer.js/blob/master/LICENSE.md
+     */
+    var VENDOR_PREFIXES = [ "", "webkit", "moz", "MS", "ms", "o" ];
+    var TEST_ELEMENT = document.createElement("div");
+    var TYPE_FUNCTION = "function";
+    var round = Math.round;
+    var abs = Math.abs;
+    var now = Date.now;
+    /**
+     * set a timeout with a given scope
+     * @param {Function} fn
+     * @param {Number} timeout
+     * @param {Object} context
+     * @returns {number}
+     */
+    function setTimeoutContext(fn, timeout, context) {
+        return setTimeout(bindFn(fn, context), timeout);
+    }
+    /**
+     * if the argument is an array, we want to execute the fn on each entry
+     * if it aint an array we don't want to do a thing.
+     * this is used by all the methods that accept a single and array argument.
+     * @param {*|Array} arg
+     * @param {String} fn
+     * @param {Object} [context]
+     * @returns {Boolean}
+     */
+    function invokeArrayArg(arg, fn, context) {
+        if (Array.isArray(arg)) {
+            each(arg, context[fn], context);
+            return true;
+        }
+        return false;
+    }
+    /**
+     * walk objects and arrays
+     * @param {Object} obj
+     * @param {Function} iterator
+     * @param {Object} context
+     */
+    function each(obj, iterator, context) {
+        var i;
+        if (!obj) {
+            return;
+        }
+        if (obj.forEach) {
+            obj.forEach(iterator, context);
+        } else if (obj.length !== undefined) {
+            i = 0;
+            while (i < obj.length) {
+                iterator.call(context, obj[i], i, obj);
+                i++;
+            }
+        } else {
+            for (i in obj) {
+                obj.hasOwnProperty(i) && iterator.call(context, obj[i], i, obj);
+            }
         }
     }
-    var mapInit = function() {
-        $(".am-map").length && addMapApi(addBdMap);
-    };
-    $(document).on("ready", mapInit);
-    exports.init = mapInit;
-});
-define("mechat", [], function(require, exports, module) {
-    var $ = window.Zepto;
-    var mechatInit = function() {
-        if (!$("#mechat").length) return;
-        var $mechat = $('[data-am-widget="mechat"]'), unitid = $mechat.data("am-mechat-unitid"), $mechatData = $("<script>", {
-            charset: "utf-8",
-            src: "http://mechatim.com/js/unit/button.js?id=" + unitid
-        });
-        $("body").append($mechatData);
-    };
-    // Lazy load
-    $(window).on("load", mechatInit);
-    exports.init = mechatInit;
-});
-define("menu", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "ui.offcanvas", "zepto.outerdemension", "ui.collapse", "ui.iscroll-lite" ], function(require, exports, module) {
-    require("core");
-    require("ui.offcanvas");
-    require("ui.collapse");
-    var IScroll = require("ui.iscroll-lite");
-    var $ = window.Zepto;
-    var UI = $.AMUI;
-    var menuInit = function() {
-        var $menus = $('[data-am-widget="menu"]');
-        $menus.find(".am-menu-nav .am-parent > a").on("click", function(e) {
-            e.preventDefault();
-            var $clicked = $(this), $parent = $clicked.parent(), $subMenu = $clicked.next(".am-menu-sub");
-            $parent.toggleClass("am-open");
-            $subMenu.collapse("toggle");
-            $parent.siblings(".am-parent").removeClass("am-open").children(".am-menu-sub.am-in").collapse("close");
-        });
-        // Dropdown/slidedown menu
-        $menus.filter("[data-am-menu-collapse]").find("> .am-menu-toggle").on("click", function(e) {
-            e.preventDefault();
-            var $this = $(this), $nav = $this.next(".am-menu-nav");
-            $this.toggleClass("am-active");
-            $nav.collapse("toggle");
-        });
-        // OffCanvas menu
-        $menus.filter("[data-am-menu-offcanvas]").find("> .am-menu-toggle").on("click", function(e) {
-            e.preventDefault();
-            var $this = $(this), $nav = $this.next(".am-offcanvas");
-            $this.toggleClass("am-active");
-            $nav.offCanvas("open");
-        });
-        // Close offCanvas when link clicked
-        var autoCloseOffCanvas = '.am-offcanvas[data-dismiss-on="click"]', $autoCloseOffCanvas = $(autoCloseOffCanvas);
-        $autoCloseOffCanvas.find("a").not(".am-parent>a").on("click", function(e) {
-            $(this).parents(autoCloseOffCanvas).offCanvas("close");
-        });
-        // one theme
-        $menus.filter(".am-menu-one").each(function(index) {
-            var $this = $(this), $wrap = $('<div class="am-menu-nav-sub-wrap"></div>'), allWidth = 0, prevIndex, $nav = $this.find(".am-menu-nav"), $navTopItem = $nav.children("li");
-            $navTopItem.filter(".am-parent").each(function(index) {
-                $(this).attr("data-rel", "#am-menu-sub-" + index);
-                $(this).find(".am-menu-sub").attr("id", "am-menu-sub-" + index).appendTo($wrap);
-            });
-            $this.append($wrap);
-            $nav.wrap('<div class="am-menu-nav-wrap" id="am-menu-' + index + '">');
-            // $navTopItem.eq(0).addClass('am-active');
-            // 计算出所有 li 宽度
-            $navTopItem.each(function(i) {
-                allWidth += parseInt($(this).width());
-            });
-            $nav.width(allWidth);
-            var menuScroll = new IScroll("#am-menu-" + index, {
-                eventPassthrough: true,
-                scrollX: true,
-                scrollY: false,
-                preventDefault: false
-            });
-            $navTopItem.on("click", function() {
-                var $clicked = $(this);
-                $clicked.addClass("am-active").siblings().removeClass("am-active");
-                $wrap.find(".am-menu-sub.am-in").collapse("close");
-                if ($clicked.is(".am-parent")) {
-                    !$clicked.hasClass(".am-open") && $wrap.find($clicked.attr("data-rel")).collapse("open");
-                } else {
-                    $clicked.siblings().removeClass("am-open");
-                }
-                // 第一次调用，没有prevIndex
-                if (prevIndex === undefined) {
-                    prevIndex = $(this).index() ? 0 : 1;
-                }
-                // 判断方向
-                var dir = $(this).index() > prevIndex;
-                var target = $(this)[dir ? "next" : "prev"]();
-                // 点击的按钮，显示一半
-                var offset = target.offset() || $(this).offset();
-                var within = $this.offset();
-                // 父类左边距
-                var listOffset, parentLeft = parseInt($this.css("padding-left"));
-                if (dir ? offset.left + offset.width > within.left + within.width : offset.left < within.left) {
-                    listOffset = $nav.offset();
-                    menuScroll.scrollTo(dir ? within.width - offset.left + listOffset.left - offset.width - parentLeft : listOffset.left - offset.left, 0, 400);
-                }
-                prevIndex = $(this).index();
-            });
-            $this.on("touchmove", function(event) {
-                event.preventDefault();
-            });
-        });
-    };
-    $(function() {
-        menuInit();
-    });
-    exports.init = menuInit;
-});
-define("navbar", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "util.qrcode", "ui.modal", "ui.dimmer", "ui.share" ], function(require, exports, module) {
-    require("core");
-    var $ = window.Zepto, UI = $.AMUI, QRCode = require("util.qrcode"), modal = require("ui.modal"), share = require("ui.share");
-    var navbarInit = function() {
-        var $navBar = $('[data-am-widget="navbar"]');
-        if (!$navBar.length) return;
-        var $win = $(window), $body = $("body"), $navBarNav = $navBar.find(".am-navbar-nav"), $navItems = $navBar.find("li"), navItemsCounter = $navItems.length;
-        configItems = $navBarNav.attr("class") && parseInt($navBarNav.attr("class").match(/sm-block-grid-(\d)/)[1]) || 3, 
-        navMinWidth = 60, //每个li最小宽度
-        offsetWidth = 16, $share = $navItems.filter("[data-am-navbar-share]"), $qrcode = $navItems.filter("[data-am-navbar-qrcode]"), 
-        activeStatus = "am-active", $moreActions = $('<ul class="am-navbar-actions"></ul>', {
-            id: UI.utils.generateGUID("am-navbar-actions")
-        }), $moreLink = $('<li class="am-navbar-labels am-navbar-more"><a href="javascript: void(0);"><span class="am-icon-angle-up"></span><span class="am-navbar-label">更多</span></a></li>');
-        // 如果有 Fix 的工具栏则设置 body 的 padding-bottom
-        if ($navBar.css("position") == "fixed") {
-            $body.addClass("with-fixed-navbar");
-        }
-        if ($qrcode.length) {
-            var qrId = "am-navbar-qrcode";
-            $qrModal = $("#" + qrId);
-            if (!$qrModal.length) {
-                var qrImg = $qrcode.attr("data-am-navbar-qrcode"), $qrModal = $('<div class="am-modal am-modal-no-btn" id="">' + '<div class="am-modal-dialog"><div class="am-modal-bd"></div></div>' + "</div>", {
-                    id: qrId
-                }), $qrContainer = $qrModal.find(".am-modal-bd");
-                // 判断上传自定义的二维码没有，否则生成二维码
-                if (qrImg) {
-                    $qrContainer.html('<img src="' + qrImg + '"/>');
-                } else {
-                    var qrnode = new QRCode({
-                        render: "canvas",
-                        correctLevel: 0,
-                        text: window.location.href,
-                        width: 200,
-                        height: 200,
-                        background: "#fff",
-                        foreground: "#000"
-                    });
-                    $qrContainer.html(qrnode);
-                }
-                $body.append($qrModal);
+    /**
+     * extend object.
+     * means that properties in dest will be overwritten by the ones in src.
+     * @param {Object} dest
+     * @param {Object} src
+     * @param {Boolean} [merge]
+     * @returns {Object} dest
+     */
+    function extend(dest, src, merge) {
+        var keys = Object.keys(src);
+        var i = 0;
+        while (i < keys.length) {
+            if (!merge || merge && dest[keys[i]] === undefined) {
+                dest[keys[i]] = src[keys[i]];
             }
-            $qrcode.on("click", function(e) {
-                e.preventDefault();
-                $qrModal.modal();
-            });
+            i++;
         }
-        if (navItemsCounter > configItems && navItemsCounter > calcSuiteItems()) {
-            initActions();
+        return dest;
+    }
+    /**
+     * merge the values from src in the dest.
+     * means that properties that exist in dest will not be overwritten by src
+     * @param {Object} dest
+     * @param {Object} src
+     * @returns {Object} dest
+     */
+    function merge(dest, src) {
+        return extend(dest, src, true);
+    }
+    /**
+     * simple class inheritance
+     * @param {Function} child
+     * @param {Function} base
+     * @param {Object} [properties]
+     */
+    function inherit(child, base, properties) {
+        var baseP = base.prototype, childP;
+        childP = child.prototype = Object.create(baseP);
+        childP.constructor = child;
+        childP._super = baseP;
+        if (properties) {
+            extend(childP, properties);
         }
-        function initActions() {
-            $navBarNav.append($moreLink);
-            $navBarNav.find("li").not(".am-navbar-more").slice(calcSuiteItems() - 1).appendTo($moreActions);
-            // Append more actions
-            $navBar.append($moreActions);
+    }
+    /**
+     * simple function bind
+     * @param {Function} fn
+     * @param {Object} context
+     * @returns {Function}
+     */
+    function bindFn(fn, context) {
+        return function boundFn() {
+            return fn.apply(context, arguments);
+        };
+    }
+    /**
+     * let a boolean value also be a function that must return a boolean
+     * this first item in args will be used as the context
+     * @param {Boolean|Function} val
+     * @param {Array} [args]
+     * @returns {Boolean}
+     */
+    function boolOrFn(val, args) {
+        if (typeof val == TYPE_FUNCTION) {
+            return val.apply(args ? args[0] || undefined : undefined, args);
         }
-        function checkNavBarItems() {
-            // console.log('best: %d', calcSuiteItems());
-            if (calcSuiteItems() >= navItemsCounter) {
-                // 显示所有链接，隐藏 more
-                $moreLink.hide();
-                $moreActions.find("li").insertBefore($moreLink);
+        return val;
+    }
+    /**
+     * use the val2 when val1 is undefined
+     * @param {*} val1
+     * @param {*} val2
+     * @returns {*}
+     */
+    function ifUndefined(val1, val2) {
+        return val1 === undefined ? val2 : val1;
+    }
+    /**
+     * addEventListener with multiple events at once
+     * @param {EventTarget} target
+     * @param {String} types
+     * @param {Function} handler
+     */
+    function addEventListeners(target, types, handler) {
+        each(splitStr(types), function(type) {
+            target.addEventListener(type, handler, false);
+        });
+    }
+    /**
+     * removeEventListener with multiple events at once
+     * @param {EventTarget} target
+     * @param {String} types
+     * @param {Function} handler
+     */
+    function removeEventListeners(target, types, handler) {
+        each(splitStr(types), function(type) {
+            target.removeEventListener(type, handler, false);
+        });
+    }
+    /**
+     * find if a node is in the given parent
+     * @method hasParent
+     * @param {HTMLElement} node
+     * @param {HTMLElement} parent
+     * @return {Boolean} found
+     */
+    function hasParent(node, parent) {
+        while (node) {
+            if (node == parent) {
+                return true;
+            }
+            node = node.parentNode;
+        }
+        return false;
+    }
+    /**
+     * small indexOf wrapper
+     * @param {String} str
+     * @param {String} find
+     * @returns {Boolean} found
+     */
+    function inStr(str, find) {
+        return str.indexOf(find) > -1;
+    }
+    /**
+     * split string on whitespace
+     * @param {String} str
+     * @returns {Array} words
+     */
+    function splitStr(str) {
+        return str.trim().split(/\s+/g);
+    }
+    /**
+     * find if a array contains the object using indexOf or a simple polyFill
+     * @param {Array} src
+     * @param {String} find
+     * @param {String} [findByKey]
+     * @return {Boolean|Number} false when not found, or the index
+     */
+    function inArray(src, find, findByKey) {
+        if (src.indexOf && !findByKey) {
+            return src.indexOf(find);
+        } else {
+            var i = 0;
+            while (i < src.length) {
+                if (findByKey && src[i][findByKey] == find || !findByKey && src[i] === find) {
+                    return i;
+                }
+                i++;
+            }
+            return -1;
+        }
+    }
+    /**
+     * convert array-like objects to real arrays
+     * @param {Object} obj
+     * @returns {Array}
+     */
+    function toArray(obj) {
+        return Array.prototype.slice.call(obj, 0);
+    }
+    /**
+     * unique array with objects based on a key (like 'id') or just by the array's value
+     * @param {Array} src [{id:1},{id:2},{id:1}]
+     * @param {String} [key]
+     * @param {Boolean} [sort=False]
+     * @returns {Array} [{id:1},{id:2}]
+     */
+    function uniqueArray(src, key, sort) {
+        var results = [];
+        var values = [];
+        var i = 0;
+        while (i < src.length) {
+            var val = key ? src[i][key] : src[i];
+            if (inArray(values, val) < 0) {
+                results.push(src[i]);
+            }
+            values[i] = val;
+            i++;
+        }
+        if (sort) {
+            if (!key) {
+                results = results.sort();
+            } else {
+                results = results.sort(function sortUniqueArray(a, b) {
+                    return a[key] > b[key];
+                });
+            }
+        }
+        return results;
+    }
+    /**
+     * get the prefixed property
+     * @param {Object} obj
+     * @param {String} property
+     * @returns {String|Undefined} prefixed
+     */
+    function prefixed(obj, property) {
+        var prefix, prop;
+        var camelProp = property[0].toUpperCase() + property.slice(1);
+        var i = 0;
+        while (i < VENDOR_PREFIXES.length) {
+            prefix = VENDOR_PREFIXES[i];
+            prop = prefix ? prefix + camelProp : property;
+            if (prop in obj) {
+                return prop;
+            }
+            i++;
+        }
+        return undefined;
+    }
+    /**
+     * get a unique id
+     * @returns {number} uniqueId
+     */
+    var _uniqueId = 1;
+    function uniqueId() {
+        return _uniqueId++;
+    }
+    /**
+     * get the window object of an element
+     * @param {HTMLElement} element
+     * @returns {DocumentView|Window}
+     */
+    function getWindowForElement(element) {
+        var doc = element.ownerDocument;
+        return doc.defaultView || doc.parentWindow;
+    }
+    var MOBILE_REGEX = /mobile|tablet|ip(ad|hone|od)|android/i;
+    var SUPPORT_TOUCH = "ontouchstart" in window;
+    var SUPPORT_POINTER_EVENTS = prefixed(window, "PointerEvent") !== undefined;
+    var SUPPORT_ONLY_TOUCH = SUPPORT_TOUCH && MOBILE_REGEX.test(navigator.userAgent);
+    var INPUT_TYPE_TOUCH = "touch";
+    var INPUT_TYPE_PEN = "pen";
+    var INPUT_TYPE_MOUSE = "mouse";
+    var INPUT_TYPE_KINECT = "kinect";
+    var COMPUTE_INTERVAL = 25;
+    var INPUT_START = 1;
+    var INPUT_MOVE = 2;
+    var INPUT_END = 4;
+    var INPUT_CANCEL = 8;
+    var DIRECTION_NONE = 1;
+    var DIRECTION_LEFT = 2;
+    var DIRECTION_RIGHT = 4;
+    var DIRECTION_UP = 8;
+    var DIRECTION_DOWN = 16;
+    var DIRECTION_HORIZONTAL = DIRECTION_LEFT | DIRECTION_RIGHT;
+    var DIRECTION_VERTICAL = DIRECTION_UP | DIRECTION_DOWN;
+    var DIRECTION_ALL = DIRECTION_HORIZONTAL | DIRECTION_VERTICAL;
+    var PROPS_XY = [ "x", "y" ];
+    var PROPS_CLIENT_XY = [ "clientX", "clientY" ];
+    /**
+     * create new input type manager
+     * @param {Manager} manager
+     * @param {Function} callback
+     * @returns {Input}
+     * @constructor
+     */
+    function Input(manager, callback) {
+        var self = this;
+        this.manager = manager;
+        this.callback = callback;
+        this.element = manager.element;
+        this.target = manager.options.inputTarget;
+        // smaller wrapper around the handler, for the scope and the enabled state of the manager,
+        // so when disabled the input events are completely bypassed.
+        this.domHandler = function(ev) {
+            if (boolOrFn(manager.options.enable, [ manager ])) {
+                self.handler(ev);
+            }
+        };
+        this.init();
+    }
+    Input.prototype = {
+        /**
+         * should handle the inputEvent data and trigger the callback
+         * @virtual
+         */
+        handler: function() {},
+        /**
+         * bind the events
+         */
+        init: function() {
+            this.evEl && addEventListeners(this.element, this.evEl, this.domHandler);
+            this.evTarget && addEventListeners(this.target, this.evTarget, this.domHandler);
+            this.evWin && addEventListeners(getWindowForElement(this.element), this.evWin, this.domHandler);
+        },
+        /**
+         * unbind the events
+         */
+        destroy: function() {
+            this.evEl && removeEventListeners(this.element, this.evEl, this.domHandler);
+            this.evTarget && removeEventListeners(this.target, this.evTarget, this.domHandler);
+            this.evWin && removeEventListeners(getWindowForElement(this.element), this.evWin, this.domHandler);
+        }
+    };
+    /**
+     * create new input type manager
+     * called by the Manager constructor
+     * @param {Hammer} manager
+     * @returns {Input}
+     */
+    function createInputInstance(manager) {
+        var Type;
+        var inputClass = manager.options.inputClass;
+        if (inputClass) {
+            Type = inputClass;
+        } else if (SUPPORT_POINTER_EVENTS) {
+            Type = PointerEventInput;
+        } else if (SUPPORT_ONLY_TOUCH) {
+            Type = TouchInput;
+        } else if (!SUPPORT_TOUCH) {
+            Type = MouseInput;
+        } else {
+            Type = TouchMouseInput;
+        }
+        return new Type(manager, inputHandler);
+    }
+    /**
+     * handle input events
+     * @param {Manager} manager
+     * @param {String} eventType
+     * @param {Object} input
+     */
+    function inputHandler(manager, eventType, input) {
+        var pointersLen = input.pointers.length;
+        var changedPointersLen = input.changedPointers.length;
+        var isFirst = eventType & INPUT_START && pointersLen - changedPointersLen === 0;
+        var isFinal = eventType & (INPUT_END | INPUT_CANCEL) && pointersLen - changedPointersLen === 0;
+        input.isFirst = !!isFirst;
+        input.isFinal = !!isFinal;
+        if (isFirst) {
+            manager.session = {};
+        }
+        // source event is the normalized value of the domEvents
+        // like 'touchstart, mouseup, pointerdown'
+        input.eventType = eventType;
+        // compute scale, rotation etc
+        computeInputData(manager, input);
+        // emit secret event
+        manager.emit("hammer.input", input);
+        manager.recognize(input);
+        manager.session.prevInput = input;
+    }
+    /**
+     * extend the data with some usable properties like scale, rotate, velocity etc
+     * @param {Object} manager
+     * @param {Object} input
+     */
+    function computeInputData(manager, input) {
+        var session = manager.session;
+        var pointers = input.pointers;
+        var pointersLength = pointers.length;
+        // store the first input to calculate the distance and direction
+        if (!session.firstInput) {
+            session.firstInput = simpleCloneInputData(input);
+        }
+        // to compute scale and rotation we need to store the multiple touches
+        if (pointersLength > 1 && !session.firstMultiple) {
+            session.firstMultiple = simpleCloneInputData(input);
+        } else if (pointersLength === 1) {
+            session.firstMultiple = false;
+        }
+        var firstInput = session.firstInput;
+        var firstMultiple = session.firstMultiple;
+        var offsetCenter = firstMultiple ? firstMultiple.center : firstInput.center;
+        var center = input.center = getCenter(pointers);
+        input.timeStamp = now();
+        input.deltaTime = input.timeStamp - firstInput.timeStamp;
+        input.angle = getAngle(offsetCenter, center);
+        input.distance = getDistance(offsetCenter, center);
+        computeDeltaXY(session, input);
+        input.offsetDirection = getDirection(input.deltaX, input.deltaY);
+        input.scale = firstMultiple ? getScale(firstMultiple.pointers, pointers) : 1;
+        input.rotation = firstMultiple ? getRotation(firstMultiple.pointers, pointers) : 0;
+        computeIntervalInputData(session, input);
+        // find the correct target
+        var target = manager.element;
+        if (hasParent(input.srcEvent.target, target)) {
+            target = input.srcEvent.target;
+        }
+        input.target = target;
+    }
+    function computeDeltaXY(session, input) {
+        var center = input.center;
+        var offset = session.offsetDelta || {};
+        var prevDelta = session.prevDelta || {};
+        var prevInput = session.prevInput || {};
+        if (input.eventType === INPUT_START || prevInput.eventType === INPUT_END) {
+            prevDelta = session.prevDelta = {
+                x: prevInput.deltaX || 0,
+                y: prevInput.deltaY || 0
+            };
+            offset = session.offsetDelta = {
+                x: center.x,
+                y: center.y
+            };
+        }
+        input.deltaX = prevDelta.x + (center.x - offset.x);
+        input.deltaY = prevDelta.y + (center.y - offset.y);
+    }
+    /**
+     * velocity is calculated every x ms
+     * @param {Object} session
+     * @param {Object} input
+     */
+    function computeIntervalInputData(session, input) {
+        var last = session.lastInterval || input, deltaTime = input.timeStamp - last.timeStamp, velocity, velocityX, velocityY, direction;
+        if (input.eventType != INPUT_CANCEL && (deltaTime > COMPUTE_INTERVAL || last.velocity === undefined)) {
+            var deltaX = last.deltaX - input.deltaX;
+            var deltaY = last.deltaY - input.deltaY;
+            var v = getVelocity(deltaTime, deltaX, deltaY);
+            velocityX = v.x;
+            velocityY = v.y;
+            velocity = abs(v.x) > abs(v.y) ? v.x : v.y;
+            direction = getDirection(deltaX, deltaY);
+            session.lastInterval = input;
+        } else {
+            // use latest velocity info if it doesn't overtake a minimum period
+            velocity = last.velocity;
+            velocityX = last.velocityX;
+            velocityY = last.velocityY;
+            direction = last.direction;
+        }
+        input.velocity = velocity;
+        input.velocityX = velocityX;
+        input.velocityY = velocityY;
+        input.direction = direction;
+    }
+    /**
+     * create a simple clone from the input used for storage of firstInput and firstMultiple
+     * @param {Object} input
+     * @returns {Object} clonedInputData
+     */
+    function simpleCloneInputData(input) {
+        // make a simple copy of the pointers because we will get a reference if we don't
+        // we only need clientXY for the calculations
+        var pointers = [];
+        var i = 0;
+        while (i < input.pointers.length) {
+            pointers[i] = {
+                clientX: round(input.pointers[i].clientX),
+                clientY: round(input.pointers[i].clientY)
+            };
+            i++;
+        }
+        return {
+            timeStamp: now(),
+            pointers: pointers,
+            center: getCenter(pointers),
+            deltaX: input.deltaX,
+            deltaY: input.deltaY
+        };
+    }
+    /**
+     * get the center of all the pointers
+     * @param {Array} pointers
+     * @return {Object} center contains `x` and `y` properties
+     */
+    function getCenter(pointers) {
+        var pointersLength = pointers.length;
+        // no need to loop when only one touch
+        if (pointersLength === 1) {
+            return {
+                x: round(pointers[0].clientX),
+                y: round(pointers[0].clientY)
+            };
+        }
+        var x = 0, y = 0, i = 0;
+        while (i < pointersLength) {
+            x += pointers[i].clientX;
+            y += pointers[i].clientY;
+            i++;
+        }
+        return {
+            x: round(x / pointersLength),
+            y: round(y / pointersLength)
+        };
+    }
+    /**
+     * calculate the velocity between two points. unit is in px per ms.
+     * @param {Number} deltaTime
+     * @param {Number} x
+     * @param {Number} y
+     * @return {Object} velocity `x` and `y`
+     */
+    function getVelocity(deltaTime, x, y) {
+        return {
+            x: x / deltaTime || 0,
+            y: y / deltaTime || 0
+        };
+    }
+    /**
+     * get the direction between two points
+     * @param {Number} x
+     * @param {Number} y
+     * @return {Number} direction
+     */
+    function getDirection(x, y) {
+        if (x === y) {
+            return DIRECTION_NONE;
+        }
+        if (abs(x) >= abs(y)) {
+            return x > 0 ? DIRECTION_LEFT : DIRECTION_RIGHT;
+        }
+        return y > 0 ? DIRECTION_UP : DIRECTION_DOWN;
+    }
+    /**
+     * calculate the absolute distance between two points
+     * @param {Object} p1 {x, y}
+     * @param {Object} p2 {x, y}
+     * @param {Array} [props] containing x and y keys
+     * @return {Number} distance
+     */
+    function getDistance(p1, p2, props) {
+        if (!props) {
+            props = PROPS_XY;
+        }
+        var x = p2[props[0]] - p1[props[0]], y = p2[props[1]] - p1[props[1]];
+        return Math.sqrt(x * x + y * y);
+    }
+    /**
+     * calculate the angle between two coordinates
+     * @param {Object} p1
+     * @param {Object} p2
+     * @param {Array} [props] containing x and y keys
+     * @return {Number} angle
+     */
+    function getAngle(p1, p2, props) {
+        if (!props) {
+            props = PROPS_XY;
+        }
+        var x = p2[props[0]] - p1[props[0]], y = p2[props[1]] - p1[props[1]];
+        return Math.atan2(y, x) * 180 / Math.PI;
+    }
+    /**
+     * calculate the rotation degrees between two pointersets
+     * @param {Array} start array of pointers
+     * @param {Array} end array of pointers
+     * @return {Number} rotation
+     */
+    function getRotation(start, end) {
+        return getAngle(end[1], end[0], PROPS_CLIENT_XY) - getAngle(start[1], start[0], PROPS_CLIENT_XY);
+    }
+    /**
+     * calculate the scale factor between two pointersets
+     * no scale is 1, and goes down to 0 when pinched together, and bigger when pinched out
+     * @param {Array} start array of pointers
+     * @param {Array} end array of pointers
+     * @return {Number} scale
+     */
+    function getScale(start, end) {
+        return getDistance(end[0], end[1], PROPS_CLIENT_XY) / getDistance(start[0], start[1], PROPS_CLIENT_XY);
+    }
+    var MOUSE_INPUT_MAP = {
+        mousedown: INPUT_START,
+        mousemove: INPUT_MOVE,
+        mouseup: INPUT_END
+    };
+    var MOUSE_ELEMENT_EVENTS = "mousedown";
+    var MOUSE_WINDOW_EVENTS = "mousemove mouseup";
+    /**
+     * Mouse events input
+     * @constructor
+     * @extends Input
+     */
+    function MouseInput() {
+        this.evEl = MOUSE_ELEMENT_EVENTS;
+        this.evWin = MOUSE_WINDOW_EVENTS;
+        this.allow = true;
+        // used by Input.TouchMouse to disable mouse events
+        this.pressed = false;
+        // mousedown state
+        Input.apply(this, arguments);
+    }
+    inherit(MouseInput, Input, {
+        /**
+         * handle mouse events
+         * @param {Object} ev
+         */
+        handler: function MEhandler(ev) {
+            var eventType = MOUSE_INPUT_MAP[ev.type];
+            // on start we want to have the left mouse button down
+            if (eventType & INPUT_START && ev.button === 0) {
+                this.pressed = true;
+            }
+            if (eventType & INPUT_MOVE && ev.which !== 1) {
+                eventType = INPUT_END;
+            }
+            // mouse must be down, and mouse events are allowed (see the TouchMouse input)
+            if (!this.pressed || !this.allow) {
                 return;
             }
-            !$navBar.find(".am-navbar-actions").length && initActions();
-            $moreLink.show();
-            if ($navBarNav.find("li").length < calcSuiteItems()) {
-                $moreActions.find("li").slice(0, calcSuiteItems() - $navBarNav.find("li").length).insertBefore($moreLink);
-            } else if ($navBarNav.find("li").length > calcSuiteItems()) {
-                if ($moreActions.find("li").length) {
-                    $navBarNav.find("li").not($moreLink).slice(calcSuiteItems() - 1).insertBefore($moreActions.find("li").first());
-                } else {
-                    $navBarNav.find("li").not($moreLink).slice(calcSuiteItems() - 1).appendTo($moreActions);
-                }
+            if (eventType & INPUT_END) {
+                this.pressed = false;
             }
+            this.callback(this.manager, eventType, {
+                pointers: [ ev ],
+                changedPointers: [ ev ],
+                pointerType: INPUT_TYPE_MOUSE,
+                srcEvent: ev
+            });
         }
+    });
+    var POINTER_INPUT_MAP = {
+        pointerdown: INPUT_START,
+        pointermove: INPUT_MOVE,
+        pointerup: INPUT_END,
+        pointercancel: INPUT_CANCEL,
+        pointerout: INPUT_CANCEL
+    };
+    // in IE10 the pointer types is defined as an enum
+    var IE10_POINTER_TYPE_ENUM = {
+        2: INPUT_TYPE_TOUCH,
+        3: INPUT_TYPE_PEN,
+        4: INPUT_TYPE_MOUSE,
+        5: INPUT_TYPE_KINECT
+    };
+    var POINTER_ELEMENT_EVENTS = "pointerdown";
+    var POINTER_WINDOW_EVENTS = "pointermove pointerup pointercancel";
+    // IE10 has prefixed support, and case-sensitive
+    if (window.MSPointerEvent) {
+        POINTER_ELEMENT_EVENTS = "MSPointerDown";
+        POINTER_WINDOW_EVENTS = "MSPointerMove MSPointerUp MSPointerCancel";
+    }
+    /**
+     * Pointer events input
+     * @constructor
+     * @extends Input
+     */
+    function PointerEventInput() {
+        this.evEl = POINTER_ELEMENT_EVENTS;
+        this.evWin = POINTER_WINDOW_EVENTS;
+        Input.apply(this, arguments);
+        this.store = this.manager.session.pointerEvents = [];
+    }
+    inherit(PointerEventInput, Input, {
         /**
-         * 计算最适合显示的条目个数
-         * @returns {number}
+         * handle mouse events
+         * @param {Object} ev
          */
-        function calcSuiteItems() {
-            return Math.floor(($win.width() - offsetWidth) / navMinWidth);
+        handler: function PEhandler(ev) {
+            var store = this.store;
+            var removePointer = false;
+            var eventTypeNormalized = ev.type.toLowerCase().replace("ms", "");
+            var eventType = POINTER_INPUT_MAP[eventTypeNormalized];
+            var pointerType = IE10_POINTER_TYPE_ENUM[ev.pointerType] || ev.pointerType;
+            var isTouch = pointerType == INPUT_TYPE_TOUCH;
+            // start and mouse must be down
+            if (eventType & INPUT_START && (ev.button === 0 || isTouch)) {
+                store.push(ev);
+            } else if (eventType & (INPUT_END | INPUT_CANCEL)) {
+                removePointer = true;
+            }
+            // get index of the event in the store
+            // it not found, so the pointer hasn't been down (so it's probably a hover)
+            var storeIndex = inArray(store, ev.pointerId, "pointerId");
+            if (storeIndex < 0) {
+                return;
+            }
+            // update the event in the store
+            store[storeIndex] = ev;
+            this.callback(this.manager, eventType, {
+                pointers: store,
+                changedPointers: [ ev ],
+                pointerType: pointerType,
+                srcEvent: ev
+            });
+            if (removePointer) {
+                // remove from the store
+                store.splice(storeIndex, 1);
+            }
         }
-        $navBar.on("click.navbar.amui", ".am-navbar-more", function(e) {
-            e.preventDefault();
-            $moreLink[$moreActions.hasClass(activeStatus) ? "removeClass" : "addClass"](activeStatus);
-            $moreActions.toggleClass(activeStatus);
-        });
-        if ($share.length) {
-            $share.on("click.navbar.amui", function(e) {
-                e.preventDefault();
-                share.toggle();
+    });
+    var TOUCH_INPUT_MAP = {
+        touchstart: INPUT_START,
+        touchmove: INPUT_MOVE,
+        touchend: INPUT_END,
+        touchcancel: INPUT_CANCEL
+    };
+    var TOUCH_TARGET_EVENTS = "touchstart touchmove touchend touchcancel";
+    /**
+     * Touch events input
+     * @constructor
+     * @extends Input
+     */
+    function TouchInput() {
+        this.evTarget = TOUCH_TARGET_EVENTS;
+        this.targetIds = {};
+        Input.apply(this, arguments);
+    }
+    inherit(TouchInput, Input, {
+        /**
+         * handle touch events
+         * @param {Object} ev
+         */
+        handler: function TEhandler(ev) {
+            var type = TOUCH_INPUT_MAP[ev.type];
+            var touches = getTouches.call(this, ev, type);
+            if (!touches) {
+                return;
+            }
+            this.callback(this.manager, type, {
+                pointers: touches[0],
+                changedPointers: touches[1],
+                pointerType: INPUT_TYPE_TOUCH,
+                srcEvent: ev
             });
         }
-        $win.on("resize.navbar.amui orientationchange.navbar.amui", UI.utils.debounce(checkNavBarItems, 150));
-    };
-    // DOMContent ready
-    $(function() {
-        navbarInit();
     });
-    exports.init = navbarInit;
-});
-define("pagination", [], function(require, exports, module) {
-    var $ = window.Zepto;
-});
-define("paragraph", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "zepto.pinchzoom" ], function(require, exports, module) {
-    require("core");
-    var $ = window.Zepto, UI = $.AMUI;
-    // PinchZoom Plugin
-    var PinchZoom = require("zepto.pinchzoom");
-    var paragraphInit;
-    $.fn.paragraphZoomToggle = function() {
-        var $warpHead, $pinch, $zoomWrap, onOff = true, // 防止重复创建
-        $wrapDom = $("<div class='am-paragraph-wrap'><header></header><div class='pinch-zoom'></div></div>");
-        $zoomWrap = $(".am-paragraph-wrap");
-        $warpHead = $(".am-paragraph-wrap header");
-        $pinch = $zoomWrap.find(".pinch-zoom");
-        this.each(function() {
-            $(this).on("click", function() {
-                if (onOff && $(".am-paragraph").length) {
-                    $("body").append($wrapDom);
-                    $zoomWrap = $(".am-paragraph-wrap");
-                    $pinch = $zoomWrap.find(".pinch-zoom");
-                    $warpHead = $zoomWrap.find("header");
-                    $pinch.each(function() {
-                        new PinchZoom($(this), {});
-                    });
-                    onOff = false;
+    /**
+     * @this {TouchInput}
+     * @param {Object} ev
+     * @param {Number} type flag
+     * @returns {undefined|Array} [all, changed]
+     */
+    function getTouches(ev, type) {
+        var allTouches = toArray(ev.touches);
+        var targetIds = this.targetIds;
+        // when there is only one touch, the process can be simplified
+        if (type & (INPUT_START | INPUT_MOVE) && allTouches.length === 1) {
+            targetIds[allTouches[0].identifier] = true;
+            return [ allTouches, allTouches ];
+        }
+        var i, targetTouches = toArray(ev.targetTouches), changedTouches = toArray(ev.changedTouches), changedTargetTouches = [];
+        // collect touches
+        if (type === INPUT_START) {
+            i = 0;
+            while (i < targetTouches.length) {
+                targetIds[targetTouches[i].identifier] = true;
+                i++;
+            }
+        }
+        // filter changed touches to only contain touches that exist in the collected target ids
+        i = 0;
+        while (i < changedTouches.length) {
+            if (targetIds[changedTouches[i].identifier]) {
+                changedTargetTouches.push(changedTouches[i]);
+            }
+            // cleanup removed touches
+            if (type & (INPUT_END | INPUT_CANCEL)) {
+                delete targetIds[changedTouches[i].identifier];
+            }
+            i++;
+        }
+        if (!changedTargetTouches.length) {
+            return;
+        }
+        return [ // merge targetTouches with changedTargetTouches so it contains ALL touches, including 'end' and 'cancel'
+        uniqueArray(targetTouches.concat(changedTargetTouches), "identifier", true), changedTargetTouches ];
+    }
+    /**
+     * Combined touch and mouse input
+     *
+     * Touch has a higher priority then mouse, and while touching no mouse events are allowed.
+     * This because touch devices also emit mouse events while doing a touch.
+     *
+     * @constructor
+     * @extends Input
+     */
+    function TouchMouseInput() {
+        Input.apply(this, arguments);
+        var handler = bindFn(this.handler, this);
+        this.touch = new TouchInput(this.manager, handler);
+        this.mouse = new MouseInput(this.manager, handler);
+    }
+    inherit(TouchMouseInput, Input, {
+        /**
+         * handle mouse and touch events
+         * @param {Hammer} manager
+         * @param {String} inputEvent
+         * @param {Object} inputData
+         */
+        handler: function TMEhandler(manager, inputEvent, inputData) {
+            var isTouch = inputData.pointerType == INPUT_TYPE_TOUCH, isMouse = inputData.pointerType == INPUT_TYPE_MOUSE;
+            // when we're in a touch event, so  block all upcoming mouse events
+            // most mobile browser also emit mouseevents, right after touchstart
+            if (isTouch) {
+                this.mouse.allow = false;
+            } else if (isMouse && !this.mouse.allow) {
+                return;
+            }
+            // reset the allowMouse when we're done
+            if (inputEvent & (INPUT_END | INPUT_CANCEL)) {
+                this.mouse.allow = true;
+            }
+            this.callback(manager, inputEvent, inputData);
+        },
+        /**
+         * remove the event listeners
+         */
+        destroy: function destroy() {
+            this.touch.destroy();
+            this.mouse.destroy();
+        }
+    });
+    var PREFIXED_TOUCH_ACTION = prefixed(TEST_ELEMENT.style, "touchAction");
+    var NATIVE_TOUCH_ACTION = PREFIXED_TOUCH_ACTION !== undefined;
+    // magical touchAction value
+    var TOUCH_ACTION_COMPUTE = "compute";
+    var TOUCH_ACTION_AUTO = "auto";
+    var TOUCH_ACTION_MANIPULATION = "manipulation";
+    // not implemented
+    var TOUCH_ACTION_NONE = "none";
+    var TOUCH_ACTION_PAN_X = "pan-x";
+    var TOUCH_ACTION_PAN_Y = "pan-y";
+    /**
+     * Touch Action
+     * sets the touchAction property or uses the js alternative
+     * @param {Manager} manager
+     * @param {String} value
+     * @constructor
+     */
+    function TouchAction(manager, value) {
+        this.manager = manager;
+        this.set(value);
+    }
+    TouchAction.prototype = {
+        /**
+         * set the touchAction value on the element or enable the polyfill
+         * @param {String} value
+         */
+        set: function(value) {
+            // find out the touch-action by the event handlers
+            if (value == TOUCH_ACTION_COMPUTE) {
+                value = this.compute();
+            }
+            if (NATIVE_TOUCH_ACTION) {
+                this.manager.element.style[PREFIXED_TOUCH_ACTION] = value;
+            }
+            this.actions = value.toLowerCase().trim();
+        },
+        /**
+         * just re-set the touchAction value
+         */
+        update: function() {
+            this.set(this.manager.options.touchAction);
+        },
+        /**
+         * compute the value for the touchAction property based on the recognizer's settings
+         * @returns {String} value
+         */
+        compute: function() {
+            var actions = [];
+            each(this.manager.recognizers, function(recognizer) {
+                if (boolOrFn(recognizer.options.enable, [ recognizer ])) {
+                    actions = actions.concat(recognizer.getTouchAction());
                 }
-                $pinch.html(this.outerHTML);
-                if ($(this).attr("alt")) {
-                    $warpHead.html($(this).attr("alt"));
+            });
+            return cleanTouchActions(actions.join(" "));
+        },
+        /**
+         * this method is called on each input cycle and provides the preventing of the browser behavior
+         * @param {Object} input
+         */
+        preventDefaults: function(input) {
+            // not needed with native support for the touchAction property
+            if (NATIVE_TOUCH_ACTION) {
+                return;
+            }
+            var srcEvent = input.srcEvent;
+            var direction = input.offsetDirection;
+            // if the touch action did prevented once this session
+            if (this.manager.session.prevented) {
+                srcEvent.preventDefault();
+                return;
+            }
+            var actions = this.actions;
+            var hasNone = inStr(actions, TOUCH_ACTION_NONE);
+            var hasPanY = inStr(actions, TOUCH_ACTION_PAN_Y);
+            var hasPanX = inStr(actions, TOUCH_ACTION_PAN_X);
+            if (hasNone || hasPanY && direction & DIRECTION_HORIZONTAL || hasPanX && direction & DIRECTION_VERTICAL) {
+                return this.preventSrc(srcEvent);
+            }
+        },
+        /**
+         * call preventDefault to prevent the browser's default behavior (scrolling in most cases)
+         * @param {Object} srcEvent
+         */
+        preventSrc: function(srcEvent) {
+            this.manager.session.prevented = true;
+            srcEvent.preventDefault();
+        }
+    };
+    /**
+     * when the touchActions are collected they are not a valid value, so we need to clean things up. *
+     * @param {String} actions
+     * @returns {*}
+     */
+    function cleanTouchActions(actions) {
+        // none
+        if (inStr(actions, TOUCH_ACTION_NONE)) {
+            return TOUCH_ACTION_NONE;
+        }
+        var hasPanX = inStr(actions, TOUCH_ACTION_PAN_X);
+        var hasPanY = inStr(actions, TOUCH_ACTION_PAN_Y);
+        // pan-x and pan-y can be combined
+        if (hasPanX && hasPanY) {
+            return TOUCH_ACTION_PAN_X + " " + TOUCH_ACTION_PAN_Y;
+        }
+        // pan-x OR pan-y
+        if (hasPanX || hasPanY) {
+            return hasPanX ? TOUCH_ACTION_PAN_X : TOUCH_ACTION_PAN_Y;
+        }
+        // manipulation
+        if (inStr(actions, TOUCH_ACTION_MANIPULATION)) {
+            return TOUCH_ACTION_MANIPULATION;
+        }
+        return TOUCH_ACTION_AUTO;
+    }
+    /**
+     * Recognizer flow explained; *
+     * All recognizers have the initial state of POSSIBLE when a input session starts.
+     * The definition of a input session is from the first input until the last input, with all it's movement in it. *
+     * Example session for mouse-input: mousedown -> mousemove -> mouseup
+     *
+     * On each recognizing cycle (see Manager.recognize) the .recognize() method is executed
+     * which determines with state it should be.
+     *
+     * If the recognizer has the state FAILED, CANCELLED or RECOGNIZED (equals ENDED), it is reset to
+     * POSSIBLE to give it another change on the next cycle.
+     *
+     *               Possible
+     *                  |
+     *            +-----+---------------+
+     *            |                     |
+     *      +-----+-----+               |
+     *      |           |               |
+     *   Failed      Cancelled          |
+     *                          +-------+------+
+     *                          |              |
+     *                      Recognized       Began
+     *                                         |
+     *                                      Changed
+     *                                         |
+     *                                  Ended/Recognized
+     */
+    var STATE_POSSIBLE = 1;
+    var STATE_BEGAN = 2;
+    var STATE_CHANGED = 4;
+    var STATE_ENDED = 8;
+    var STATE_RECOGNIZED = STATE_ENDED;
+    var STATE_CANCELLED = 16;
+    var STATE_FAILED = 32;
+    /**
+     * Recognizer
+     * Every recognizer needs to extend from this class.
+     * @constructor
+     * @param {Object} options
+     */
+    function Recognizer(options) {
+        this.id = uniqueId();
+        this.manager = null;
+        this.options = merge(options || {}, this.defaults);
+        // default is enable true
+        this.options.enable = ifUndefined(this.options.enable, true);
+        this.state = STATE_POSSIBLE;
+        this.simultaneous = {};
+        this.requireFail = [];
+    }
+    Recognizer.prototype = {
+        /**
+         * @virtual
+         * @type {Object}
+         */
+        defaults: {},
+        /**
+         * set options
+         * @param {Object} options
+         * @return {Recognizer}
+         */
+        set: function(options) {
+            extend(this.options, options);
+            // also update the touchAction, in case something changed about the directions/enabled state
+            this.manager && this.manager.touchAction.update();
+            return this;
+        },
+        /**
+         * recognize simultaneous with an other recognizer.
+         * @param {Recognizer} otherRecognizer
+         * @returns {Recognizer} this
+         */
+        recognizeWith: function(otherRecognizer) {
+            if (invokeArrayArg(otherRecognizer, "recognizeWith", this)) {
+                return this;
+            }
+            var simultaneous = this.simultaneous;
+            otherRecognizer = getRecognizerByNameIfManager(otherRecognizer, this);
+            if (!simultaneous[otherRecognizer.id]) {
+                simultaneous[otherRecognizer.id] = otherRecognizer;
+                otherRecognizer.recognizeWith(this);
+            }
+            return this;
+        },
+        /**
+         * drop the simultaneous link. it doesnt remove the link on the other recognizer.
+         * @param {Recognizer} otherRecognizer
+         * @returns {Recognizer} this
+         */
+        dropRecognizeWith: function(otherRecognizer) {
+            if (invokeArrayArg(otherRecognizer, "dropRecognizeWith", this)) {
+                return this;
+            }
+            otherRecognizer = getRecognizerByNameIfManager(otherRecognizer, this);
+            delete this.simultaneous[otherRecognizer.id];
+            return this;
+        },
+        /**
+         * recognizer can only run when an other is failing
+         * @param {Recognizer} otherRecognizer
+         * @returns {Recognizer} this
+         */
+        requireFailure: function(otherRecognizer) {
+            if (invokeArrayArg(otherRecognizer, "requireFailure", this)) {
+                return this;
+            }
+            var requireFail = this.requireFail;
+            otherRecognizer = getRecognizerByNameIfManager(otherRecognizer, this);
+            if (inArray(requireFail, otherRecognizer) === -1) {
+                requireFail.push(otherRecognizer);
+                otherRecognizer.requireFailure(this);
+            }
+            return this;
+        },
+        /**
+         * drop the requireFailure link. it does not remove the link on the other recognizer.
+         * @param {Recognizer} otherRecognizer
+         * @returns {Recognizer} this
+         */
+        dropRequireFailure: function(otherRecognizer) {
+            if (invokeArrayArg(otherRecognizer, "dropRequireFailure", this)) {
+                return this;
+            }
+            otherRecognizer = getRecognizerByNameIfManager(otherRecognizer, this);
+            var index = inArray(this.requireFail, otherRecognizer);
+            if (index > -1) {
+                this.requireFail.splice(index, 1);
+            }
+            return this;
+        },
+        /**
+         * has require failures boolean
+         * @returns {boolean}
+         */
+        hasRequireFailures: function() {
+            return this.requireFail.length > 0;
+        },
+        /**
+         * if the recognizer can recognize simultaneous with an other recognizer
+         * @param {Recognizer} otherRecognizer
+         * @returns {Boolean}
+         */
+        canRecognizeWith: function(otherRecognizer) {
+            return !!this.simultaneous[otherRecognizer.id];
+        },
+        /**
+         * You should use `tryEmit` instead of `emit` directly to check
+         * that all the needed recognizers has failed before emitting.
+         * @param {Object} input
+         */
+        emit: function(input) {
+            var self = this;
+            var state = this.state;
+            function emit(withState) {
+                self.manager.emit(self.options.event + (withState ? stateStr(state) : ""), input);
+            }
+            // 'panstart' and 'panmove'
+            if (state < STATE_ENDED) {
+                emit(true);
+            }
+            emit();
+            // simple 'eventName' events
+            // panend and pancancel
+            if (state >= STATE_ENDED) {
+                emit(true);
+            }
+        },
+        /**
+         * Check that all the require failure recognizers has failed,
+         * if true, it emits a gesture event,
+         * otherwise, setup the state to FAILED.
+         * @param {Object} input
+         */
+        tryEmit: function(input) {
+            if (this.canEmit()) {
+                return this.emit(input);
+            }
+            // it's failing anyway
+            this.state = STATE_FAILED;
+        },
+        /**
+         * can we emit?
+         * @returns {boolean}
+         */
+        canEmit: function() {
+            var i = 0;
+            while (i < this.requireFail.length) {
+                if (!(this.requireFail[i].state & (STATE_FAILED | STATE_POSSIBLE))) {
+                    return false;
+                }
+                i++;
+            }
+            return true;
+        },
+        /**
+         * update the recognizer
+         * @param {Object} inputData
+         */
+        recognize: function(inputData) {
+            // make a new copy of the inputData
+            // so we can change the inputData without messing up the other recognizers
+            var inputDataClone = extend({}, inputData);
+            // is is enabled and allow recognizing?
+            if (!boolOrFn(this.options.enable, [ this, inputDataClone ])) {
+                this.reset();
+                this.state = STATE_FAILED;
+                return;
+            }
+            // reset when we've reached the end
+            if (this.state & (STATE_RECOGNIZED | STATE_CANCELLED | STATE_FAILED)) {
+                this.state = STATE_POSSIBLE;
+            }
+            this.state = this.process(inputDataClone);
+            // the recognizer has recognized a gesture
+            // so trigger an event
+            if (this.state & (STATE_BEGAN | STATE_CHANGED | STATE_ENDED | STATE_CANCELLED)) {
+                this.tryEmit(inputDataClone);
+            }
+        },
+        /**
+         * return the state of the recognizer
+         * the actual recognizing happens in this method
+         * @virtual
+         * @param {Object} inputData
+         * @returns {Const} STATE
+         */
+        process: function(inputData) {},
+        // jshint ignore:line
+        /**
+         * return the preferred touch-action
+         * @virtual
+         * @returns {Array}
+         */
+        getTouchAction: function() {},
+        /**
+         * called when the gesture isn't allowed to recognize
+         * like when another is being recognized or it is disabled
+         * @virtual
+         */
+        reset: function() {}
+    };
+    /**
+     * get a usable string, used as event postfix
+     * @param {Const} state
+     * @returns {String} state
+     */
+    function stateStr(state) {
+        if (state & STATE_CANCELLED) {
+            return "cancel";
+        } else if (state & STATE_ENDED) {
+            return "end";
+        } else if (state & STATE_CHANGED) {
+            return "move";
+        } else if (state & STATE_BEGAN) {
+            return "start";
+        }
+        return "";
+    }
+    /**
+     * direction cons to string
+     * @param {Const} direction
+     * @returns {String}
+     */
+    function directionStr(direction) {
+        if (direction == DIRECTION_DOWN) {
+            return "down";
+        } else if (direction == DIRECTION_UP) {
+            return "up";
+        } else if (direction == DIRECTION_LEFT) {
+            return "left";
+        } else if (direction == DIRECTION_RIGHT) {
+            return "right";
+        }
+        return "";
+    }
+    /**
+     * get a recognizer by name if it is bound to a manager
+     * @param {Recognizer|String} otherRecognizer
+     * @param {Recognizer} recognizer
+     * @returns {Recognizer}
+     */
+    function getRecognizerByNameIfManager(otherRecognizer, recognizer) {
+        var manager = recognizer.manager;
+        if (manager) {
+            return manager.get(otherRecognizer);
+        }
+        return otherRecognizer;
+    }
+    /**
+     * This recognizer is just used as a base for the simple attribute recognizers.
+     * @constructor
+     * @extends Recognizer
+     */
+    function AttrRecognizer() {
+        Recognizer.apply(this, arguments);
+    }
+    inherit(AttrRecognizer, Recognizer, {
+        /**
+         * @namespace
+         * @memberof AttrRecognizer
+         */
+        defaults: {
+            /**
+             * @type {Number}
+             * @default 1
+             */
+            pointers: 1
+        },
+        /**
+         * Used to check if it the recognizer receives valid input, like input.distance > 10.
+         * @memberof AttrRecognizer
+         * @param {Object} input
+         * @returns {Boolean} recognized
+         */
+        attrTest: function(input) {
+            var optionPointers = this.options.pointers;
+            return optionPointers === 0 || input.pointers.length === optionPointers;
+        },
+        /**
+         * Process the input and return the state for the recognizer
+         * @memberof AttrRecognizer
+         * @param {Object} input
+         * @returns {*} State
+         */
+        process: function(input) {
+            var state = this.state;
+            var eventType = input.eventType;
+            var isRecognized = state & (STATE_BEGAN | STATE_CHANGED);
+            var isValid = this.attrTest(input);
+            // on cancel input and we've recognized before, return STATE_CANCELLED
+            if (isRecognized && (eventType & INPUT_CANCEL || !isValid)) {
+                return state | STATE_CANCELLED;
+            } else if (isRecognized || isValid) {
+                if (eventType & INPUT_END) {
+                    return state | STATE_ENDED;
+                } else if (!(state & STATE_BEGAN)) {
+                    return STATE_BEGAN;
+                }
+                return state | STATE_CHANGED;
+            }
+            return STATE_FAILED;
+        }
+    });
+    /**
+     * Pan
+     * Recognized when the pointer is down and moved in the allowed direction.
+     * @constructor
+     * @extends AttrRecognizer
+     */
+    function PanRecognizer() {
+        AttrRecognizer.apply(this, arguments);
+        this.pX = null;
+        this.pY = null;
+    }
+    inherit(PanRecognizer, AttrRecognizer, {
+        /**
+         * @namespace
+         * @memberof PanRecognizer
+         */
+        defaults: {
+            event: "pan",
+            threshold: 10,
+            pointers: 1,
+            direction: DIRECTION_ALL
+        },
+        getTouchAction: function() {
+            var direction = this.options.direction;
+            var actions = [];
+            if (direction & DIRECTION_HORIZONTAL) {
+                actions.push(TOUCH_ACTION_PAN_Y);
+            }
+            if (direction & DIRECTION_VERTICAL) {
+                actions.push(TOUCH_ACTION_PAN_X);
+            }
+            return actions;
+        },
+        directionTest: function(input) {
+            var options = this.options;
+            var hasMoved = true;
+            var distance = input.distance;
+            var direction = input.direction;
+            var x = input.deltaX;
+            var y = input.deltaY;
+            // lock to axis?
+            if (!(direction & options.direction)) {
+                if (options.direction & DIRECTION_HORIZONTAL) {
+                    direction = x === 0 ? DIRECTION_NONE : x < 0 ? DIRECTION_LEFT : DIRECTION_RIGHT;
+                    hasMoved = x != this.pX;
+                    distance = Math.abs(input.deltaX);
                 } else {
-                    $warpHead.html("返回");
+                    direction = y === 0 ? DIRECTION_NONE : y < 0 ? DIRECTION_UP : DIRECTION_DOWN;
+                    hasMoved = y != this.pY;
+                    distance = Math.abs(input.deltaY);
                 }
-                $zoomWrap.addClass("am-active").find("img").width($(window).width());
-            });
-        });
-    };
-    $.fn.paragraphTable = function(objWidth) {
-        var This = $(this), distX = 0, disX = 0, disY = 0, downX, downY, $parent, scrollY;
-        if (objWidth > $("body").width()) {
-            This.wrap("<div class='am-paragraph-table-container'><div class='am-paragraph-table-scroller'></div></div>");
-            $parent = This.parent();
-            $parent.width(objWidth);
-            $parent.height(This.height());
-            $parent.parent().height(This.height() + 20);
-            $parent.on("touchstart MSPointerDown pointerdown", function(ev) {
-                var oTarget = ev.targetTouches[0];
-                distX = oTarget.clientX - $(this).offset().left;
-                downX = oTarget.clientX;
-                downY = oTarget.clientY;
-                scrollY = undefined;
-                $(document).on("touchmove MSPointerMove pointermove", fnMove);
-                $(document).on("touchend MSPointerUp pointerup", fnUp);
-            });
+            }
+            input.direction = direction;
+            return hasMoved && distance > options.threshold && direction & options.direction;
+        },
+        attrTest: function(input) {
+            return AttrRecognizer.prototype.attrTest.call(this, input) && (this.state & STATE_BEGAN || !(this.state & STATE_BEGAN) && this.directionTest(input));
+        },
+        emit: function(input) {
+            this.pX = input.deltaX;
+            this.pY = input.deltaY;
+            var direction = directionStr(input.direction);
+            if (direction) {
+                this.manager.emit(this.options.event + direction, input);
+            }
+            this._super.emit.call(this, input);
         }
-        function fnUp(ev) {
-            ev.preventDefault();
-            var oTarget = ev.changedTouches[0];
-            var L = $parent.offset().left;
-            // ->
-            if (L > 10) {
-                $parent.animate({
-                    left: 10
-                }, 500, "ease-out");
-            }
-            //<-
-            if (L < -$parent.width() + $(window).width() - 10) {
-                $parent.animate({
-                    left: -$parent.width() + $(window).width() - 10
-                }, 500, "ease-out");
-            }
-            $(document).off("touchend MSPointerUp pointerup", fnUp);
-            $(document).off("touchmove MSPointerMove pointermove", fnMove);
-        }
-        function fnMove(ev) {
-            var oTarget = ev.targetTouches[0];
-            disX = oTarget.clientX - downX;
-            disY = oTarget.clientY - downY;
-            if (typeof scrollY == "undefined") {
-                scrollY = !!(scrollY || Math.abs(disX) < Math.abs(disY));
-            }
-            if (!scrollY) {
-                ev.preventDefault();
-                This.parent().css("left", oTarget.clientX - distX);
+    });
+    /**
+     * Pinch
+     * Recognized when two or more pointers are moving toward (zoom-in) or away from each other (zoom-out).
+     * @constructor
+     * @extends AttrRecognizer
+     */
+    function PinchRecognizer() {
+        AttrRecognizer.apply(this, arguments);
+    }
+    inherit(PinchRecognizer, AttrRecognizer, {
+        /**
+         * @namespace
+         * @memberof PinchRecognizer
+         */
+        defaults: {
+            event: "pinch",
+            threshold: 0,
+            pointers: 2
+        },
+        getTouchAction: function() {
+            return [ TOUCH_ACTION_NONE ];
+        },
+        attrTest: function(input) {
+            return this._super.attrTest.call(this, input) && (Math.abs(input.scale - 1) > this.options.threshold || this.state & STATE_BEGAN);
+        },
+        emit: function(input) {
+            this._super.emit.call(this, input);
+            if (input.scale !== 1) {
+                var inOut = input.scale < 1 ? "in" : "out";
+                this.manager.emit(this.options.event + inOut, input);
             }
         }
-    };
-    paragraphInit = function() {
-        var $body = $("body"), $paragraph = $('[data-am-widget="paragraph"]'), $tableWidth;
-        $paragraph.each(function() {
-            var $this = $(this), options = UI.utils.parseOptions($this.attr("data-am-paragraph"));
-            if (options.imgLightbox) {
-                $this.find("img").paragraphZoomToggle();
-                $body.on("click", ".am-paragraph-wrap", function(e) {
-                    e.preventDefault();
-                    var target = e.target;
-                    // Img is using pinch zoom
-                    if (!$(target).is("img")) {
-                        $(this).toggleClass("am-active");
+    });
+    /**
+     * Press
+     * Recognized when the pointer is down for x ms without any movement.
+     * @constructor
+     * @extends Recognizer
+     */
+    function PressRecognizer() {
+        Recognizer.apply(this, arguments);
+        this._timer = null;
+        this._input = null;
+    }
+    inherit(PressRecognizer, Recognizer, {
+        /**
+         * @namespace
+         * @memberof PressRecognizer
+         */
+        defaults: {
+            event: "press",
+            pointers: 1,
+            time: 500,
+            // minimal time of the pointer to be pressed
+            threshold: 5
+        },
+        getTouchAction: function() {
+            return [ TOUCH_ACTION_AUTO ];
+        },
+        process: function(input) {
+            var options = this.options;
+            var validPointers = input.pointers.length === options.pointers;
+            var validMovement = input.distance < options.threshold;
+            var validTime = input.deltaTime > options.time;
+            this._input = input;
+            // we only allow little movement
+            // and we've reached an end event, so a tap is possible
+            if (!validMovement || !validPointers || input.eventType & (INPUT_END | INPUT_CANCEL) && !validTime) {
+                this.reset();
+            } else if (input.eventType & INPUT_START) {
+                this.reset();
+                this._timer = setTimeoutContext(function() {
+                    this.state = STATE_RECOGNIZED;
+                    this.tryEmit();
+                }, options.time, this);
+            } else if (input.eventType & INPUT_END) {
+                return STATE_RECOGNIZED;
+            }
+            return STATE_FAILED;
+        },
+        reset: function() {
+            clearTimeout(this._timer);
+        },
+        emit: function(input) {
+            if (this.state !== STATE_RECOGNIZED) {
+                return;
+            }
+            if (input && input.eventType & INPUT_END) {
+                this.manager.emit(this.options.event + "up", input);
+            } else {
+                this._input.timeStamp = now();
+                this.manager.emit(this.options.event, this._input);
+            }
+        }
+    });
+    /**
+     * Rotate
+     * Recognized when two or more pointer are moving in a circular motion.
+     * @constructor
+     * @extends AttrRecognizer
+     */
+    function RotateRecognizer() {
+        AttrRecognizer.apply(this, arguments);
+    }
+    inherit(RotateRecognizer, AttrRecognizer, {
+        /**
+         * @namespace
+         * @memberof RotateRecognizer
+         */
+        defaults: {
+            event: "rotate",
+            threshold: 0,
+            pointers: 2
+        },
+        getTouchAction: function() {
+            return [ TOUCH_ACTION_NONE ];
+        },
+        attrTest: function(input) {
+            return this._super.attrTest.call(this, input) && (Math.abs(input.rotation) > this.options.threshold || this.state & STATE_BEGAN);
+        }
+    });
+    /**
+     * Swipe
+     * Recognized when the pointer is moving fast (velocity), with enough distance in the allowed direction.
+     * @constructor
+     * @extends AttrRecognizer
+     */
+    function SwipeRecognizer() {
+        AttrRecognizer.apply(this, arguments);
+    }
+    inherit(SwipeRecognizer, AttrRecognizer, {
+        /**
+         * @namespace
+         * @memberof SwipeRecognizer
+         */
+        defaults: {
+            event: "swipe",
+            threshold: 10,
+            velocity: .65,
+            direction: DIRECTION_HORIZONTAL | DIRECTION_VERTICAL,
+            pointers: 1
+        },
+        getTouchAction: function() {
+            return PanRecognizer.prototype.getTouchAction.call(this);
+        },
+        attrTest: function(input) {
+            var direction = this.options.direction;
+            var velocity;
+            if (direction & (DIRECTION_HORIZONTAL | DIRECTION_VERTICAL)) {
+                velocity = input.velocity;
+            } else if (direction & DIRECTION_HORIZONTAL) {
+                velocity = input.velocityX;
+            } else if (direction & DIRECTION_VERTICAL) {
+                velocity = input.velocityY;
+            }
+            return this._super.attrTest.call(this, input) && direction & input.direction && input.distance > this.options.threshold && abs(velocity) > this.options.velocity && input.eventType & INPUT_END;
+        },
+        emit: function(input) {
+            var direction = directionStr(input.direction);
+            if (direction) {
+                this.manager.emit(this.options.event + direction, input);
+            }
+            this.manager.emit(this.options.event, input);
+        }
+    });
+    /**
+     * A tap is ecognized when the pointer is doing a small tap/click. Multiple taps are recognized if they occur
+     * between the given interval and position. The delay option can be used to recognize multi-taps without firing
+     * a single tap.
+     *
+     * The eventData from the emitted event contains the property `tapCount`, which contains the amount of
+     * multi-taps being recognized.
+     * @constructor
+     * @extends Recognizer
+     */
+    function TapRecognizer() {
+        Recognizer.apply(this, arguments);
+        // previous time and center,
+        // used for tap counting
+        this.pTime = false;
+        this.pCenter = false;
+        this._timer = null;
+        this._input = null;
+        this.count = 0;
+    }
+    inherit(TapRecognizer, Recognizer, {
+        /**
+         * @namespace
+         * @memberof PinchRecognizer
+         */
+        defaults: {
+            event: "tap",
+            pointers: 1,
+            taps: 1,
+            interval: 300,
+            // max time between the multi-tap taps
+            time: 250,
+            // max time of the pointer to be down (like finger on the screen)
+            threshold: 2,
+            // a minimal movement is ok, but keep it low
+            posThreshold: 10
+        },
+        getTouchAction: function() {
+            return [ TOUCH_ACTION_MANIPULATION ];
+        },
+        process: function(input) {
+            var options = this.options;
+            var validPointers = input.pointers.length === options.pointers;
+            var validMovement = input.distance < options.threshold;
+            var validTouchTime = input.deltaTime < options.time;
+            this.reset();
+            if (input.eventType & INPUT_START && this.count === 0) {
+                return this.failTimeout();
+            }
+            // we only allow little movement
+            // and we've reached an end event, so a tap is possible
+            if (validMovement && validTouchTime && validPointers) {
+                if (input.eventType != INPUT_END) {
+                    return this.failTimeout();
+                }
+                var validInterval = this.pTime ? input.timeStamp - this.pTime < options.interval : true;
+                var validMultiTap = !this.pCenter || getDistance(this.pCenter, input.center) < options.posThreshold;
+                this.pTime = input.timeStamp;
+                this.pCenter = input.center;
+                if (!validMultiTap || !validInterval) {
+                    this.count = 1;
+                } else {
+                    this.count += 1;
+                }
+                this._input = input;
+                // if tap count matches we have recognized it,
+                // else it has began recognizing...
+                var tapCount = this.count % options.taps;
+                if (tapCount === 0) {
+                    // no failing requirements, immediately trigger the tap event
+                    // or wait as long as the multitap interval to trigger
+                    if (!this.hasRequireFailures()) {
+                        return STATE_RECOGNIZED;
+                    } else {
+                        this._timer = setTimeoutContext(function() {
+                            this.state = STATE_RECOGNIZED;
+                            this.tryEmit();
+                        }, options.interval, this);
+                        return STATE_BEGAN;
                     }
-                });
+                }
             }
-            if (options.tableScrollable) {
-                $this.find("table").each(function() {
-                    $tableWidth = $(this).width();
-                    $(this).paragraphTable($tableWidth);
-                });
+            return STATE_FAILED;
+        },
+        failTimeout: function() {
+            this._timer = setTimeoutContext(function() {
+                this.state = STATE_FAILED;
+            }, this.options.interval, this);
+            return STATE_FAILED;
+        },
+        reset: function() {
+            clearTimeout(this._timer);
+        },
+        emit: function() {
+            if (this.state == STATE_RECOGNIZED) {
+                this._input.tapCount = this.count;
+                this.manager.emit(this.options.event, this._input);
             }
-        });
-    };
-    $(window).on("load", function() {
-        paragraphInit();
+        }
     });
-    exports.init = paragraphInit;
-});
-define("slider", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "zepto.flexslider" ], function(require, exports, module) {
-    require("core");
-    require("zepto.flexslider");
-    var $ = window.Zepto, UI = $.AMUI;
-    var sliderInit = function() {
-        var $sliders = $('[data-am-widget="slider"]');
-        $sliders.not(".am-slider-manual").each(function(i, item) {
-            var options = UI.utils.parseOptions($(item).attr("data-am-slider"));
-            $(item).flexslider(options);
+    /**
+     * Simple way to create an manager with a default set of recognizers.
+     * @param {HTMLElement} element
+     * @param {Object} [options]
+     * @constructor
+     */
+    function Hammer(element, options) {
+        options = options || {};
+        options.recognizers = ifUndefined(options.recognizers, Hammer.defaults.preset);
+        return new Manager(element, options);
+    }
+    /**
+     * @const {string}
+     */
+    Hammer.VERSION = "2.0.3";
+    /**
+     * default settings
+     * @namespace
+     */
+    Hammer.defaults = {
+        /**
+         * set if DOM events are being triggered.
+         * But this is slower and unused by simple implementations, so disabled by default.
+         * @type {Boolean}
+         * @default false
+         */
+        domEvents: false,
+        /**
+         * The value for the touchAction property/fallback.
+         * When set to `compute` it will magically set the correct value based on the added recognizers.
+         * @type {String}
+         * @default compute
+         */
+        touchAction: TOUCH_ACTION_COMPUTE,
+        /**
+         * @type {Boolean}
+         * @default true
+         */
+        enable: true,
+        /**
+         * EXPERIMENTAL FEATURE -- can be removed/changed
+         * Change the parent input target element.
+         * If Null, then it is being set the to main element.
+         * @type {Null|EventTarget}
+         * @default null
+         */
+        inputTarget: null,
+        /**
+         * force an input class
+         * @type {Null|Function}
+         * @default null
+         */
+        inputClass: null,
+        /**
+         * Default recognizer setup when calling `Hammer()`
+         * When creating a new Manager these will be skipped.
+         * @type {Array}
+         */
+        preset: [ // RecognizerClass, options, [recognizeWith, ...], [requireFailure, ...]
+        [ RotateRecognizer, {
+            enable: false
+        } ], [ PinchRecognizer, {
+            enable: false
+        }, [ "rotate" ] ], [ SwipeRecognizer, {
+            direction: DIRECTION_HORIZONTAL
+        } ], [ PanRecognizer, {
+            direction: DIRECTION_HORIZONTAL
+        }, [ "swipe" ] ], [ TapRecognizer ], [ TapRecognizer, {
+            event: "doubletap",
+            taps: 2
+        }, [ "tap" ] ], [ PressRecognizer ] ],
+        /**
+         * Some CSS properties can be used to improve the working of Hammer.
+         * Add them to this method and they will be set when creating a new Manager.
+         * @namespace
+         */
+        cssProps: {
+            /**
+             * Disables text selection to improve the dragging gesture. Mainly for desktop browsers.
+             * @type {String}
+             * @default 'none'
+             */
+            userSelect: "none",
+            /**
+             * Disable the Windows Phone grippers when pressing an element.
+             * @type {String}
+             * @default 'none'
+             */
+            touchSelect: "none",
+            /**
+             * Disables the default callout shown when you touch and hold a touch target.
+             * On iOS, when you touch and hold a touch target such as a link, Safari displays
+             * a callout containing information about the link. This property allows you to disable that callout.
+             * @type {String}
+             * @default 'none'
+             */
+            touchCallout: "none",
+            /**
+             * Specifies whether zooming is enabled. Used by IE10>
+             * @type {String}
+             * @default 'none'
+             */
+            contentZooming: "none",
+            /**
+             * Specifies that an entire element should be draggable instead of its contents. Mainly for desktop browsers.
+             * @type {String}
+             * @default 'none'
+             */
+            userDrag: "none",
+            /**
+             * Overrides the highlight color shown when the user taps a link or a JavaScript
+             * clickable element in iOS. This property obeys the alpha value, if specified.
+             * @type {String}
+             * @default 'rgba(0,0,0,0)'
+             */
+            tapHighlightColor: "rgba(0,0,0,0)"
+        }
+    };
+    var STOP = 1;
+    var FORCED_STOP = 2;
+    /**
+     * Manager
+     * @param {HTMLElement} element
+     * @param {Object} [options]
+     * @constructor
+     */
+    function Manager(element, options) {
+        options = options || {};
+        this.options = merge(options, Hammer.defaults);
+        this.options.inputTarget = this.options.inputTarget || element;
+        this.handlers = {};
+        this.session = {};
+        this.recognizers = [];
+        this.element = element;
+        this.input = createInputInstance(this);
+        this.touchAction = new TouchAction(this, this.options.touchAction);
+        toggleCssProps(this, true);
+        each(options.recognizers, function(item) {
+            var recognizer = this.add(new item[0](item[1]));
+            item[2] && recognizer.recognizeWith(item[2]);
+            item[3] && recognizer.requireFailure(item[3]);
+        }, this);
+    }
+    Manager.prototype = {
+        /**
+         * set options
+         * @param {Object} options
+         * @returns {Manager}
+         */
+        set: function(options) {
+            extend(this.options, options);
+            // Options that need a little more setup
+            if (options.touchAction) {
+                this.touchAction.update();
+            }
+            if (options.inputTarget) {
+                // Clean up existing event listeners and reinitialize
+                this.input.destroy();
+                this.input.target = options.inputTarget;
+                this.input.init();
+            }
+            return this;
+        },
+        /**
+         * stop recognizing for this session.
+         * This session will be discarded, when a new [input]start event is fired.
+         * When forced, the recognizer cycle is stopped immediately.
+         * @param {Boolean} [force]
+         */
+        stop: function(force) {
+            this.session.stopped = force ? FORCED_STOP : STOP;
+        },
+        /**
+         * run the recognizers!
+         * called by the inputHandler function on every movement of the pointers (touches)
+         * it walks through all the recognizers and tries to detect the gesture that is being made
+         * @param {Object} inputData
+         */
+        recognize: function(inputData) {
+            var session = this.session;
+            if (session.stopped) {
+                return;
+            }
+            // run the touch-action polyfill
+            this.touchAction.preventDefaults(inputData);
+            var recognizer;
+            var recognizers = this.recognizers;
+            // this holds the recognizer that is being recognized.
+            // so the recognizer's state needs to be BEGAN, CHANGED, ENDED or RECOGNIZED
+            // if no recognizer is detecting a thing, it is set to `null`
+            var curRecognizer = session.curRecognizer;
+            // reset when the last recognizer is recognized
+            // or when we're in a new session
+            if (!curRecognizer || curRecognizer && curRecognizer.state & STATE_RECOGNIZED) {
+                curRecognizer = session.curRecognizer = null;
+            }
+            var i = 0;
+            while (i < recognizers.length) {
+                recognizer = recognizers[i];
+                // find out if we are allowed try to recognize the input for this one.
+                // 1.   allow if the session is NOT forced stopped (see the .stop() method)
+                // 2.   allow if we still haven't recognized a gesture in this session, or the this recognizer is the one
+                //      that is being recognized.
+                // 3.   allow if the recognizer is allowed to run simultaneous with the current recognized recognizer.
+                //      this can be setup with the `recognizeWith()` method on the recognizer.
+                if (session.stopped !== FORCED_STOP && (// 1
+                !curRecognizer || recognizer == curRecognizer || // 2
+                recognizer.canRecognizeWith(curRecognizer))) {
+                    // 3
+                    recognizer.recognize(inputData);
+                } else {
+                    recognizer.reset();
+                }
+                // if the recognizer has been recognizing the input as a valid gesture, we want to store this one as the
+                // current active recognizer. but only if we don't already have an active recognizer
+                if (!curRecognizer && recognizer.state & (STATE_BEGAN | STATE_CHANGED | STATE_ENDED)) {
+                    curRecognizer = session.curRecognizer = recognizer;
+                }
+                i++;
+            }
+        },
+        /**
+         * get a recognizer by its event name.
+         * @param {Recognizer|String} recognizer
+         * @returns {Recognizer|Null}
+         */
+        get: function(recognizer) {
+            if (recognizer instanceof Recognizer) {
+                return recognizer;
+            }
+            var recognizers = this.recognizers;
+            for (var i = 0; i < recognizers.length; i++) {
+                if (recognizers[i].options.event == recognizer) {
+                    return recognizers[i];
+                }
+            }
+            return null;
+        },
+        /**
+         * add a recognizer to the manager
+         * existing recognizers with the same event name will be removed
+         * @param {Recognizer} recognizer
+         * @returns {Recognizer|Manager}
+         */
+        add: function(recognizer) {
+            if (invokeArrayArg(recognizer, "add", this)) {
+                return this;
+            }
+            // remove existing
+            var existing = this.get(recognizer.options.event);
+            if (existing) {
+                this.remove(existing);
+            }
+            this.recognizers.push(recognizer);
+            recognizer.manager = this;
+            this.touchAction.update();
+            return recognizer;
+        },
+        /**
+         * remove a recognizer by name or instance
+         * @param {Recognizer|String} recognizer
+         * @returns {Manager}
+         */
+        remove: function(recognizer) {
+            if (invokeArrayArg(recognizer, "remove", this)) {
+                return this;
+            }
+            var recognizers = this.recognizers;
+            recognizer = this.get(recognizer);
+            recognizers.splice(inArray(recognizers, recognizer), 1);
+            this.touchAction.update();
+            return this;
+        },
+        /**
+         * bind event
+         * @param {String} events
+         * @param {Function} handler
+         * @returns {EventEmitter} this
+         */
+        on: function(events, handler) {
+            var handlers = this.handlers;
+            each(splitStr(events), function(event) {
+                handlers[event] = handlers[event] || [];
+                handlers[event].push(handler);
+            });
+            return this;
+        },
+        /**
+         * unbind event, leave emit blank to remove all handlers
+         * @param {String} events
+         * @param {Function} [handler]
+         * @returns {EventEmitter} this
+         */
+        off: function(events, handler) {
+            var handlers = this.handlers;
+            each(splitStr(events), function(event) {
+                if (!handler) {
+                    delete handlers[event];
+                } else {
+                    handlers[event].splice(inArray(handlers[event], handler), 1);
+                }
+            });
+            return this;
+        },
+        /**
+         * emit event to the listeners
+         * @param {String} event
+         * @param {Object} data
+         */
+        emit: function(event, data) {
+            // we also want to trigger dom events
+            if (this.options.domEvents) {
+                triggerDomEvent(event, data);
+            }
+            // no handlers, so skip it all
+            var handlers = this.handlers[event] && this.handlers[event].slice();
+            if (!handlers || !handlers.length) {
+                return;
+            }
+            data.type = event;
+            data.preventDefault = function() {
+                data.srcEvent.preventDefault();
+            };
+            var i = 0;
+            while (i < handlers.length) {
+                handlers[i](data);
+                i++;
+            }
+        },
+        /**
+         * destroy the manager and unbinds all events
+         * it doesn't unbind dom events, that is the user own responsibility
+         */
+        destroy: function() {
+            this.element && toggleCssProps(this, false);
+            this.handlers = {};
+            this.session = {};
+            this.input.destroy();
+            this.element = null;
+        }
+    };
+    /**
+     * add/remove the css properties as defined in manager.options.cssProps
+     * @param {Manager} manager
+     * @param {Boolean} add
+     */
+    function toggleCssProps(manager, add) {
+        var element = manager.element;
+        each(manager.options.cssProps, function(value, name) {
+            element.style[prefixed(element.style, name)] = add ? value : "";
         });
-    };
-    $(document).on("ready", sliderInit);
-    exports.init = sliderInit;
-});
-define("sohucs", [], function(require, exports, module) {
-    var $ = window.Zepto;
-    var sohuCSInit = function() {
-        if (!$("#SOHUCS").length) return;
-        var $sohucs = $('[data-am-widget="sohucs"]'), appid = $sohucs.attr("data-am-sohucs-appid"), conf = $sohucs.attr("data-am-sohucs-conf"), $cy = $("<script></script>", {
-            charset: "utf-8",
-            id: "changyan_mobile_js",
-            src: "http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=" + appid + "&conf=" + conf
-        });
-        $("body").append($cy);
-    };
-    // Lazy load
-    $(window).on("load", sohuCSInit);
-    exports.init = sohuCSInit;
-});
-define("tabs", [ "zepto.extend.touch", "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "ui.tabs" ], function(require, exports, module) {
-    require("zepto.extend.touch");
-    require("core");
-    require("ui.tabs");
-    var $ = window.Zepto;
-    var tabsInit = function() {
-        $('[data-am-widget="tabs"]').tabs();
-    };
-    $(function() {
-        tabsInit();
+    }
+    /**
+     * trigger dom event
+     * @param {String} event
+     * @param {Object} data
+     */
+    function triggerDomEvent(event, data) {
+        var gestureEvent = document.createEvent("Event");
+        gestureEvent.initEvent(event, true, true);
+        gestureEvent.gesture = data;
+        data.target.dispatchEvent(gestureEvent);
+    }
+    extend(Hammer, {
+        INPUT_START: INPUT_START,
+        INPUT_MOVE: INPUT_MOVE,
+        INPUT_END: INPUT_END,
+        INPUT_CANCEL: INPUT_CANCEL,
+        STATE_POSSIBLE: STATE_POSSIBLE,
+        STATE_BEGAN: STATE_BEGAN,
+        STATE_CHANGED: STATE_CHANGED,
+        STATE_ENDED: STATE_ENDED,
+        STATE_RECOGNIZED: STATE_RECOGNIZED,
+        STATE_CANCELLED: STATE_CANCELLED,
+        STATE_FAILED: STATE_FAILED,
+        DIRECTION_NONE: DIRECTION_NONE,
+        DIRECTION_LEFT: DIRECTION_LEFT,
+        DIRECTION_RIGHT: DIRECTION_RIGHT,
+        DIRECTION_UP: DIRECTION_UP,
+        DIRECTION_DOWN: DIRECTION_DOWN,
+        DIRECTION_HORIZONTAL: DIRECTION_HORIZONTAL,
+        DIRECTION_VERTICAL: DIRECTION_VERTICAL,
+        DIRECTION_ALL: DIRECTION_ALL,
+        Manager: Manager,
+        Input: Input,
+        TouchAction: TouchAction,
+        TouchInput: TouchInput,
+        MouseInput: MouseInput,
+        PointerEventInput: PointerEventInput,
+        TouchMouseInput: TouchMouseInput,
+        Recognizer: Recognizer,
+        AttrRecognizer: AttrRecognizer,
+        Tap: TapRecognizer,
+        Pan: PanRecognizer,
+        Swipe: SwipeRecognizer,
+        Pinch: PinchRecognizer,
+        Rotate: RotateRecognizer,
+        Press: PressRecognizer,
+        on: addEventListeners,
+        off: removeEventListeners,
+        each: each,
+        merge: merge,
+        extend: extend,
+        inherit: inherit,
+        bindFn: bindFn,
+        prefixed: prefixed
     });
-    exports.init = tabsInit;
+    module.exports = Hammer;
+    function hammerify(el, options) {
+        var $el = $(el);
+        if (!$el.data("hammer")) {
+            $el.data("hammer", new Hammer($el[0], options));
+        }
+    }
+    // extend the emit method to also trigger jQuery events
+    Hammer.Manager.prototype.emit = function(originalEmit) {
+        return function(type, data) {
+            originalEmit.call(this, type, data);
+            // console.log('trigger....%s', type);
+            $(this.element).trigger({
+                type: type,
+                gesture: data
+            });
+        };
+    }(Hammer.Manager.prototype.emit);
+    $.fn.hammer = function(options) {
+        return this.each(function() {
+            hammerify(this, options);
+        });
+    };
 });
-define("titlebar", [], function(require, exports, module) {
+define("zepto.outerdemension", [], function(require, exports, module) {
     var $ = window.Zepto;
+    // Create outerHeight and outerWidth methods
+    [ "width", "height" ].forEach(function(dimension) {
+        var offset, Dimension = dimension.replace(/./, function(m) {
+            return m[0].toUpperCase();
+        });
+        $.fn["outer" + Dimension] = function(margin) {
+            var elem = this;
+            if (elem) {
+                var size = elem[dimension]();
+                var sides = {
+                    width: [ "left", "right" ],
+                    height: [ "top", "bottom" ]
+                };
+                sides[dimension].forEach(function(side) {
+                    if (margin) size += parseInt(elem.css("margin-" + side), 10);
+                });
+                return size;
+            } else {
+                return null;
+            }
+        };
+    });
+});
+define("zepto.extend.data", [], function(require, exports, module) {
+    var $ = window.Zepto;
+    //     Zepto.js
+    //     (c) 2010-2014 Thomas Fuchs
+    //     Zepto.js may be freely distributed under the MIT license.
+    // The following code is heavily inspired by jQuery's $.fn.data()
+    var data = {}, dataAttr = $.fn.data, camelize = $.camelCase, exp = $.expando = "Zepto" + +new Date(), emptyArray = [];
+    // Get value from node:
+    // 1. first try key as given,
+    // 2. then try camelized key,
+    // 3. fall back to reading "data-*" attribute.
+    function getData(node, name) {
+        var id = node[exp], store = id && data[id];
+        if (name === undefined) return store || setData(node); else {
+            if (store) {
+                if (name in store) return store[name];
+                var camelName = camelize(name);
+                if (camelName in store) return store[camelName];
+            }
+            return dataAttr.call($(node), name);
+        }
+    }
+    // Store value under camelized key on node
+    function setData(node, name, value) {
+        var id = node[exp] || (node[exp] = ++$.uuid), store = data[id] || (data[id] = attributeData(node));
+        if (name !== undefined) store[camelize(name)] = value;
+        return store;
+    }
+    // Read all "data-*" attributes from a node
+    function attributeData(node) {
+        var store = {};
+        $.each(node.attributes || emptyArray, function(i, attr) {
+            if (attr.name.indexOf("data-") == 0) store[camelize(attr.name.replace("data-", ""))] = $.zepto.deserializeValue(attr.value);
+        });
+        return store;
+    }
+    $.fn.data = function(name, value) {
+        return value === undefined ? // set multiple values via object
+        $.isPlainObject(name) ? this.each(function(i, node) {
+            $.each(name, function(key, value) {
+                setData(node, key, value);
+            });
+        }) : // get value from first element
+        0 in this ? getData(this[0], name) : undefined : // set value on all elements
+        this.each(function() {
+            setData(this, name, value);
+        });
+    };
+    $.fn.removeData = function(names) {
+        if (typeof names == "string") names = names.split(/\s+/);
+        return this.each(function() {
+            var id = this[exp], store = id && data[id];
+            if (store) $.each(names || store, function(key) {
+                delete store[names ? camelize(this) : key];
+            });
+        });
+    };
+    [ "remove", "empty" ].forEach(function(methodName) {
+        var origFn = $.fn[methodName];
+        $.fn[methodName] = function() {
+            var elements = this.find("*");
+            if (methodName === "remove") elements = elements.add(this);
+            elements.removeData();
+            return origFn.call(this);
+        };
+    });
+});
+define("zepto.extend.fx", [], function(require, exports, module) {
+    var $ = window.Zepto;
+    // Zepto.js
+    // (c) 2010-2014 Thomas Fuchs
+    // Zepto.js may be freely distributed under the MIT license.
+    var prefix = "", eventPrefix, endEventName, endAnimationName, vendors = {
+        Webkit: "webkit",
+        Moz: "",
+        O: "o"
+    }, document = window.document, testEl = document.createElement("div"), supportedTransforms = /^((translate|rotate|scale)(X|Y|Z|3d)?|matrix(3d)?|perspective|skew(X|Y)?)$/i, transform, transitionProperty, transitionDuration, transitionTiming, transitionDelay, animationName, animationDuration, animationTiming, animationDelay, cssReset = {};
+    function dasherize(str) {
+        return str.replace(/([a-z])([A-Z])/, "$1-$2").toLowerCase();
+    }
+    function normalizeEvent(name) {
+        return eventPrefix ? eventPrefix + name : name.toLowerCase();
+    }
+    $.each(vendors, function(vendor, event) {
+        if (testEl.style[vendor + "TransitionProperty"] !== undefined) {
+            prefix = "-" + vendor.toLowerCase() + "-";
+            eventPrefix = event;
+            return false;
+        }
+    });
+    transform = prefix + "transform";
+    cssReset[transitionProperty = prefix + "transition-property"] = cssReset[transitionDuration = prefix + "transition-duration"] = cssReset[transitionDelay = prefix + "transition-delay"] = cssReset[transitionTiming = prefix + "transition-timing-function"] = cssReset[animationName = prefix + "animation-name"] = cssReset[animationDuration = prefix + "animation-duration"] = cssReset[animationDelay = prefix + "animation-delay"] = cssReset[animationTiming = prefix + "animation-timing-function"] = "";
+    $.fx = {
+        off: eventPrefix === undefined && testEl.style.transitionProperty === undefined,
+        speeds: {
+            _default: 400,
+            fast: 200,
+            slow: 600
+        },
+        cssPrefix: prefix,
+        transitionEnd: normalizeEvent("TransitionEnd"),
+        animationEnd: normalizeEvent("AnimationEnd")
+    };
+    $.fn.animate = function(properties, duration, ease, callback, delay) {
+        if ($.isFunction(duration)) callback = duration, ease = undefined, duration = undefined;
+        if ($.isFunction(ease)) callback = ease, ease = undefined;
+        if ($.isPlainObject(duration)) ease = duration.easing, callback = duration.complete, 
+        delay = duration.delay, duration = duration.duration;
+        if (duration) duration = (typeof duration == "number" ? duration : $.fx.speeds[duration] || $.fx.speeds._default) / 1e3;
+        if (delay) delay = parseFloat(delay) / 1e3;
+        return this.anim(properties, duration, ease, callback, delay);
+    };
+    $.fn.anim = function(properties, duration, ease, callback, delay) {
+        var key, cssValues = {}, cssProperties, transforms = "", that = this, wrappedCallback, endEvent = $.fx.transitionEnd, fired = false;
+        if (duration === undefined) duration = $.fx.speeds._default / 1e3;
+        if (delay === undefined) delay = 0;
+        if ($.fx.off) duration = 0;
+        if (typeof properties == "string") {
+            // keyframe animation
+            cssValues[animationName] = properties;
+            cssValues[animationDuration] = duration + "s";
+            cssValues[animationDelay] = delay + "s";
+            cssValues[animationTiming] = ease || "linear";
+            endEvent = $.fx.animationEnd;
+        } else {
+            cssProperties = [];
+            // CSS transitions
+            for (key in properties) if (supportedTransforms.test(key)) transforms += key + "(" + properties[key] + ") "; else cssValues[key] = properties[key], 
+            cssProperties.push(dasherize(key));
+            if (transforms) cssValues[transform] = transforms, cssProperties.push(transform);
+            if (duration > 0 && typeof properties === "object") {
+                cssValues[transitionProperty] = cssProperties.join(", ");
+                cssValues[transitionDuration] = duration + "s";
+                cssValues[transitionDelay] = delay + "s";
+                cssValues[transitionTiming] = ease || "linear";
+            }
+        }
+        wrappedCallback = function(event) {
+            if (typeof event !== "undefined") {
+                if (event.target !== event.currentTarget) return;
+                // makes sure the event didn't bubble from "below"
+                $(event.target).unbind(endEvent, wrappedCallback);
+            } else $(this).unbind(endEvent, wrappedCallback);
+            // triggered by setTimeout
+            fired = true;
+            $(this).css(cssReset);
+            callback && callback.call(this);
+        };
+        if (duration > 0) {
+            this.bind(endEvent, wrappedCallback);
+            // transitionEnd is not always firing on older Android phones
+            // so make sure it gets fired
+            setTimeout(function() {
+                if (fired) return;
+                wrappedCallback.call(that);
+            }, duration * 1e3 + 25);
+        }
+        // trigger page reflow so new elements can animate
+        this.size() && this.get(0).clientLeft;
+        this.css(cssValues);
+        if (duration <= 0) setTimeout(function() {
+            that.each(function() {
+                wrappedCallback.call(this);
+            });
+        }, 0);
+        return this;
+    };
+    testEl = null;
+});
+define("zepto.extend.selector", [], function(require, exports, module) {
+    var $ = window.Zepto;
+    // Zepto.js
+    // (c) 2010-2014 Thomas Fuchs
+    // Zepto.js may be freely distributed under the MIT license.
+    var zepto = $.zepto, oldQsa = zepto.qsa, oldMatches = zepto.matches;
+    function visible(elem) {
+        elem = $(elem);
+        return !!(elem.width() || elem.height()) && elem.css("display") !== "none";
+    }
+    // Implements a subset from:
+    // http://api.jquery.com/category/selectors/jquery-selector-extensions/
+    //
+    // Each filter function receives the current index, all nodes in the
+    // considered set, and a value if there were parentheses. The value
+    // of `this` is the node currently being considered. The function returns the
+    // resulting node(s), null, or undefined.
+    //
+    // Complex selectors are not supported:
+    // li:has(label:contains("foo")) + li:has(label:contains("bar"))
+    // ul.inner:first > li
+    var filters = $.expr[":"] = {
+        visible: function() {
+            if (visible(this)) return this;
+        },
+        hidden: function() {
+            if (!visible(this)) return this;
+        },
+        selected: function() {
+            if (this.selected) return this;
+        },
+        checked: function() {
+            if (this.checked) return this;
+        },
+        parent: function() {
+            return this.parentNode;
+        },
+        first: function(idx) {
+            if (idx === 0) return this;
+        },
+        last: function(idx, nodes) {
+            if (idx === nodes.length - 1) return this;
+        },
+        eq: function(idx, _, value) {
+            if (idx === value) return this;
+        },
+        contains: function(idx, _, text) {
+            if ($(this).text().indexOf(text) > -1) return this;
+        },
+        has: function(idx, _, sel) {
+            if (zepto.qsa(this, sel).length) return this;
+        }
+    };
+    var filterRe = new RegExp("(.*):(\\w+)(?:\\(([^)]+)\\))?$\\s*"), childRe = /^\s*>/, classTag = "Zepto" + +new Date();
+    function process(sel, fn) {
+        // quote the hash in `a[href^=#]` expression
+        sel = sel.replace(/=#\]/g, '="#"]');
+        var filter, arg, match = filterRe.exec(sel);
+        if (match && match[2] in filters) {
+            filter = filters[match[2]], arg = match[3];
+            sel = match[1];
+            if (arg) {
+                var num = Number(arg);
+                if (isNaN(num)) arg = arg.replace(/^["']|["']$/g, ""); else arg = num;
+            }
+        }
+        return fn(sel, filter, arg);
+    }
+    zepto.qsa = function(node, selector) {
+        return process(selector, function(sel, filter, arg) {
+            try {
+                var taggedParent;
+                if (!sel && filter) sel = "*"; else if (childRe.test(sel)) // support "> *" child queries by tagging the parent node with a
+                // unique class and prepending that classname onto the selector
+                taggedParent = $(node).addClass(classTag), sel = "." + classTag + " " + sel;
+                var nodes = oldQsa(node, sel);
+            } catch (e) {
+                console.error("error performing selector: %o", selector);
+                throw e;
+            } finally {
+                if (taggedParent) taggedParent.removeClass(classTag);
+            }
+            return !filter ? nodes : zepto.uniq($.map(nodes, function(n, i) {
+                return filter.call(n, i, nodes, arg);
+            }));
+        });
+    };
+    zepto.matches = function(node, selector) {
+        return process(selector, function(sel, filter, arg) {
+            return (!sel || oldMatches(node, sel)) && (!filter || filter.call(node, null, arg) === node);
+        });
+    };
 });
 define("ui.add2home", [], function(require, exports, module) {
-    /*!
-     * Add to Homescreen v2.0.11 ~ Copyright (c) 2013 Matteo Spinelli, http://cubiq.org
-     * Released under MIT license, http://cubiq.org/license
+    var $ = window.Zepto;
+    /**
+     * Add to Homescreen v3.0.7
+     * @copyright (c) 2014 Matteo Spinelli
+     * @license: http://cubiq.org/license
      */
-    var addToHome = function(w) {
-        var nav = w.navigator, isIDevice = "platform" in nav && /iphone|ipod|ipad/gi.test(nav.platform), isIPad, isRetina, isSafari, isStandalone, OSVersion, startX = 0, startY = 0, lastVisit = 0, isExpired, isSessionActive, isReturningVisitor, balloon, overrideChecks, positionInterval, closeTimeout, options = {
-            autostart: true,
-            // Automatically open the balloon
-            returningVisitor: false,
-            // Show the balloon to returning visitors only (setting this to true is highly recommended)
-            animationIn: "drop",
-            // drop || bubble || fade
-            animationOut: "fade",
-            // drop || bubble || fade
-            startDelay: 2e3,
-            // 2 seconds from page load before the balloon appears
-            lifespan: 15e3,
-            // 15 seconds before it is automatically destroyed
-            bottomOffset: 14,
-            // Distance of the balloon from bottom
-            expire: 0,
-            // Minutes to wait before showing the popup again (0 = always displayed)
-            message: "",
-            // Customize your message or force a language ('' = automatic)
-            touchIcon: false,
-            // Display the touch icon
-            arrow: true,
-            // Display the balloon arrow
-            hookOnLoad: true,
-            // Should we hook to onload event? (really advanced usage)
-            closeButton: true,
-            // Let the user close the balloon
-            iterations: 100
-        }, intl = {
-            en_us: "Install this web app on your %device: tap %icon and then <strong>Add to Home Screen</strong>.",
-            zh_cn: "您可以将此应用安装到您的 %device 上。请按 %icon 然后选择<strong>添加至主屏幕</strong>。",
-            zh_tw: "您可以將此應用程式安裝到您的 %device 上。請按 %icon 然後點選<strong>加入主畫面螢幕</strong>。"
-        };
-        function init() {
-            // Preliminary check, all further checks are performed on iDevices only
-            if (!isIDevice) return;
-            var now = Date.now(), i;
-            // Merge local with global options
-            if (w.addToHomeConfig) {
-                for (i in w.addToHomeConfig) {
-                    options[i] = w.addToHomeConfig[i];
-                }
+    // Check if document is loaded, needed by autostart
+    var _DOMReady = false;
+    if (document.readyState === "complete") {
+        _DOMReady = true;
+    } else {
+        window.addEventListener("load", loaded, false);
+    }
+    function loaded() {
+        window.removeEventListener("load", loaded, false);
+        _DOMReady = true;
+    }
+    // regex used to detect if app has been added to the homescreen
+    var _reSmartURL = /\/ath(\/)?$/;
+    var _reQueryString = /([\?&]ath=[^&]*$|&ath=[^&]*(&))/;
+    // singleton
+    var _instance;
+    function ath(options) {
+        _instance = _instance || new ath.Class(options);
+        return _instance;
+    }
+    // message in all supported languages
+    ath.intl = {
+        en_us: {
+            message: "To add this web app to the home screen: tap %icon and then <strong>%action</strong>.",
+            action: {
+                ios: "Add to Home Screen",
+                android: "Add to homescreen",
+                windows: "pin to start"
             }
-            if (!options.autostart) options.hookOnLoad = false;
-            isIPad = /ipad/gi.test(nav.platform);
-            isRetina = w.devicePixelRatio && w.devicePixelRatio > 1;
-            isSafari = /Safari/i.test(nav.appVersion) && !/CriOS/i.test(nav.appVersion);
-            isStandalone = nav.standalone;
-            OSVersion = nav.appVersion.match(/OS (\d+_\d+)/i);
-            OSVersion = OSVersion && OSVersion[1] ? +OSVersion[1].replace("_", ".") : 0;
-            lastVisit = +w.localStorage.getItem("addToHome");
-            isSessionActive = w.sessionStorage.getItem("addToHomeSession");
-            isReturningVisitor = options.returningVisitor ? lastVisit && lastVisit + 28 * 24 * 60 * 60 * 1e3 > now : true;
-            if (!lastVisit) lastVisit = now;
-            // If it is expired we need to reissue a new balloon
-            isExpired = isReturningVisitor && lastVisit <= now;
-            if (options.hookOnLoad) w.addEventListener("load", loaded, false); else if (!options.hookOnLoad && options.autostart) loaded();
+        },
+        zh_cn: {
+            message: "如要把应用程式加至主屏幕,请点击%icon, 然后<strong>%action</strong>",
+            action: {
+                ios: "加至主屏幕",
+                android: "加至主屏幕",
+                windows: "按住启动"
+            }
+        },
+        zh_tw: {
+            message: "如要把應用程式加至主屏幕, 請點擊%icon, 然後<strong>%action</strong>.",
+            action: {
+                ios: "加至主屏幕",
+                android: "加至主屏幕",
+                windows: "按住啟動"
+            }
         }
-        function loaded() {
-            w.removeEventListener("load", loaded, false);
-            if (!isReturningVisitor) w.localStorage.setItem("addToHome", Date.now()); else if (options.expire && isExpired) w.localStorage.setItem("addToHome", Date.now() + options.expire * 6e4);
-            if (!overrideChecks && (!isSafari || !isExpired || isSessionActive || isStandalone || !isReturningVisitor)) return;
-            var touchIcon = "", platform = nav.platform.split(" ")[0], language = nav.language.replace("-", "_");
-            balloon = document.createElement("div");
-            balloon.id = "addToHomeScreen";
-            balloon.style.cssText += "left:-9999px;-webkit-transition-property:-webkit-transform,opacity;-webkit-transition-duration:0;-webkit-transform:translate3d(0,0,0);position:" + (OSVersion < 5 ? "absolute" : "fixed");
-            // Localize message
-            if (options.message in intl) {
-                // You may force a language despite the user's locale
-                language = options.message;
-                options.message = "";
-            }
-            if (options.message === "") {
-                // We look for a suitable language (defaulted to en_us)
-                options.message = language in intl ? intl[language] : intl["en_us"];
-            }
-            if (options.touchIcon) {
-                touchIcon = isRetina ? document.querySelector('head link[rel^=apple-touch-icon][sizes="114x114"],head link[rel^=apple-touch-icon][sizes="144x144"],head link[rel^=apple-touch-icon]') : document.querySelector('head link[rel^=apple-touch-icon][sizes="57x57"],head link[rel^=apple-touch-icon]');
-                if (touchIcon) {
-                    touchIcon = '<span style="background-image:url(' + touchIcon.href + ')" class="addToHomeTouchIcon"></span>';
-                }
-            }
-            balloon.className = (OSVersion >= 7 ? "addToHomeIOS7 " : "") + (isIPad ? "addToHomeIpad" : "addToHomeIphone") + (touchIcon ? " addToHomeWide" : "");
-            balloon.innerHTML = touchIcon + options.message.replace("%device", platform).replace("%icon", OSVersion >= 4.2 ? '<span class="addToHomeShare"></span>' : '<span class="addToHomePlus">+</span>') + (options.arrow ? '<span class="addToHomeArrow"' + (OSVersion >= 7 && isIPad && touchIcon ? ' style="margin-left:-32px"' : "") + "></span>" : "") + (options.closeButton ? '<span class="addToHomeClose">×</span>' : "");
-            document.body.appendChild(balloon);
-            // Add the close action
-            if (options.closeButton) balloon.addEventListener("click", clicked, false);
-            if (!isIPad && OSVersion >= 6) window.addEventListener("orientationchange", orientationCheck, false);
-            setTimeout(show, options.startDelay);
+    };
+    // Add 2 characters language support (Android mostly)
+    for (var lang in ath.intl) {
+        ath.intl[lang.substr(0, 2)] = ath.intl[lang];
+    }
+    // default options
+    ath.defaults = {
+        appID: "org.cubiq.addtohome",
+        // local storage name (no need to change)
+        fontSize: 15,
+        // base font size, used to properly resize the popup based on viewport scale factor
+        debug: false,
+        // override browser checks
+        modal: false,
+        // prevent further actions until the message is closed
+        mandatory: false,
+        // you can't proceed if you don't add the app to the homescreen
+        autostart: true,
+        // show the message automatically
+        skipFirstVisit: false,
+        // show only to returning visitors (ie: skip the first time you visit)
+        startDelay: 1,
+        // display the message after that many seconds from page load
+        lifespan: 15,
+        // life of the message in seconds
+        displayPace: 1440,
+        // minutes before the message is shown again (0: display every time, default 24 hours)
+        maxDisplayCount: 0,
+        // absolute maximum number of times the message will be shown to the user (0: no limit)
+        icon: true,
+        // add touch icon to the message
+        message: "",
+        // the message can be customized
+        validLocation: [],
+        // list of pages where the message will be shown (array of regexes)
+        onInit: null,
+        // executed on instance creation
+        onShow: null,
+        // executed when the message is shown
+        onRemove: null,
+        // executed when the message is removed
+        onAdd: null,
+        // when the application is launched the first time from the homescreen (guesstimate)
+        onPrivate: null,
+        // executed if user is in private mode
+        detectHomescreen: false
+    };
+    // browser info and capability
+    var _ua = window.navigator.userAgent;
+    var _nav = window.navigator;
+    _extend(ath, {
+        hasToken: document.location.hash == "#ath" || _reSmartURL.test(document.location.href) || _reQueryString.test(document.location.search),
+        isRetina: window.devicePixelRatio && window.devicePixelRatio > 1,
+        isIDevice: /iphone|ipod|ipad/i.test(_ua),
+        isMobileChrome: _ua.indexOf("Android") > -1 && /Chrome\/[.0-9]*/.test(_ua),
+        isMobileIE: _ua.indexOf("Windows Phone") > -1,
+        language: _nav.language && _nav.language.toLowerCase().replace("-", "_") || ""
+    });
+    // falls back to en_us if language is unsupported
+    ath.language = ath.language && ath.language in ath.intl ? ath.language : "en_us";
+    ath.isMobileSafari = ath.isIDevice && _ua.indexOf("Safari") > -1 && _ua.indexOf("CriOS") < 0;
+    ath.OS = ath.isIDevice ? "ios" : ath.isMobileChrome ? "android" : ath.isMobileIE ? "windows" : "unsupported";
+    ath.OSVersion = _ua.match(/(OS|Android) (\d+[_\.]\d+)/);
+    ath.OSVersion = ath.OSVersion && ath.OSVersion[2] ? +ath.OSVersion[2].replace("_", ".") : 0;
+    ath.isStandalone = window.navigator.standalone || ath.isMobileChrome && screen.height - document.documentElement.clientHeight < 40;
+    // TODO: check the lame polyfill
+    ath.isTablet = ath.isMobileSafari && _ua.indexOf("iPad") > -1 || ath.isMobileChrome && _ua.indexOf("Mobile") < 0;
+    ath.isCompatible = ath.isMobileSafari && ath.OSVersion >= 6 || ath.isMobileChrome;
+    // TODO: add winphone
+    var _defaultSession = {
+        lastDisplayTime: 0,
+        // last time we displayed the message
+        returningVisitor: false,
+        // is this the first time you visit
+        displayCount: 0,
+        // number of times the message has been shown
+        optedout: false,
+        // has the user opted out
+        added: false
+    };
+    ath.removeSession = function(appID) {
+        try {
+            localStorage.removeItem(appID || ath.defaults.appID);
+        } catch (e) {}
+    };
+    ath.Class = function(options) {
+        // merge default options with user config
+        this.options = _extend({}, ath.defaults);
+        _extend(this.options, options);
+        // normalize some options
+        this.options.mandatory = this.options.mandatory && ("standalone" in window.navigator || this.options.debug);
+        this.options.modal = this.options.modal || this.options.mandatory;
+        if (this.options.mandatory) {
+            this.options.startDelay = -.5;
         }
-        function show() {
-            var duration, iPadXShift = 208;
-            // Set the initial position
-            if (isIPad) {
-                if (OSVersion < 5) {
-                    startY = w.scrollY;
-                    startX = w.scrollX;
-                } else if (OSVersion < 6) {
-                    iPadXShift = 160;
-                } else if (OSVersion >= 7) {
-                    iPadXShift = 143;
-                }
-                balloon.style.top = startY + options.bottomOffset + "px";
-                balloon.style.left = Math.max(startX + iPadXShift - Math.round(balloon.offsetWidth / 2), 9) + "px";
-                switch (options.animationIn) {
-                  case "drop":
-                    duration = "0.6s";
-                    balloon.style.webkitTransform = "translate3d(0," + -(w.scrollY + options.bottomOffset + balloon.offsetHeight) + "px,0)";
-                    break;
-
-                  case "bubble":
-                    duration = "0.6s";
-                    balloon.style.opacity = "0";
-                    balloon.style.webkitTransform = "translate3d(0," + (startY + 50) + "px,0)";
-                    break;
-
-                  default:
-                    duration = "1s";
-                    balloon.style.opacity = "0";
-                }
-            } else {
-                startY = w.innerHeight + w.scrollY;
-                if (OSVersion < 5) {
-                    startX = Math.round((w.innerWidth - balloon.offsetWidth) / 2) + w.scrollX;
-                    balloon.style.left = startX + "px";
-                    balloon.style.top = startY - balloon.offsetHeight - options.bottomOffset + "px";
-                } else {
-                    balloon.style.left = "50%";
-                    balloon.style.marginLeft = -Math.round(balloon.offsetWidth / 2) - (w.orientation % 180 && OSVersion >= 6 && OSVersion < 7 ? 40 : 0) + "px";
-                    balloon.style.bottom = options.bottomOffset + "px";
-                }
-                switch (options.animationIn) {
-                  case "drop":
-                    duration = "1s";
-                    balloon.style.webkitTransform = "translate3d(0," + -(startY + options.bottomOffset) + "px,0)";
-                    break;
-
-                  case "bubble":
-                    duration = "0.6s";
-                    balloon.style.webkitTransform = "translate3d(0," + (balloon.offsetHeight + options.bottomOffset + 50) + "px,0)";
-                    break;
-
-                  default:
-                    duration = "1s";
-                    balloon.style.opacity = "0";
-                }
-            }
-            balloon.offsetHeight;
-            // repaint trick
-            balloon.style.webkitTransitionDuration = duration;
-            balloon.style.opacity = "1";
-            balloon.style.webkitTransform = "translate3d(0,0,0)";
-            balloon.addEventListener("webkitTransitionEnd", transitionEnd, false);
-            closeTimeout = setTimeout(close, options.lifespan);
+        this.options.detectHomescreen = this.options.detectHomescreen === true ? "hash" : this.options.detectHomescreen;
+        // setup the debug environment
+        if (this.options.debug) {
+            ath.isCompatible = true;
+            ath.OS = typeof this.options.debug == "string" ? this.options.debug : ath.OS == "unsupported" ? "android" : ath.OS;
+            ath.OSVersion = ath.OS == "ios" ? "7" : "4";
         }
-        function manualShow(override) {
-            if (!isIDevice || balloon) return;
-            overrideChecks = override;
-            loaded();
+        // the element the message will be appended to
+        this.container = document.documentElement;
+        // load session
+        this.session = JSON.parse(localStorage.getItem(this.options.appID));
+        // user most likely came from a direct link containing our token, we don't need it and we remove it
+        if (ath.hasToken && (!ath.isCompatible || !this.session)) {
+            ath.hasToken = false;
+            _removeToken();
         }
-        function close() {
-            clearInterval(positionInterval);
-            clearTimeout(closeTimeout);
-            closeTimeout = null;
-            // check if the popup is displayed and prevent errors
-            if (!balloon) return;
-            var posY = 0, posX = 0, opacity = "1", duration = "0";
-            if (options.closeButton) balloon.removeEventListener("click", clicked, false);
-            if (!isIPad && OSVersion >= 6) window.removeEventListener("orientationchange", orientationCheck, false);
-            if (OSVersion < 5) {
-                posY = isIPad ? w.scrollY - startY : w.scrollY + w.innerHeight - startY;
-                posX = isIPad ? w.scrollX - startX : w.scrollX + Math.round((w.innerWidth - balloon.offsetWidth) / 2) - startX;
+        // the device is not supported
+        if (!ath.isCompatible) {
+            return;
+        }
+        this.session = this.session || _defaultSession;
+        // check if we can use the local storage
+        try {
+            localStorage.setItem(this.options.appID, JSON.stringify(this.session));
+            ath.hasLocalStorage = true;
+        } catch (e) {
+            // we are most likely in private mode
+            ath.hasLocalStorage = false;
+            if (this.options.onPrivate) {
+                this.options.onPrivate.call(this);
             }
-            balloon.style.webkitTransitionProperty = "-webkit-transform,opacity";
-            switch (options.animationOut) {
-              case "drop":
-                if (isIPad) {
-                    duration = "0.4s";
-                    opacity = "0";
-                    posY += 50;
-                } else {
-                    duration = "0.6s";
-                    posY += balloon.offsetHeight + options.bottomOffset + 50;
-                }
+        }
+        // check if this is a valid location
+        var isValidLocation = !this.options.validLocation.length;
+        for (var i = this.options.validLocation.length; i--; ) {
+            if (this.options.validLocation[i].test(document.location.href)) {
+                isValidLocation = true;
                 break;
-
-              case "bubble":
-                if (isIPad) {
-                    duration = "0.8s";
-                    posY -= balloon.offsetHeight + options.bottomOffset + 50;
-                } else {
-                    duration = "0.4s";
-                    opacity = "0";
-                    posY -= 50;
-                }
-                break;
-
-              default:
-                duration = "0.8s";
-                opacity = "0";
             }
-            balloon.addEventListener("webkitTransitionEnd", transitionEnd, false);
-            balloon.style.opacity = opacity;
-            balloon.style.webkitTransitionDuration = duration;
-            balloon.style.webkitTransform = "translate3d(" + posX + "px," + posY + "px,0)";
         }
-        function clicked() {
-            w.sessionStorage.setItem("addToHomeSession", "1");
-            isSessionActive = true;
-            close();
+        // check compatibility with old versions of add to homescreen. Opt-out if an old session is found
+        if (localStorage.getItem("addToHome")) {
+            this.optOut();
         }
-        function transitionEnd() {
-            balloon.removeEventListener("webkitTransitionEnd", transitionEnd, false);
-            balloon.style.webkitTransitionProperty = "-webkit-transform";
-            balloon.style.webkitTransitionDuration = "0.2s";
-            // We reached the end!
-            if (!closeTimeout) {
-                balloon.parentNode.removeChild(balloon);
-                balloon = null;
+        // critical errors:
+        // user opted out, already added to the homescreen, not a valid location
+        if (this.session.optedout || this.session.added || !isValidLocation) {
+            return;
+        }
+        // check if the app is in stand alone mode
+        if (ath.isStandalone) {
+            // execute the onAdd event if we haven't already
+            if (!this.session.added) {
+                this.session.added = true;
+                this.updateSession();
+                if (this.options.onAdd && ath.hasLocalStorage) {
+                    // double check on localstorage to avoid multiple calls to the custom event
+                    this.options.onAdd.call(this);
+                }
+            }
+            return;
+        }
+        // (try to) check if the page has been added to the homescreen
+        if (this.options.detectHomescreen) {
+            // the URL has the token, we are likely coming from the homescreen
+            if (ath.hasToken) {
+                _removeToken();
+                // we don't actually need the token anymore, we remove it to prevent redistribution
+                // this is called the first time the user opens the app from the homescreen
+                if (!this.session.added) {
+                    this.session.added = true;
+                    this.updateSession();
+                    if (this.options.onAdd && ath.hasLocalStorage) {
+                        // double check on localstorage to avoid multiple calls to the custom event
+                        this.options.onAdd.call(this);
+                    }
+                }
                 return;
             }
-            // On iOS 4 we start checking the element position
-            if (OSVersion < 5 && closeTimeout) positionInterval = setInterval(setPosition, options.iterations);
+            // URL doesn't have the token, so add it
+            if (this.options.detectHomescreen == "hash") {
+                history.replaceState("", window.document.title, document.location.href + "#ath");
+            } else if (this.options.detectHomescreen == "smartURL") {
+                history.replaceState("", window.document.title, document.location.href.replace(/(\/)?$/, "/ath$1"));
+            } else {
+                history.replaceState("", window.document.title, document.location.href + (document.location.search ? "&" : "?") + "ath=");
+            }
         }
-        function setPosition() {
-            var matrix = new WebKitCSSMatrix(w.getComputedStyle(balloon, null).webkitTransform), posY = isIPad ? w.scrollY - startY : w.scrollY + w.innerHeight - startY, posX = isIPad ? w.scrollX - startX : w.scrollX + Math.round((w.innerWidth - balloon.offsetWidth) / 2) - startX;
-            // Screen didn't move
-            if (posY == matrix.m42 && posX == matrix.m41) return;
-            balloon.style.webkitTransform = "translate3d(" + posX + "px," + posY + "px,0)";
+        // check if this is a returning visitor
+        if (!this.session.returningVisitor) {
+            this.session.returningVisitor = true;
+            this.updateSession();
+            // we do not show the message if this is your first visit
+            if (this.options.skipFirstVisit) {
+                return;
+            }
         }
-        // Clear local and session storages (this is useful primarily in development)
-        function reset() {
-            w.localStorage.removeItem("addToHome");
-            w.sessionStorage.removeItem("addToHomeSession");
+        // we do no show the message in private mode
+        if (!ath.hasLocalStorage) {
+            return;
         }
-        function orientationCheck() {
-            balloon.style.marginLeft = -Math.round(balloon.offsetWidth / 2) - (w.orientation % 180 && OSVersion >= 6 && OSVersion < 7 ? 40 : 0) + "px";
+        // all checks passed, ready to display
+        this.ready = true;
+        if (this.options.onInit) {
+            this.options.onInit.call(this);
         }
-        // Bootstrap!
-        init();
-        return {
-            show: manualShow,
-            close: close,
-            reset: reset
-        };
-    }(window);
+        if (this.options.autostart) {
+            this.show();
+        }
+    };
+    ath.Class.prototype = {
+        // event type to method conversion
+        events: {
+            load: "_delayedShow",
+            error: "_delayedShow",
+            orientationchange: "resize",
+            resize: "resize",
+            scroll: "resize",
+            click: "remove",
+            touchmove: "_preventDefault",
+            transitionend: "_removeElements",
+            webkitTransitionEnd: "_removeElements",
+            MSTransitionEnd: "_removeElements"
+        },
+        handleEvent: function(e) {
+            var type = this.events[e.type];
+            if (type) {
+                this[type](e);
+            }
+        },
+        show: function(force) {
+            // in autostart mode wait for the document to be ready
+            if (this.options.autostart && !_DOMReady) {
+                setTimeout(this.show.bind(this), 50);
+                return;
+            }
+            // message already on screen
+            if (this.shown) {
+                return;
+            }
+            var now = Date.now();
+            var lastDisplayTime = this.session.lastDisplayTime;
+            if (force !== true) {
+                // this is needed if autostart is disabled and you programmatically call the show() method
+                if (!this.ready) {
+                    return;
+                }
+                // we obey the display pace (prevent the message to popup too often)
+                if (now - lastDisplayTime < this.options.displayPace * 6e4) {
+                    return;
+                }
+                // obey the maximum number of display count
+                if (this.options.maxDisplayCount && this.session.displayCount >= this.options.maxDisplayCount) {
+                    return;
+                }
+            }
+            this.shown = true;
+            // increment the display count
+            this.session.lastDisplayTime = now;
+            this.session.displayCount++;
+            this.updateSession();
+            // try to get the highest resolution application icon
+            if (!this.applicationIcon) {
+                if (ath.OS == "ios") {
+                    this.applicationIcon = document.querySelector('head link[rel^=apple-touch-icon][sizes="152x152"],head link[rel^=apple-touch-icon][sizes="144x144"],head link[rel^=apple-touch-icon][sizes="120x120"],head link[rel^=apple-touch-icon][sizes="114x114"],head link[rel^=apple-touch-icon]');
+                } else {
+                    this.applicationIcon = document.querySelector('head link[rel^="shortcut icon"][sizes="196x196"],head link[rel^=apple-touch-icon]');
+                }
+            }
+            var message = "";
+            if (this.options.message in ath.intl) {
+                // you can force the locale
+                message = ath.intl[this.options.message].message.replace("%action", ath.intl[this.options.message].action[ath.OS]);
+            } else if (this.options.message !== "") {
+                // or use a custom message
+                message = this.options.message;
+            } else {
+                // otherwise we use our message
+                message = ath.intl[ath.language].message.replace("%action", ath.intl[ath.language].action[ath.OS]);
+            }
+            // add the action icon
+            message = "<p>" + message.replace("%icon", '<span class="ath-action-icon">icon</span>') + "</p>";
+            // create the message container
+            this.viewport = document.createElement("div");
+            this.viewport.className = "ath-viewport";
+            if (this.options.modal) {
+                this.viewport.className += " ath-modal";
+            }
+            if (this.options.mandatory) {
+                this.viewport.className += " ath-mandatory";
+            }
+            this.viewport.style.position = "absolute";
+            // create the actual message element
+            this.element = document.createElement("div");
+            this.element.className = "ath-container ath-" + ath.OS + " ath-" + ath.OS + (ath.OSVersion + "").substr(0, 1) + " ath-" + (ath.isTablet ? "tablet" : "phone");
+            this.element.style.cssText = "-webkit-transition-property:-webkit-transform,opacity;-webkit-transition-duration:0;-webkit-transform:translate3d(0,0,0);transition-property:transform,opacity;transition-duration:0;transform:translate3d(0,0,0);-webkit-transition-timing-function:ease-out";
+            this.element.style.webkitTransform = "translate3d(0,-" + window.innerHeight + "px,0)";
+            this.element.style.webkitTransitionDuration = "0s";
+            // add the application icon
+            if (this.options.icon && this.applicationIcon) {
+                this.element.className += " ath-icon";
+                this.img = document.createElement("img");
+                this.img.className = "ath-application-icon";
+                this.img.addEventListener("load", this, false);
+                this.img.addEventListener("error", this, false);
+                this.img.src = this.applicationIcon.href;
+                this.element.appendChild(this.img);
+            }
+            this.element.innerHTML += message;
+            // we are not ready to show, place the message out of sight
+            this.viewport.style.left = "-99999em";
+            // attach all elements to the DOM
+            this.viewport.appendChild(this.element);
+            this.container.appendChild(this.viewport);
+            // if we don't have to wait for an image to load, show the message right away
+            if (!this.img) {
+                this._delayedShow();
+            }
+        },
+        _delayedShow: function(e) {
+            setTimeout(this._show.bind(this), this.options.startDelay * 1e3 + 500);
+        },
+        _show: function() {
+            var that = this;
+            // update the viewport size and orientation
+            this.updateViewport();
+            // reposition/resize the message on orientation change
+            window.addEventListener("resize", this, false);
+            window.addEventListener("scroll", this, false);
+            window.addEventListener("orientationchange", this, false);
+            if (this.options.modal) {
+                // lock any other interaction
+                document.addEventListener("touchmove", this, true);
+            }
+            // Enable closing after 1 second
+            if (!this.options.mandatory) {
+                setTimeout(function() {
+                    that.element.addEventListener("click", that, true);
+                }, 1e3);
+            }
+            // kick the animation
+            setTimeout(function() {
+                that.element.style.webkitTransform = "translate3d(0,0,0)";
+                that.element.style.webkitTransitionDuration = "1.2s";
+            }, 0);
+            // set the destroy timer
+            if (this.options.lifespan) {
+                this.removeTimer = setTimeout(this.remove.bind(this), this.options.lifespan * 1e3);
+            }
+            // fire the custom onShow event
+            if (this.options.onShow) {
+                this.options.onShow.call(this);
+            }
+        },
+        remove: function() {
+            clearTimeout(this.removeTimer);
+            // clear up the event listeners
+            if (this.img) {
+                this.img.removeEventListener("load", this, false);
+                this.img.removeEventListener("error", this, false);
+            }
+            window.removeEventListener("resize", this, false);
+            window.removeEventListener("scroll", this, false);
+            window.removeEventListener("orientationchange", this, false);
+            document.removeEventListener("touchmove", this, true);
+            this.element.removeEventListener("click", this, true);
+            // remove the message element on transition end
+            this.element.addEventListener("transitionend", this, false);
+            this.element.addEventListener("webkitTransitionEnd", this, false);
+            this.element.addEventListener("MSTransitionEnd", this, false);
+            // start the fade out animation
+            this.element.style.webkitTransitionDuration = "0.3s";
+            this.element.style.opacity = "0";
+        },
+        _removeElements: function() {
+            this.element.removeEventListener("transitionend", this, false);
+            this.element.removeEventListener("webkitTransitionEnd", this, false);
+            this.element.removeEventListener("MSTransitionEnd", this, false);
+            // remove the message from the DOM
+            this.container.removeChild(this.viewport);
+            this.shown = false;
+            // fire the custom onRemove event
+            if (this.options.onRemove) {
+                this.options.onRemove.call(this);
+            }
+        },
+        updateViewport: function() {
+            if (!this.shown) {
+                return;
+            }
+            this.viewport.style.width = window.innerWidth + "px";
+            this.viewport.style.height = window.innerHeight + "px";
+            this.viewport.style.left = window.scrollX + "px";
+            this.viewport.style.top = window.scrollY + "px";
+            var clientWidth = document.documentElement.clientWidth;
+            this.orientation = clientWidth > document.documentElement.clientHeight ? "landscape" : "portrait";
+            var screenWidth = ath.OS == "ios" ? this.orientation == "portrait" ? screen.width : screen.height : screen.width;
+            this.scale = screen.width > clientWidth ? 1 : screenWidth / window.innerWidth;
+            this.element.style.fontSize = this.options.fontSize / this.scale + "px";
+        },
+        resize: function() {
+            clearTimeout(this.resizeTimer);
+            this.resizeTimer = setTimeout(this.updateViewport.bind(this), 100);
+        },
+        updateSession: function() {
+            if (ath.hasLocalStorage === false) {
+                return;
+            }
+            localStorage.setItem(this.options.appID, JSON.stringify(this.session));
+        },
+        clearSession: function() {
+            this.session = _defaultSession;
+            this.updateSession();
+        },
+        optOut: function() {
+            this.session.optedout = true;
+            this.updateSession();
+        },
+        optIn: function() {
+            this.session.optedout = false;
+            this.updateSession();
+        },
+        clearDisplayCount: function() {
+            this.session.displayCount = 0;
+            this.updateSession();
+        },
+        _preventDefault: function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    };
+    // utility
+    function _extend(target, obj) {
+        for (var i in obj) {
+            target[i] = obj[i];
+        }
+        return target;
+    }
+    function _removeToken() {
+        if (document.location.hash == "#ath") {
+            history.replaceState("", window.document.title, document.location.href.split("#")[0]);
+        }
+        if (_reSmartURL.test(document.location.href)) {
+            history.replaceState("", window.document.title, document.location.href.replace(_reSmartURL, "$1"));
+        }
+        if (_reQueryString.test(document.location.search)) {
+            history.replaceState("", window.document.title, document.location.href.replace(_reQueryString, "$2"));
+        }
+    }
+    $.AMUI.addToHomescreen = ath;
+    module.exports = ath;
 });
 define("ui.alert", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector" ], function(require, exports, module) {
     "use strict";
@@ -1231,7 +3839,7 @@ define("ui.alert", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.exte
     var Alert = function(element, options) {
         this.options = $.extend({}, Alert.DEFAULTS, options);
         this.$element = $(element);
-        this.$element.addClass("am-fade am-in").on("click", ".am-close", $.proxy(this.close, this));
+        this.$element.addClass("am-fade am-in").on("click.alert.amui", ".am-close", $.proxy(this.close, this));
     };
     Alert.DEFAULTS = {
         removeElement: true
@@ -1262,8 +3870,7 @@ define("ui.alert", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.exte
     $(document).on("click.alert.amui", "[data-am-alert]", function(e) {
         var $target = $(e.target);
         $(this).addClass("am-fade am-in");
-        // $target.is('.am-close') && 
-        $(this).alert("close");
+        $target.is(".am-close") && $(this).alert("close");
     });
     module.exports = Alert;
 });
@@ -1273,8 +3880,8 @@ define("ui.button", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.ext
     var $ = window.Zepto, UI = $.AMUI;
     /**
      * @via https://github.com/twbs/bootstrap/blob/master/js/button.js
-     * @copyright Copyright 2013 Twitter, Inc.
-     * @license Apache 2.0
+     * @copyright (c) 2011-2014 Twitter, Inc
+     * @license The MIT License
      */
     var Button = function(element, options) {
         this.$element = $(element);
@@ -1284,49 +3891,55 @@ define("ui.button", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.ext
     };
     Button.DEFAULTS = {
         loadingText: "loading...",
-        loadingClass: "am-btn-loading",
-        loadingWithSpinner: '<span class="am-icon-refresh am-icon-spin"></span> loading...'
+        className: {
+            loading: "am-btn-loading",
+            disabled: "am-disabled"
+        },
+        spinner: undefined
     };
     Button.prototype.setState = function(state) {
-        var d = "disabled", $el = this.$element, val = $el.is("input") ? "val" : "html", data = $el.data();
+        var disabled = "disabled", $element = this.$element, options = this.options, val = $element.is("input") ? "val" : "html", loadingClassName = options.className.disabled + " " + options.className.loading;
         state = state + "Text";
-        if (data.resetText == null) {
-            $el.data("resetText", $el[val]());
+        if (!options.resetText) {
+            options.resetText = $element[val]();
         }
         // add spinner for element with html()
-        if (UI.support.animation && !this.hasSpinner && val === "html") {
-            this.options.loadingText = this.options.loadingWithSpinner;
+        if (UI.support.animation && options.spinner && val === "html" && !this.hasSpinner) {
+            options.loadingText = '<span class="am-icon-' + options.spinner + ' am-icon-spin"></span>' + options.loadingText;
             this.hasSpinner = true;
         }
-        $el[val](data[state] == null ? this.options[state] : data[state]);
+        $element[val](options[state]);
         // push to event loop to allow forms to submit
         setTimeout($.proxy(function() {
             if (state == "loadingText") {
+                $element.addClass(loadingClassName).attr(disabled, disabled);
                 this.isLoading = true;
-                $el.addClass(d + " " + this.options.loadingClass).attr(d, d);
             } else if (this.isLoading) {
+                $element.removeClass(loadingClassName).removeAttr(disabled);
                 this.isLoading = false;
-                $el.removeClass(d + " " + this.options.loadingClass).removeAttr(d);
             }
         }, this), 0);
     };
     Button.prototype.toggle = function() {
-        var changed = true, $parent = this.$element.parent(".am-btn-group");
+        var changed = true, $element = this.$element, $parent = this.$element.parent(".am-btn-group");
         if ($parent.length) {
             var $input = this.$element.find("input");
             if ($input.prop("type") == "radio") {
-                if ($input.prop("checked") && this.$element.hasClass("am-active")) {
+                if ($input.prop("checked") && $element.hasClass("am-active")) {
                     changed = false;
                 } else {
                     $parent.find(".am-active").removeClass("am-active");
                 }
             }
             if (changed) {
-                $input.prop("checked", !this.$element.hasClass("am-active")).trigger("change");
+                $input.prop("checked", !$element.hasClass("am-active")).trigger("change");
             }
         }
         if (changed) {
-            this.$element.toggleClass("am-active");
+            $element.toggleClass("am-active");
+            if (!$element.hasClass("am-active")) {
+                $element.blur();
+            }
         }
     };
     // Button plugin
@@ -1334,13 +3947,13 @@ define("ui.button", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.ext
         return this.each(function() {
             var $this = $(this);
             var data = $this.data("amui.button");
-            var options = typeof option == "object" && option;
+            var options = typeof option == "object" && option || {};
             if (!data) {
                 $this.data("amui.button", data = new Button(this, options));
             }
             if (option == "toggle") {
                 data.toggle();
-            } else if (option) {
+            } else if (typeof option == "string") {
                 data.setState(option);
             }
         });
@@ -1355,6 +3968,11 @@ define("ui.button", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.ext
         Plugin.call($btn, "toggle");
         e.preventDefault();
     });
+    $(function() {
+        $("[data-am-loading]").each(function() {
+            $(this).button(UI.utils.parseOptions($(this).data("amLoading")));
+        });
+    });
     module.exports = Button;
 });
 define("ui.collapse", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector" ], function(require, exports, module) {
@@ -1363,8 +3981,8 @@ define("ui.collapse", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.e
     var $ = window.Zepto, UI = $.AMUI;
     /**
      * @via https://github.com/twbs/bootstrap/blob/master/js/collapse.js
-     * @copyright Copyright 2013 Twitter, Inc.
-     * @license Apache 2.0
+     * @copyright (c) 2011-2014 Twitter, Inc
+     * @license The MIT License
      */
     var Collapse = function(element, options) {
         this.$element = $(element);
@@ -1402,7 +4020,7 @@ define("ui.collapse", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.e
         if (!UI.support.transition) {
             return complete.call(this);
         }
-        this.$element.one(UI.support.transition.end, $.proxy(complete, this)).emulateTransitionEnd(350).height(this.$element[0].scrollHeight);
+        this.$element.one(UI.support.transition.end, $.proxy(complete, this)).emulateTransitionEnd(300).height(this.$element[0].scrollHeight);
     };
     Collapse.prototype.close = function() {
         if (this.transitioning || !this.$element.hasClass("am-in")) return;
@@ -1464,127 +4082,222 @@ define("ui.collapse", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.e
 define("ui.dimmer", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector" ], function(require, exports, module) {
     require("core");
     var $ = window.Zepto, UI = $.AMUI;
-    var $dimmer = $('<div class="am-dimmer" data-am-dimmer></div>'), $doc = $(document), $html = $("html");
+    var $doc = $(document), $html = $("html"), transition = UI.support.transition;
+    /**
+     * 通用遮罩层
+     * @constructor
+     */
     var Dimmer = function() {
-        this.hasDimmer = $("[data-am-dimmer]").length ? true : false;
-        this.$element = $dimmer;
-        $(document).on("ready", $.proxy(this.init, this));
+        this.id = UI.utils.generateGUID("am-dimmer");
+        this.$element = $(Dimmer.DEFAULTS.tpl, {
+            id: this.id
+        });
+        this.inited = false;
+        this.scrollbarWidth = 0;
+        this.used = $([]);
+    };
+    Dimmer.DEFAULTS = {
+        tpl: '<div class="am-dimmer" data-am-dimmer></div>'
     };
     Dimmer.prototype.init = function() {
-        if (!this.hasDimmer) {
-            $dimmer.appendTo($("body"));
-            this.events();
-            this.hasDimmer = true;
+        if (!this.inited) {
+            $(document.body).append(this.$element);
+            this.inited = true;
+            $doc.trigger("init:dimmer:amui");
         }
-        $doc.trigger("init:dimmer:amui");
         return this;
     };
     Dimmer.prototype.open = function(relatedElement) {
-        $html.addClass("am-dimmer-active");
-        $dimmer.addClass("am-active");
-        $(relatedElement).length && $(relatedElement).show();
-        $doc.trigger("open:dimmer:amui");
+        if (!this.inited) this.init();
+        var $element = this.$element;
+        // 用于多重调用
+        if (relatedElement) {
+            this.used = this.used.add($(relatedElement));
+        }
+        this.checkScrollbar().setScrollbar();
+        $element.show().trigger("open:dimmer:amui");
+        setTimeout(function() {
+            $element.addClass("am-active");
+        }, 0);
         return this;
     };
-    Dimmer.prototype.close = function(relatedElement) {
-        $dimmer.removeClass("am-active");
-        $html.removeClass("am-dimmer-active");
-        $(relatedElement).length && $(relatedElement).hide();
-        $doc.trigger("close:dimmer:amui");
+    Dimmer.prototype.close = function(relatedElement, force) {
+        this.used = this.used.not($(relatedElement));
+        if (!force && this.used.length) return this;
+        var $element = this.$element;
+        $element.removeClass("am-active").trigger("close:dimmer:amui");
+        function complete() {
+            this.resetScrollbar();
+            $element.hide();
+        }
+        transition ? $element.one(transition.end, $.proxy(complete, this)) : complete.call(this);
         return this;
     };
-    Dimmer.prototype.events = function() {
-        var that = this;
-        $dimmer.on("click.dimmer.amui", function() {});
+    Dimmer.prototype.checkScrollbar = function() {
+        this.scrollbarWidth = UI.utils.measureScrollbar();
+        return this;
+    };
+    Dimmer.prototype.setScrollbar = function() {
+        var $body = $(document.body), bodyPaddingRight = parseInt($body.css("padding-right") || 0, 10);
+        if (this.scrollbarWidth) $body.css("padding-right", bodyPaddingRight + this.scrollbarWidth);
+        $body.addClass("am-dimmer-active");
+        return this;
+    };
+    Dimmer.prototype.resetScrollbar = function() {
+        $(document.body).css("padding-right", "").removeClass("am-dimmer-active");
+        return this;
     };
     var dimmer = new Dimmer();
     UI.dimmer = dimmer;
     module.exports = dimmer;
 });
 define("ui.dropdown", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector" ], function(require, exports, module) {
-    "use strict";
     require("core");
-    var $ = window.Zepto, UI = $.AMUI;
+    var $ = window.Zepto, UI = $.AMUI, animation = UI.support.animation;
     /**
      * @via https://github.com/Minwe/bootstrap/blob/master/js/dropdown.js
-     * @copyright Copyright 2013 Twitter, Inc.
-     * @license Apache 2.0
+     * @copyright (c) 2011-2014 Twitter, Inc
+     * @license The MIT License
      */
     var toggle = "[data-am-dropdown] > .am-dropdown-toggle";
     var Dropdown = function(element, options) {
-        $(element).on("click.dropdown.amui", this.toggle);
+        this.options = $.extend({}, Dropdown.DEFAULTS, options);
+        options = this.options;
+        this.$element = $(element);
+        this.$toggle = this.$element.find(options.selector.toggle);
+        this.$dropdown = this.$element.find(options.selector.dropdown);
+        this.$boundary = options.boundary === window ? $(window) : this.$element.closest(options.boundary);
+        this.$justify = options.justify && $(options.justify).length && $(options.justify) || undefined;
+        !this.$boundary.length && (this.$boundary = $(window));
+        this.active = this.$element.hasClass("am-active") ? true : false;
+        this.animating = null;
+        this.events();
     };
-    Dropdown.prototype.toggle = function(e) {
-        var $this = $(this);
-        if ($this.is(".am-disabled, :disabled")) {
-            return;
-        }
-        var $parent = $this.parent(), isActive = $parent.hasClass("am-active");
-        clearDropdowns();
-        if (!isActive) {
-            var relatedTarget = {
-                relatedTarget: this
-            };
-            $parent.trigger(e = $.Event("open:dropdown:amui", relatedTarget));
-            if (e.isDefaultPrevented()) {
-                return;
-            }
-            $this.trigger("focus");
-            $parent.toggleClass("am-active").trigger(e = $.Event("opened:dropdown:amui", relatedTarget));
+    Dropdown.DEFAULTS = {
+        animation: "am-animation-slide-top-fixed",
+        boundary: window,
+        justify: undefined,
+        selector: {
+            dropdown: ".am-dropdown-content",
+            toggle: ".am-dropdown-toggle"
+        },
+        trigger: "click"
+    };
+    Dropdown.prototype.toggle = function() {
+        this.clear();
+        if (this.animating) return;
+        this[this.active ? "close" : "open"]();
+    };
+    Dropdown.prototype.open = function(e) {
+        var $toggle = this.$toggle, $element = this.$element, $dropdown = this.$dropdown;
+        if ($toggle.is(".am-disabled, :disabled")) return;
+        if (this.active) return;
+        $element.trigger("open:dropdown:amui").addClass("am-active");
+        $toggle.trigger("focus");
+        this.checkDimensions();
+        var complete = $.proxy(function() {
+            $element.trigger("opened:dropdown:amui");
+            this.active = true;
+            this.animating = 0;
+        }, this);
+        if (animation) {
+            this.animating = 1;
+            $dropdown.addClass(this.options.animation).on(animation.end + ".open.dropdown.amui", $.proxy(function() {
+                complete();
+                $dropdown.removeClass(this.options.animation);
+            }, this));
         } else {
-            $this.blur();
-        }
-        return false;
-    };
-    Dropdown.prototype.keydown = function(e) {
-        if (!/(38|40|27)/.test(e.keyCode)) return;
-        var $this = $(this);
-        e.preventDefault();
-        e.stopPropagation();
-        if ($this.is(".am-disabled, :disabled")) {
-            return;
-        }
-        var $parent = $this.parent(), isActive = $parent.hasClass("am-active");
-        if (!isActive || isActive && e.keyCode == 27) {
-            if (e.which == 27) {
-                $parent.find(toggle).trigger("focus");
-            }
-            return $this.trigger("click");
+            complete();
         }
     };
-    function clearDropdowns(e) {
-        if (e && e.which === 3) return;
-        $(toggle).each(function() {
-            var $parent = $(this).parent(), relatedTarget = {
-                relatedTarget: this
-            };
-            if (!$parent.hasClass("am-active")) {
-                return;
-            }
-            $parent.trigger(e = $.Event("close:dropdown:amui", relatedTarget));
-            if (e.isDefaultPrevented()) return;
-            $parent.removeClass("am-active").trigger(e = $.Event("closed:dropdown:amui", relatedTarget));
+    Dropdown.prototype.close = function() {
+        if (!this.active) return;
+        var animationName = this.options.animation + " am-animation-reverse", $element = this.$element, $dropdown = this.$dropdown;
+        $element.trigger("close:dropdown:amui");
+        var complete = $.proxy(function complete() {
+            $element.removeClass("am-active").trigger("closed:dropdown:amui");
+            this.active = false;
+            this.animating = 0;
+            this.$toggle.blur();
+        }, this);
+        if (animation) {
+            $dropdown.addClass(animationName);
+            this.animating = 1;
+            // animation
+            $dropdown.one(animation.end + ".close.dropdown.amui", function() {
+                complete();
+                $dropdown.removeClass(animationName);
+            });
+        } else {
+            complete();
+        }
+    };
+    Dropdown.prototype.checkDimensions = function() {
+        if (!this.$dropdown.length) return;
+        var $dropdown = this.$dropdown, offset = $dropdown.offset(), width = $dropdown.outerWidth(), boundaryWidth = this.$boundary.width(), boundaryOffset = $.isWindow(this.boundary) && this.$boundary.offset() ? this.$boundary.offset().left : 0;
+        if (this.$justify) {
+            $dropdown.css({
+                "min-width": this.$justify.width()
+            });
+        }
+        if (width + (offset.left - boundaryOffset) > boundaryWidth) {
+            this.$element.addClass("am-dropdown-flip");
+        }
+    };
+    Dropdown.prototype.clear = function() {
+        $("[data-am-dropdown]").not(this.$element).each(function() {
+            var data = $(this).data("amui.dropdown");
+            data && data["close"]();
         });
-    }
+    };
+    Dropdown.prototype.events = function() {
+        var eventNS = "dropdown.amui", triggers = this.options.trigger.split(" "), $toggle = this.$toggle;
+        $toggle.on("click." + eventNS, $.proxy(this.toggle, this));
+        /*for (var i = triggers.length; i--;) {
+            var trigger = triggers[i];
+
+            if (trigger === 'click') {
+                $toggle.on('click.' + eventNS, $.proxy(this.toggle, this))
+            }
+
+            if (trigger === 'focus' || trigger === 'hover') {
+                var eventIn  = trigger == 'hover' ? 'mouseenter' : 'focusin';
+                var eventOut = trigger == 'hover' ? 'mouseleave' : 'focusout';
+
+                this.$element.on(eventIn + '.' + eventNS, $.proxy(this.open, this))
+                    .on(eventOut + '.' + eventNS, $.proxy(this.close, this));
+            }
+        }*/
+        $(document).on("keydown.dropdown.amui", $.proxy(function(e) {
+            e.keyCode === 27 && this.active && this.close();
+        }, this)).on("click.outer.dropdown.amui", $.proxy(function(e) {
+            var $target = $(e.target);
+            if (this.active && (this.$element[0] === e.target || !this.$element.find(e.target).length)) {
+                this.close();
+            }
+        }, this));
+    };
     UI.dropdown = Dropdown;
     // Dropdown Plugin
     function Plugin(option) {
         return this.each(function() {
-            var $this = $(this);
-            var data = $this.data("amui.dropdown");
+            var $this = $(this), data = $this.data("amui.dropdown"), options = $.extend({}, UI.utils.parseOptions($this.attr("data-am-dropdown")), typeof option == "object" && option);
             if (!data) {
-                $this.data("amui.dropdown", data = new Dropdown(this));
+                $this.data("amui.dropdown", data = new Dropdown(this, options));
             }
             if (typeof option == "string") {
-                data[option].call($this);
+                data[option]();
             }
         });
     }
     $.fn.dropdown = Plugin;
     // Init code
+    $(function() {
+        $("[data-am-dropdown]").dropdown();
+    });
     $(document).on("click.dropdown.amui", ".am-dropdown form", function(e) {
         e.stopPropagation();
-    }).on("click.dropdown.amui", toggle, Dropdown.prototype.toggle).on("keydown.dropdown.amui", toggle, Dropdown.prototype.keydown);
+    });
 });
 define("ui.iscroll-lite", [], function(require, exports, module) {
     /*! iScroll v5.1.2 ~ (c) 2008-2014 Matteo Spinelli ~ http://cubiq.org/license */
@@ -2324,40 +5037,53 @@ define("ui.modal", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.exte
     var Modal = function(element, options) {
         this.options = $.extend({}, Modal.DEFAULTS, options || {});
         this.$element = $(element);
+        if (!this.$element.attr("id")) {
+            this.$element.attr("id", UI.utils.generateGUID("am-modal"));
+        }
         this.isPopup = this.$element.hasClass("am-popup");
         this.active = this.transitioning = null;
         this.events();
     };
-    // Set template tabindex to tigger onfocus on div
     Modal.DEFAULTS = {
+        className: {
+            active: "am-modal-active",
+            out: "am-modal-out"
+        },
         selector: {
             modal: ".am-modal",
             active: ".am-modal-active"
         },
         cancelable: true,
         onConfirm: function() {},
-        onCancel: function() {}
+        onCancel: function() {},
+        duration: 300
     };
     Modal.prototype.toggle = function(relatedElement) {
         return this.active ? this.close() : this.open(relatedElement);
     };
     Modal.prototype.open = function(relatedElement) {
-        var $element = this.$element, isPopup = this.isPopup;
-        if (this.transitioning || this.active) return;
+        var $element = this.$element, options = this.options, isPopup = this.isPopup;
+        if (this.active) return;
         if (!this.$element.length) return;
+        var hasAnimation = this.transitioning;
+        // 判断如果还在动画，就先触发之前的closed事件
+        if (hasAnimation) {
+            clearTimeout($element.transitionHandle);
+            $element.transitionHandle = null;
+            $element.trigger(supportTransition.end);
+            $element.off(supportTransition.end);
+        }
         isPopup && this.$element.show();
         this.active = true;
         $element.trigger($.Event("open:modal:amui", {
             relatedElement: relatedElement
         }));
-        // trigger reflow;
-        var clientLeft = $element[0].clientLeft;
-        dimmer.open();
-        $element.show();
-        !isPopup && $element.redraw().css({
-            marginTop: -$element.height() / 2 + "px"
+        dimmer.open($element);
+        $element.show().redraw();
+        !isPopup && $element.css({
+            marginTop: -parseInt($element.height() / 2, 10) + "px"
         });
-        $element.removeClass("am-modal-out").addClass("am-modal-active");
+        $element.removeClass(options.className.out).addClass(options.className.active);
         this.transitioning = 1;
         var complete = function() {
             $element.trigger($.Event("opened:modal:amui", {
@@ -2366,28 +5092,33 @@ define("ui.modal", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.exte
             this.transitioning = 0;
         };
         if (!supportTransition) return complete.call(this);
-        $element.one(supportTransition.end, $.proxy(complete, this));
+        $element.one(supportTransition.end, $.proxy(complete, this)).emulateTransitionEnd(options.duration);
     };
     Modal.prototype.close = function(relatedElement) {
-        if (this.transitioning || !this.active) return;
-        var $element = this.$element, isPopup = this.isPopup, that = this;
+        if (!this.active) return;
+        var hasAnimation = this.transitioning;
+        var $element = this.$element, options = this.options, isPopup = this.isPopup, that = this;
+        // 判断如果还在动画，就先触发之前的opened事件
+        if (hasAnimation) {
+            clearTimeout($element.transitionHandle);
+            $element.transitionHandle = null;
+            $element.trigger(supportTransition.end);
+            $element.off(supportTransition.end);
+        }
         this.$element.trigger($.Event("close:modal:amui", {
             relatedElement: relatedElement
         }));
         this.transitioning = 1;
         var complete = function() {
             $element.trigger("closed:amui:modal");
-            isPopup && $element.removeClass("am-modal-out");
+            isPopup && $element.removeClass(options.className.out);
             $element.hide();
             this.transitioning = 0;
         };
-        $element.removeClass("am-modal-active").addClass("am-modal-out");
+        $element.removeClass(options.className.active).addClass(options.className.out);
         if (!supportTransition) return complete.call(this);
-        $element.one(supportTransition.end, $.proxy(complete, this));
-        // hide dimmer when all modal is closed
-        if (!$body.find(Modal.DEFAULTS.selector.active).length) {
-            dimmer.close();
-        }
+        $element.one(supportTransition.end, $.proxy(complete, this)).emulateTransitionEnd(options.duration);
+        dimmer.close($element);
         this.active = false;
     };
     Modal.prototype.events = function() {
@@ -2574,82 +5305,87 @@ define("ui.popover", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.ex
         tpl: '<div class="am-popover"><div class="am-popover-inner"></div><div class="am-popover-caret"></div></div>'
     };
     Popover.prototype.init = function() {
-        var $element = this.$element, $popover;
+        var me = this, $element = this.$element, $popover;
         if (!this.options.target) {
             this.$popover = this.getPopover();
             this.setContent();
         }
         $popover = this.$popover;
         $popover.appendTo($("body"));
+        this.sizePopover();
         function sizePopover() {
-            var popSize = $popover.getSize(), popWidth = $popover.width() || popSize.width, popHeight = $popover.height() || popSize.height, $popCaret = $popover.find(".am-popover-caret"), popCaretSize = $popCaret.width() / 2 || 10, popTotalHeight = popHeight + popCaretSize;
-            var triggerWidth = $element.outerWidth(), triggerHeight = $element.outerHeight(), triggerOffset = $element.offset(), triggerRect = $element[0].getBoundingClientRect();
-            var winHeight = $w.height(), winWidth = $w.width();
-            var popTop = 0, popLeft = 0, diff = 0, spacing = 3, popPosition = "top";
-            $popover.css({
-                left: "",
-                top: ""
-            }).removeClass("am-popover-left am-popover-right am-popover-top am-popover-bottom");
-            $popCaret.css({
-                left: "",
-                top: ""
-            });
-            if (popTotalHeight - spacing < triggerRect.top + spacing) {
-                // on Top
-                popTop = triggerOffset.top - popTotalHeight - spacing;
-            } else if (popTotalHeight < winHeight - triggerRect.top - triggerRect.height) {
-                // On bottom
-                popPosition = "bottom";
-                popTop = triggerOffset.top + triggerHeight + popCaretSize + spacing;
-            } else {
-                // On middle
-                popPosition = "middle";
-                popTop = triggerHeight / 2 + triggerOffset.top - popHeight / 2;
-            }
-            // Horizontal Position
-            if (popPosition === "top" || popPosition === "bottom") {
-                popLeft = triggerWidth / 2 + triggerOffset.left - popWidth / 2;
-                diff = popLeft;
-                if (popLeft < 5) popLeft = 5;
-                if (popLeft + popWidth > winWidth) {
-                    popLeft = winWidth - popWidth - 20;
-                }
-                if (popPosition === "top") $popover.addClass("am-popover-bottom");
-                if (popPosition === "bottom") $popover.addClass("am-popover-top");
-                diff = diff - popLeft;
-                $popCaret.css({
-                    left: popWidth / 2 - popCaretSize + diff + "px"
-                });
-            } else if (popPosition === "middle") {
-                popLeft = triggerOffset.left - popWidth - popCaretSize;
-                $popover.addClass("am-popover-left");
-                if (popLeft < 5) {
-                    popLeft = triggerOffset.left + triggerWidth + popCaretSize;
-                    $popover.removeClass("am-popover-left").addClass("am-popover-right");
-                }
-                if (popLeft + popWidth > winWidth) {
-                    popLeft = winWidth - popWidth - 5;
-                    $popover.removeClass("am-popover-left").addClass("am-popover-right");
-                }
-                $popCaret.css({
-                    top: popHeight / 2 - popCaretSize / 2 + "px"
-                });
-            }
-            // Apply position style
-            $popover.css({
-                top: popTop + "px",
-                left: popLeft + "px"
-            });
+            me.sizePopover();
         }
-        sizePopover();
-        $(window).on("resize", UI.utils.debounce(sizePopover, 50));
+        $(window).on("resize:popover:amui", UI.utils.debounce(sizePopover, 50));
         $element.on("open:popover:amui", function() {
-            $(window).on("resize", UI.utils.debounce(sizePopover, 50));
+            $(window).on("resize:popover:amui", UI.utils.debounce(sizePopover, 50));
         });
         $element.on("close:popover:amui", function() {
-            $(window).off("resize", sizePopover);
+            $(window).off("resize:popover:amui", sizePopover);
         });
         this.options.open && this.open();
+    };
+    Popover.prototype.sizePopover = function sizePopover() {
+        var $element = this.$element, $popover = this.$popover;
+        if (!$popover || !$popover.length) return;
+        var popSize = $popover.getSize(), popWidth = $popover.width() || popSize.width, popHeight = $popover.height() || popSize.height, $popCaret = $popover.find(".am-popover-caret"), popCaretSize = $popCaret.width() / 2 || 10, popTotalHeight = popHeight + popCaretSize;
+        var triggerWidth = $element.outerWidth(), triggerHeight = $element.outerHeight(), triggerOffset = $element.offset(), triggerRect = $element[0].getBoundingClientRect();
+        var winHeight = $w.height(), winWidth = $w.width();
+        var popTop = 0, popLeft = 0, diff = 0, spacing = 3, popPosition = "top";
+        $popover.css({
+            left: "",
+            top: ""
+        }).removeClass("am-popover-left am-popover-right am-popover-top am-popover-bottom");
+        $popCaret.css({
+            left: "",
+            top: ""
+        });
+        if (popTotalHeight - spacing < triggerRect.top + spacing) {
+            // on Top
+            popTop = triggerOffset.top - popTotalHeight - spacing;
+        } else if (popTotalHeight < winHeight - triggerRect.top - triggerRect.height) {
+            // On bottom
+            popPosition = "bottom";
+            popTop = triggerOffset.top + triggerHeight + popCaretSize + spacing;
+        } else {
+            // On middle
+            popPosition = "middle";
+            popTop = triggerHeight / 2 + triggerOffset.top - popHeight / 2;
+        }
+        // Horizontal Position
+        if (popPosition === "top" || popPosition === "bottom") {
+            popLeft = triggerWidth / 2 + triggerOffset.left - popWidth / 2;
+            diff = popLeft;
+            if (popLeft < 5) popLeft = 5;
+            if (popLeft + popWidth > winWidth) {
+                popLeft = winWidth - popWidth - 20;
+            }
+            if (popPosition === "top") $popover.addClass("am-popover-bottom");
+            if (popPosition === "bottom") $popover.addClass("am-popover-top");
+            diff = diff - popLeft;
+            $popCaret.css({
+                left: popWidth / 2 - popCaretSize + diff + "px"
+            });
+        } else if (popPosition === "middle") {
+            popLeft = triggerOffset.left - popWidth - popCaretSize;
+            $popover.addClass("am-popover-left");
+            if (popLeft < 5) {
+                popLeft = triggerOffset.left + triggerWidth + popCaretSize;
+                $popover.removeClass("am-popover-left").addClass("am-popover-right");
+            }
+            if (popLeft + popWidth > winWidth) {
+                popLeft = winWidth - popWidth - 5;
+                $popover.removeClass("am-popover-left").addClass("am-popover-right");
+            }
+            $popCaret.css({
+                top: popHeight / 2 - popCaretSize / 2 + "px"
+            });
+        }
+        // Apply position style
+        $popover.css({
+            top: popTop + "px",
+            left: popLeft + "px"
+        });
     };
     Popover.prototype.toggle = function() {
         return this[this.active ? "close" : "open"]();
@@ -2657,6 +5393,7 @@ define("ui.popover", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.ex
     Popover.prototype.open = function() {
         var $popover = this.$popover;
         this.$element.trigger("open:popover:amui");
+        this.sizePopover();
         $popover.show().addClass("am-active");
         this.active = true;
     };
@@ -2666,15 +5403,8 @@ define("ui.popover", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.ex
         $popover.removeClass("am-active").trigger("closed:popover:amui").hide();
         this.active = false;
     };
-    Popover.prototype.getUID = function() {
-        var ns = "am-popover-";
-        do {
-            ns += parseInt(Math.random() * 1e6);
-        } while (document.getElementById(ns));
-        return ns;
-    };
     Popover.prototype.getPopover = function() {
-        var uid = this.getUID();
+        var uid = UI.utils.generateGUID("am-popover");
         return $(this.options.tpl, {
             id: uid
         });
@@ -2683,12 +5413,18 @@ define("ui.popover", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.ex
         this.$popover && this.$popover.find(".am-popover-inner").empty().html(this.options.content);
     };
     Popover.prototype.events = function() {
-        var trigger = this.options.trigger, eventNS = "popover.amui";
-        if (trigger === "click") {
-            this.$element.on("click." + eventNS, $.proxy(this.toggle, this));
-        } else if (trigger === "hover") {
-            this.$element.on("mouseenter." + eventNS, $.proxy(this.open, this));
-            this.$element.on("mouseleave." + eventNS, $.proxy(this.close, this));
+        var eventNS = "popover.amui", triggers = this.options.trigger.split(" ");
+        for (var i = triggers.length; i--; ) {
+            var trigger = triggers[i];
+            if (trigger === "click") {
+                this.$element.on("click." + eventNS, $.proxy(this.toggle, this));
+            } else {
+                // hover or focus
+                var eventIn = trigger == "hover" ? "mouseenter" : "focusin";
+                var eventOut = trigger == "hover" ? "mouseleave" : "focusout";
+                this.$element.on(eventIn + "." + eventNS, $.proxy(this.open, this));
+                this.$element.on(eventOut + "." + eventNS, $.proxy(this.close, this));
+            }
         }
     };
     UI.popover = Popover;
@@ -3011,25 +5747,37 @@ define("ui.progress", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.e
     UI.progress = Progress;
     module.exports = Progress;
 });
-define("ui.pureview", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "zepto.pinchzoom" ], function(require, exports, module) {
+define("ui.pureview", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "zepto.pinchzoom", "util.hammer" ], function(require, exports, module) {
     require("core");
-    var PinchZoom = require("zepto.pinchzoom"), $ = window.Zepto, UI = $.AMUI, animation = UI.support.animation, transition = UI.support.transition, $html = $("html");
+    var PinchZoom = require("zepto.pinchzoom"), Hammer = require("util.hammer"), $ = window.Zepto, UI = $.AMUI, animation = UI.support.animation, transition = UI.support.transition, $html = $("html");
+    /**
+     * PureView
+     * @desc Image browser for Mobile
+     * @param element
+     * @param options
+     * @constructor
+     */
     var PureView = function(element, options) {
         this.$element = $(element);
+        this.$body = $(document.body);
         this.options = $.extend({}, PureView.DEFAULTS, options);
         this.$pureview = $(this.options.tpl, {
             id: UI.utils.generateGUID("am-pureview")
         });
         this.$slides = null;
         this.transitioning = null;
+        this.scrollbarWidth = 0;
         this.init();
     };
     PureView.DEFAULTS = {
-        tpl: '<div class="am-pureview">' + '<ul class="am-pureview-slider"></ul>' + '<ul class="am-pureview-direction"><li class="am-pureview-prev"><a href=""></a></li><li class="am-pureview-next"><a href=""></a></li></ul>' + '<div class="am-pureview-bar am-active"><span class="am-pureview-current"></span> / <span class="am-pureview-total"></span><span class="am-pureview-title"></span></div>' + '<div class="am-pureview-actions am-active"><a href="javascript: void(0)" class="am-icon-chevron-left" data-am-close="pureview"></a><a href="javascript: void(0)" class="am-icon-share-square-o" data-am-toggle="share"></a></div>' + "</div>",
+        tpl: '<div class="am-pureview am-pureview-bar-active">' + '<ul class="am-pureview-slider"></ul>' + '<ul class="am-pureview-direction"><li class="am-pureview-prev"><a href=""></a></li><li class="am-pureview-next"><a href=""></a></li></ul>' + '<ol class="am-pureview-nav"></ol>' + '<div class="am-pureview-bar am-active"><span class="am-pureview-title"></span><span class="am-pureview-current"></span> / <span class="am-pureview-total"></span></div>' + '<div class="am-pureview-actions am-active"><a href="javascript: void(0)" class="am-icon-chevron-left" data-am-close="pureview"></a></div>' + "</div>",
         className: {
             prevSlide: "am-pureview-slide-prev",
             nextSlide: "am-pureview-slide-next",
-            active: "am-active"
+            onlyOne: "am-pureview-only",
+            active: "am-active",
+            barActive: "am-pureview-bar-active",
+            activeBody: "am-pureview-active"
         },
         selector: {
             slider: ".am-pureview-slider",
@@ -3039,32 +5787,71 @@ define("ui.pureview", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.e
             title: ".am-pureview-title",
             actions: ".am-pureview-actions",
             bar: ".am-pureview-bar",
-            pinchZoom: ".am-pinch-zoom"
-        }
+            pinchZoom: ".am-pinch-zoom",
+            nav: ".am-pureview-nav"
+        },
+        shareBtn: false,
+        // 从何处获取图片，img 可以使用 data-rel 指定大图
+        target: "img",
+        // 微信 Webview 中调用微信的图片浏览器
+        // 实现图片保存、分享好友、收藏图片等功能
+        weChatImagePreview: true
     };
     PureView.prototype.init = function() {
-        var me = this, options = me.options, $element = me.$element, $images = $element.find("img"), $pureview = me.$pureview, $slider = $pureview.find(options.selector.slider), slides = [], total = $images.length;
+        var me = this, options = this.options, $element = this.$element, $pureview = this.$pureview, $slider = $pureview.find(options.selector.slider), $nav = $pureview.find(options.selector.nav), $slides = $([]), $navItems = $([]), $images = $element.find(options.target), total = $images.length, imgUrls = [];
         if (!total) return;
-        $images.each(function(i, img) {
-            var alt = $(img).attr("alt") || "", slide = '<li><div class="am-pinch-zoom"><img src="' + img.src + '" alt="' + alt + '"/></div></li>';
-            slides.push(slide);
+        if (total === 1) {
+            $pureview.addClass(options.className.onlyOne);
+        }
+        $images.each(function(i, item) {
+            var src, title;
+            if (options.target == "a") {
+                src = item.href;
+                // to absolute path
+                title = item.title || "";
+            } else {
+                src = $(item).data("rel") || item.src;
+                // <img src='' data-rel='' />
+                title = $(item).attr("alt") || "";
+            }
+            // hide bar: wechat_webview_type=1
+            // http://tmt.io/wechat/  not working?
+            imgUrls.push(src);
+            $slides = $slides.add($('<li><div class="am-pinch-zoom"><img src="' + src + '" alt="' + title + '"/></div></li>'));
+            $navItems = $navItems.add($("<li>" + (i + 1) + "</li>"));
         });
-        $slider.html(slides.join("\n"));
+        $slider.append($slides);
+        $nav.append($navItems);
         $("body").append($pureview);
         $pureview.find(options.selector.total).text(total);
         this.$title = $pureview.find(options.selector.title);
         this.$current = $pureview.find(options.selector.current);
         this.$bar = $pureview.find(options.selector.bar);
         this.$actions = $pureview.find(options.selector.actions);
+        this.$navItems = $nav.find("li");
         this.$slides = $slider.find("li");
+        if (options.shareBtn) {
+            this.$actions.append('<a href="javascript: void(0)" class="am-icon-share-square-o" data-am-toggle="share"></a>');
+        }
         $slider.find(options.selector.pinchZoom).each(function() {
             $(this).data("amui.pinchzoom", new PinchZoom($(this), {}));
+            $(this).on("pz_doubletap", function(e) {});
         });
-        $images.on("click", function(e) {
+        $images.on("click.pureview.amui", function(e) {
             e.preventDefault();
-            me.open($images.index(this));
+            var clicked = $images.index(this);
+            // Invoke WeChat ImagePreview in WeChat
+            // TODO: detect WeChat before init
+            if (options.weChatImagePreview && window.WeixinJSBridge) {
+                WeixinJSBridge.invoke("imagePreview", {
+                    current: imgUrls[clicked],
+                    urls: imgUrls
+                });
+            } else {
+                me.open(clicked);
+            }
         });
-        $pureview.find(".am-pureview-direction a").on("click", function(e) {
+        $pureview.find(".am-pureview-direction a").on("click.direction.pureview.amui", function(e) {
             e.preventDefault();
             var $clicked = $(e.target).parent("li");
             if ($clicked.is(".am-pureview-prev")) {
@@ -3073,17 +5860,29 @@ define("ui.pureview", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.e
                 me.nextSlide();
             }
         });
+        // Nav Contorl
+        this.$navItems.on("click.nav.pureview.amui", function() {
+            var index = me.$navItems.index($(this));
+            me.activate(me.$slides.eq(index));
+        });
         // Close Icon
-        $pureview.find(options.selector.close).on("click.pureview.amui", function(e) {
+        $pureview.find(options.selector.close).on("click.close.pureview.amui", function(e) {
             e.preventDefault();
             me.close();
         });
-        $slider.on("singleTap", function(e) {
+        $slider.hammer().on("press.pureview.amui", function(e) {
+            e.preventDefault();
             me.toggleToolBar();
-        }).on("swipeLeft", function(e) {
+        }).on("swipeleft.pureview.amui", function(e) {
+            e.preventDefault();
             me.nextSlide();
-        }).on("swipeRight", function(e) {
+        }).on("swiperight.pureview.amui", function(e) {
+            e.preventDefault();
             me.prevSlide();
+        });
+        $slider.data("hammer").get("swipe").set({
+            direction: Hammer.DIRECTION_HORIZONTAL,
+            velocity: .35
         });
         $(document).on("keydown.pureview.amui", $.proxy(function(e) {
             var keyCode = e.keyCode;
@@ -3097,16 +5896,20 @@ define("ui.pureview", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.e
         }, this));
     };
     PureView.prototype.activate = function($slide) {
-        var options = this.options, $slides = this.$slides, activeIndex = $slides.index($slide), alt = $slide.find("img").attr("alt"), active = options.className.active;
+        var options = this.options, $slides = this.$slides, activeIndex = $slides.index($slide), alt = $slide.find("img").attr("alt") || "", active = options.className.active;
+        UI.utils.imageLoader($slide.find("img"), function(image) {
+            $(image).addClass("am-img-loaded");
+        });
         if ($slides.find("." + active).is($slide)) return;
         if (this.transitioning) return;
         this.transitioning = 1;
-        alt && this.$title.text(alt);
+        this.$title.text(alt);
         this.$current.text(activeIndex + 1);
-        $slides.removeAttr("class");
+        $slides.removeClass();
         $slide.addClass(active);
         $slides.eq(activeIndex - 1).addClass(options.className.prevSlide);
         $slides.eq(activeIndex + 1).addClass(options.className.nextSlide);
+        this.$navItems.removeClass().eq(activeIndex).addClass(options.className.active);
         if (transition) {
             $slide.one(transition.end, $.proxy(function() {
                 this.transitioning = 0;
@@ -3116,6 +5919,7 @@ define("ui.pureview", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.e
         }
     };
     PureView.prototype.nextSlide = function() {
+        if (this.$slides.length === 1) return;
         var $slides = this.$slides, $active = $slides.filter(".am-active"), activeIndex = $slides.index($active), rightSpring = "am-animation-right-spring";
         if (activeIndex + 1 >= $slides.length) {
             // last one
@@ -3127,6 +5931,7 @@ define("ui.pureview", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.e
         }
     };
     PureView.prototype.prevSlide = function() {
+        if (this.$slides.length === 1) return;
         var $slides = this.$slides, $active = $slides.filter(".am-active"), activeIndex = this.$slides.index($active), leftSpring = "am-animation-left-spring";
         if (activeIndex === 0) {
             // first one
@@ -3138,25 +5943,44 @@ define("ui.pureview", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.e
         }
     };
     PureView.prototype.toggleToolBar = function() {
-        var active = this.options.className.active;
-        this.$bar.toggleClass(active);
-        this.$actions.toggleClass(active);
+        this.$pureview.toggleClass(this.options.className.barActive);
     };
     PureView.prototype.open = function(index) {
         var active = index || 0;
+        this.checkScrollbar();
+        this.setScrollbar();
         this.activate(this.$slides.eq(active));
-        this.$pureview.addClass("am-active");
-        $html.addClass("am-dimmer-active");
+        this.$pureview.addClass(this.options.className.active);
+        this.$body.addClass(this.options.className.activeBody);
     };
     PureView.prototype.close = function() {
-        this.$pureview.removeClass("am-active");
-        $html.removeClass("am-dimmer-active");
+        var options = this.options;
+        this.$pureview.removeClass(options.className.active);
+        this.$slides.removeClass();
+        function resetBody() {
+            this.$body.removeClass(options.className.activeBody);
+            this.resetScrollbar();
+        }
+        if (transition) {
+            this.$pureview.one(transition.end, $.proxy(resetBody, this));
+        } else {
+            resetBody.call(this);
+        }
+    };
+    PureView.prototype.checkScrollbar = function() {
+        this.scrollbarWidth = UI.utils.measureScrollbar();
+    };
+    PureView.prototype.setScrollbar = function() {
+        var bodyPaddingRight = parseInt(this.$body.css("padding-right") || 0, 10);
+        if (this.scrollbarWidth) this.$body.css("padding-right", bodyPaddingRight + this.scrollbarWidth);
+    };
+    PureView.prototype.resetScrollbar = function() {
+        this.$body.css("padding-right", "");
     };
     UI.pureview = PureView;
     function Plugin(option) {
         return this.each(function() {
-            var $this = $(this), data = $this.data("am.pureview"), options = $.extend({}, UI.utils.parseOptions($this.attr("data-am-pureview")), typeof option == "object" && option);
-            console.log(data);
+            var $this = $(this), data = $this.data("am.pureview"), options = $.extend({}, UI.utils.parseOptions($this.data("amPureview")), typeof option == "object" && option);
             if (!data) {
                 $this.data("am.pureview", data = new PureView(this, options));
             }
@@ -3193,8 +6017,10 @@ define("ui.scrollspy", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.
     };
     ScrollSpy.DEFAULTS = {
         animation: "fade",
-        inViewCls: "am-scrollspy-inview",
-        initCls: "am-scrollspy-init",
+        className: {
+            inView: "am-scrollspy-inview",
+            init: "am-scrollspy-init"
+        },
         repeat: true,
         delay: 0,
         topOffset: 0,
@@ -3205,21 +6031,21 @@ define("ui.scrollspy", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.
         if (inView && !this.inViewState) {
             if (this.timer) clearTimeout(this.timer);
             if (!this.initInView) {
-                $element.addClass(options.initCls);
+                $element.addClass(options.className.init);
                 this.offset = $element.offset();
                 this.initInView = true;
                 $element.trigger("init:scrollspy:amui");
             }
             this.timer = setTimeout(function() {
                 if (inView) {
-                    $element.addClass(options.inViewCls + animation).width();
+                    $element.addClass(options.className.inView + animation).width();
                 }
             }, options.delay);
             this.inViewState = true;
             $element.trigger("inview:scrollspy:amui");
         }
         if (!inView && this.inViewState && options.repeat) {
-            $element.removeClass(options.inViewCls + animation);
+            $element.removeClass(options.className.inView + animation);
             this.inViewState = false;
             $element.trigger("outview:scrollspy:amui");
         }
@@ -3241,14 +6067,15 @@ define("ui.scrollspy", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.
     $(function() {
         $("[data-am-scrollspy]").each(function() {
             var $this = $(this), options = UI.utils.options($this.attr("data-am-scrollspy"));
-            Plugin.call($this, options);
+            $this.scrollspy(options);
         });
     });
     module.exports = ScrollSpy;
 });
-define("ui.scrollspynav", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector" ], function(require, exports, module) {
+define("ui.scrollspynav", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "ui.smooth-scroll" ], function(require, exports, module) {
     "use strict";
     require("core");
+    require("ui.smooth-scroll");
     var $ = window.Zepto, UI = $.AMUI;
     /**
      * @via https://github.com/uikit/uikit/
@@ -3271,9 +6098,9 @@ define("ui.scrollspynav", [ "core", "zepto.extend.fx", "zepto.extend.data", "zep
         this.scrollProcess();
     };
     ScrollSpyNav.DEFAULTS = {
-        cls: "am-active",
-        topOffset: 0,
-        leftOffset: 0,
+        className: {
+            active: "am-active"
+        },
         closest: false,
         smooth: true
     };
@@ -3297,10 +6124,10 @@ define("ui.scrollspynav", [ "core", "zepto.extend.fx", "zepto.extend.data", "zep
             });
             if (!$target) return;
             if (options.closest) {
-                $links.closest(options.closest).removeClass(options.cls);
-                $links.filter('a[href="#' + $target.attr("id") + '"]').closest(options.closest).addClass(options.cls);
+                $links.closest(options.closest).removeClass(options.className.active);
+                $links.filter('a[href="#' + $target.attr("id") + '"]').closest(options.closest).addClass(options.className.active);
             } else {
-                $links.removeClass(options.cls).filter('a[href="#' + $target.attr("id") + '"]').addClass(options.cls);
+                $links.removeClass(options.className.active).filter('a[href="#' + $target.attr("id") + '"]').addClass(options.className.active);
             }
         }
     };
@@ -3308,12 +6135,12 @@ define("ui.scrollspynav", [ "core", "zepto.extend.fx", "zepto.extend.data", "zep
         var $links = this.$links;
         // smoothScroll
         if (this.options.smooth) {
-            require.async([ "ui.smooth-scroll" ], function() {
-                $links.on("click", function(e) {
-                    e.preventDefault();
-                    var $this = $(this), target = $this.attr("href"), position = $this.data("am.smoothScroll");
-                    !position && $this.data("am.smoothScroll", position = $(target).offset().top);
-                    $(window).smoothScroll(position);
+            $links.on("click", function(e) {
+                e.preventDefault();
+                var $this = $(this), $target = $($this.attr("href"));
+                if (!$target) return;
+                $(window).smoothScroll({
+                    position: $target.offset().top
                 });
             });
         }
@@ -3388,7 +6215,8 @@ define("ui.share", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.exte
         this.$element = null;
         this.$wechatQr = null;
         this.pics = null;
-        this.init();
+        this.inited = false;
+        this.active = false;
     };
     Share.DEFAULTS = {
         sns: [ "weibo", "qq", "qzone", "tqq", "wechat", "renren" ],
@@ -3520,6 +6348,7 @@ define("ui.share", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.exte
         }));
     };
     Share.prototype.init = function() {
+        if (this.inited) return;
         var me = this, shareItem = "[data-am-share-to]";
         $doc.ready($.proxy(function() {
             $("body").append(this.render());
@@ -3537,17 +6366,21 @@ define("ui.share", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.exte
             }
             this.close();
         }, this));
+        this.inited = true;
     };
     Share.prototype.open = function() {
+        !this.inited && this.init();
         this.$element && this.$element.modal("open");
         this.$element.trigger("open:share:amui");
+        this.active = true;
     };
     Share.prototype.close = function() {
         this.$element && this.$element.modal("close");
         this.$element.trigger("close:share:amui");
+        this.active = false;
     };
     Share.prototype.toggle = function() {
-        this.$element.is(".am-modal-active") ? this.close() : this.open();
+        this.active ? this.close() : this.open();
     };
     Share.prototype.setData = function(sns) {
         if (!sns) return;
@@ -3633,15 +6466,16 @@ define("ui.smooth-scroll", [ "core", "zepto.extend.fx", "zepto.extend.data", "ze
      * @param position
      * @via http://mir.aculo.us/2014/01/19/scrolling-dom-elements-to-the-top-a-zepto-plugin/
      */
-    // Usage: $(element).smoothScroll([position])
+    // Usage: $(window).smoothScroll([options])
     // only allow one scroll to top operation to be in progress at a time,
     // which is probably what you want
     var smoothScrollInProgress = false;
-    $.fn.smoothScroll = function(position) {
-        var $this = this, targetY = position || 0, initialY = $this.scrollTop(), lastY = initialY, delta = targetY - initialY, // duration in ms, make it a bit shorter for short distances
+    $.fn.smoothScroll = function(options) {
+        options = options || {};
+        var $this = this, targetY = parseInt(options.position) || 0, initialY = $this.scrollTop(), lastY = initialY, delta = targetY - initialY, // duration in ms, make it a bit shorter for short distances
         // this is not scientific and you might want to adjust this for
         // your preferences
-        speed = Math.min(750, Math.min(1500, Math.abs(initialY - targetY))), // temp variables (t will be a position between 0 and 1, y is the calculated scrollTop)
+        speed = options.speed || Math.min(750, Math.min(1500, Math.abs(initialY - targetY))), // temp variables (t will be a position between 0 and 1, y is the calculated scrollTop)
         start, t, y, cancelScroll = function() {
             abort();
         };
@@ -3689,12 +6523,11 @@ define("ui.smooth-scroll", [ "core", "zepto.extend.fx", "zepto.extend.data", "ze
     // Init code
     $(document).on("click.smoothScroll.amui", "[data-am-smooth-scroll]", function(e) {
         e.preventDefault();
-        var $this = $(this), ssTo = Number($this.attr("data-am-smooth-scroll"));
-        $(window).smoothScroll(isNaN(ssTo) ? 0 : ssTo);
+        var options = UI.utils.parseOptions($(this).attr("data-am-smooth-scroll"));
+        $(window).smoothScroll(options);
     });
 });
 define("ui.sticky", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector" ], function(require, exports, module) {
-    "use strict";
     require("core");
     var $ = window.Zepto, UI = $.AMUI;
     /**
@@ -3703,33 +6536,112 @@ define("ui.sticky", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.ext
      */
     // Sticky Class
     var Sticky = function(element, options) {
+        var me = this;
         this.options = $.extend({}, Sticky.DEFAULTS, options);
         this.$element = $(element);
-        this.$window = $(window).on("scroll.sticky.amui", UI.utils.debounce($.proxy(this.checkPosition, this), 50)).on("click.sticky.amui", UI.utils.debounce($.proxy(this.checkPosition, this), 1));
-        this.original = {
-            offsetTop: this.$element.offset().top,
-            width: this.$element.width()
-        };
         this.sticked = null;
-        this.checkPosition();
+        this.inited = null;
+        this.$holder = undefined;
+        this.$window = $(window).on("scroll.sticky.amui", UI.utils.debounce($.proxy(this.checkPosition, this), 10)).on("resize.sticky.amui orientationchange.sticky.amui", UI.utils.debounce(function() {
+            me.reset(true, function() {
+                me.checkPosition();
+            });
+        }, 50)).on("load.sticky.amui", $.proxy(this.checkPosition, this));
+        this.offset = this.$element.offset();
+        this.init();
     };
     Sticky.DEFAULTS = {
         top: 0,
-        cls: "am-sticky"
+        bottom: 0,
+        animation: "",
+        className: {
+            sticky: "am-sticky",
+            resetting: "am-sticky-resetting",
+            stickyBtm: "am-sticky-bottom",
+            animationRev: "am-animation-reverse"
+        }
+    };
+    Sticky.prototype.init = function() {
+        var result = this.check();
+        if (!result) return false;
+        var $element = this.$element, $holder = $('<div class="am-sticky-placeholder"></div>').css({
+            height: $element.css("position") != "absolute" ? $element.outerHeight() : "",
+            "float": $element.css("float") != "none" ? $element.css("float") : "",
+            margin: $element.css("margin")
+        });
+        this.$holder = $element.css("margin", 0).wrap($holder).parent();
+        this.inited = 1;
+        return true;
+    };
+    Sticky.prototype.reset = function(force, cb) {
+        var options = this.options, $element = this.$element, animation = options.animation ? " am-animation-" + options.animation : "", complete = function() {
+            $element.css({
+                position: "",
+                top: "",
+                width: "",
+                left: "",
+                margin: 0
+            });
+            $element.removeClass([ animation, options.className.animationRev, options.className.sticky, options.className.resetting ].join(" "));
+            this.animating = false;
+            this.sticked = false;
+            this.offset = $element.offset();
+            cb && cb();
+        }.bind(this);
+        $element.addClass(options.className.resetting);
+        if (!force && options.animation && UI.support.animation) {
+            this.animating = true;
+            $element.removeClass(animation).one(UI.support.animation.end, function() {
+                complete();
+            }).width();
+            // force redraw
+            $element.addClass(animation + " " + options.className.animationRev);
+        } else {
+            complete();
+        }
+    };
+    Sticky.prototype.check = function() {
+        if (!this.$element.is(":visible")) return false;
+        var media = this.options.media;
+        if (media) {
+            switch (typeof media) {
+              case "number":
+                if (window.innerWidth < media) {
+                    return false;
+                }
+                break;
+
+              case "string":
+                if (window.matchMedia && !window.matchMedia(media).matches) {
+                    return false;
+                }
+                break;
+            }
+        }
+        return true;
     };
     Sticky.prototype.checkPosition = function() {
-        if (!this.$element.is(":visible")) return;
-        var scrollHeight = $(document).height(), scrollTop = this.$window.scrollTop(), options = this.options, offsetTop = options.top, $element = this.$element, animation = options.animation ? " am-animation-" + options.animation : "";
-        this.sticked = scrollTop > this.original.offsetTop ? "sticky" : false;
-        if (this.sticked) {
-            $element.addClass(options.cls + animation).css({
-                top: offsetTop
-            });
-        } else {
-            $element.removeClass(options.cls + animation).css({
-                top: ""
+        if (!this.inited) {
+            var initialized = this.init();
+            if (!initialized) return;
+        }
+        var options = this.options, scrollHeight = $("body").height(), scrollTop = this.$window.scrollTop(), offsetTop = options.top, offsetBottom = options.bottom, $element = this.$element, animation = options.animation ? " am-animation-" + options.animation : "", className = [ options.className.sticky, animation ].join(" ");
+        if (typeof offsetBottom == "function") offsetBottom = offsetBottom(this.$element);
+        var checkResult = scrollTop > this.$holder.offset().top;
+        if (!this.sticked && checkResult) {
+            $element.addClass(className);
+        } else if (this.sticked && !checkResult) {
+            this.reset();
+        }
+        this.$holder.height($element.height());
+        if (checkResult) {
+            $element.css({
+                top: offsetTop,
+                left: this.$holder.offset().left,
+                width: this.offset.width
             });
         }
+        this.sticked = checkResult;
     };
     UI.sticky = Sticky;
     // Sticky Plugin
@@ -3750,21 +6662,22 @@ define("ui.sticky", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.ext
     });
     module.exports = Sticky;
 });
-define("ui.tabs", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector" ], function(require, exports, module) {
-    "use strict";
+define("ui.tabs", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "util.hammer" ], function(require, exports, module) {
     require("core");
+    var Hammer = require("util.hammer");
     var $ = window.Zepto, UI = $.AMUI, supportTransition = UI.support.transition, animation = UI.support.animation;
     /**
      * @via https://github.com/twbs/bootstrap/blob/master/js/tab.js
      * @copyright 2011-2014 Twitter, Inc.
      * @license MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
      */
-    var Tabs = function(element) {
+    var Tabs = function(element, options) {
         this.$element = $(element);
-        this.$tabNav = this.$element.find(Tabs.DEFAULTS.selector.nav);
+        this.options = $.extend({}, Tabs.DEFAULTS, options || {});
+        this.$tabNav = this.$element.find(this.options.selector.nav);
         this.$navs = this.$tabNav.find("a");
-        this.$content = this.$element.find(Tabs.DEFAULTS.selector.content);
-        this.$tabPanels = this.$content.find(Tabs.DEFAULTS.selector.panel);
+        this.$content = this.$element.find(this.options.selector.content);
+        this.$tabPanels = this.$content.find(this.options.selector.panel);
         this.transitioning = null;
         this.init();
     };
@@ -3774,23 +6687,46 @@ define("ui.tabs", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.exten
             content: ".am-tabs-bd",
             panel: ".am-tab-panel"
         },
-        status: {
+        className: {
             active: "am-active"
         }
     };
     Tabs.prototype.init = function() {
-        this.$navs.on("click.tabs.amui", $.proxy(function(e) {
+        var me = this, options = this.options;
+        // Activate the first Tab when no active Tab or multiple active Tabs
+        if (this.$tabNav.find("> .am-active").length !== 1) {
+            var $tabNav = this.$tabNav;
+            this.activate($tabNav.children("li").first(), $tabNav);
+            this.activate(this.$tabPanels.first(), this.$content);
+        }
+        this.$navs.on("click.tabs.amui", function(e) {
             e.preventDefault();
-            this.open($(e.target));
-        }, this));
-        this.$content.on("swipeLeft.tabs.amui", $.proxy(function(e) {
-            var $nav = this.getNextNav($(e.target));
-            $nav && this.open($nav);
-        }, this));
-        this.$content.on("swipeRight.tabs.amui", $.proxy(function(e) {
-            var $nav = this.getPrevNav($(e.target));
-            $nav && this.open($nav);
-        }, this));
+            me.open($(this));
+        });
+        var hammer = new Hammer(this.$content[0]);
+        hammer.get("pan").set({
+            direction: Hammer.DIRECTION_HORIZONTAL,
+            threshold: 30
+        });
+        hammer.on("panleft", UI.utils.debounce(function(e) {
+            e.preventDefault();
+            var $target = $(e.target);
+            if (!$target.is(options.selector.panel)) {
+                $target = $target.closest(options.selector.panel);
+            }
+            $target.focus();
+            var $nav = me.getNextNav($target);
+            $nav && me.open($nav);
+        }, 100));
+        hammer.on("panright", UI.utils.debounce(function(e) {
+            e.preventDefault();
+            var $target = $(e.target);
+            if (!$target.is(options.selector.panel)) {
+                $target = $target.closest(options.selector.panel);
+            }
+            var $nav = me.getPrevNav($target);
+            $nav && me.open($nav);
+        }, 100));
     };
     Tabs.prototype.open = function($nav) {
         if (!$nav || this.transitioning || $nav.parent("li").hasClass("am-active")) return;
@@ -3813,7 +6749,7 @@ define("ui.tabs", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.exten
     Tabs.prototype.activate = function($element, $container, callback) {
         this.transitioning = true;
         var $active = $container.find("> .am-active"), transition = callback && supportTransition && !!$active.length;
-        $active.removeClass("am-active am-in").blur();
+        $active.removeClass("am-active am-in");
         $element.addClass("am-active");
         if (transition) {
             $element.redraw();
@@ -3823,10 +6759,10 @@ define("ui.tabs", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.exten
             $element.removeClass("am-fade");
         }
         function complete() {
-            callback();
+            callback && callback();
             this.transitioning = false;
         }
-        transition ? $active.one(supportTransition.end, $.proxy(complete, this)) : $.proxy(complete, this);
+        transition ? $active.one(supportTransition.end, $.proxy(complete, this)) : $.proxy(complete, this)();
     };
     Tabs.prototype.getNextNav = function($panel) {
         var navIndex = this.$tabPanels.index($panel), rightSpring = "am-animation-right-spring";
@@ -3905,640 +6841,6 @@ define("util.cookie", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.e
     };
     UI.utils.cookie = cookie;
     module.exports = cookie;
-});
-define("util.fastclick", [], function(require, exports, module) {
-    var $ = window.Zepto;
-    /**
-     * FastClick: polyfill to remove click delays on browsers with touch UIs.
-     *
-     * @version 1.0.2
-     * @codingstandard ftlabs-jsv2
-     * @copyright The Financial Times Limited [All Rights Reserved]
-     * @license MIT License (see LICENSE.txt)
-     */
-    /*jslint browser:true, node:true*/
-    /*global define, Event, Node*/
-    /**
-     * Instantiate fast-clicking listeners on the specified layer.
-     *
-     * @constructor
-     * @param {Element} layer The layer to listen on
-     * @param {Object} options The options to override the defaults
-     */
-    function FastClick(layer, options) {
-        "use strict";
-        var oldOnClick;
-        options = options || {};
-        /**
-         * Whether a click is currently being tracked.
-         *
-         * @type boolean
-         */
-        this.trackingClick = false;
-        /**
-         * Timestamp for when click tracking started.
-         *
-         * @type number
-         */
-        this.trackingClickStart = 0;
-        /**
-         * The element being tracked for a click.
-         *
-         * @type EventTarget
-         */
-        this.targetElement = null;
-        /**
-         * X-coordinate of touch start event.
-         *
-         * @type number
-         */
-        this.touchStartX = 0;
-        /**
-         * Y-coordinate of touch start event.
-         *
-         * @type number
-         */
-        this.touchStartY = 0;
-        /**
-         * ID of the last touch, retrieved from Touch.identifier.
-         *
-         * @type number
-         */
-        this.lastTouchIdentifier = 0;
-        /**
-         * Touchmove boundary, beyond which a click will be cancelled.
-         *
-         * @type number
-         */
-        this.touchBoundary = options.touchBoundary || 10;
-        /**
-         * The FastClick layer.
-         *
-         * @type Element
-         */
-        this.layer = layer;
-        /**
-         * The minimum time between tap(touchstart and touchend) events
-         *
-         * @type number
-         */
-        this.tapDelay = options.tapDelay || 200;
-        if (FastClick.notNeeded(layer)) {
-            return;
-        }
-        // Some old versions of Android don't have Function.prototype.bind
-        function bind(method, context) {
-            return function() {
-                return method.apply(context, arguments);
-            };
-        }
-        var methods = [ "onMouse", "onClick", "onTouchStart", "onTouchMove", "onTouchEnd", "onTouchCancel" ];
-        var context = this;
-        for (var i = 0, l = methods.length; i < l; i++) {
-            context[methods[i]] = bind(context[methods[i]], context);
-        }
-        // Set up event handlers as required
-        if (deviceIsAndroid) {
-            layer.addEventListener("mouseover", this.onMouse, true);
-            layer.addEventListener("mousedown", this.onMouse, true);
-            layer.addEventListener("mouseup", this.onMouse, true);
-        }
-        layer.addEventListener("click", this.onClick, true);
-        layer.addEventListener("touchstart", this.onTouchStart, false);
-        layer.addEventListener("touchmove", this.onTouchMove, false);
-        layer.addEventListener("touchend", this.onTouchEnd, false);
-        layer.addEventListener("touchcancel", this.onTouchCancel, false);
-        // Hack is required for browsers that don't support Event#stopImmediatePropagation (e.g. Android 2)
-        // which is how FastClick normally stops click events bubbling to callbacks registered on the FastClick
-        // layer when they are cancelled.
-        if (!Event.prototype.stopImmediatePropagation) {
-            layer.removeEventListener = function(type, callback, capture) {
-                var rmv = Node.prototype.removeEventListener;
-                if (type === "click") {
-                    rmv.call(layer, type, callback.hijacked || callback, capture);
-                } else {
-                    rmv.call(layer, type, callback, capture);
-                }
-            };
-            layer.addEventListener = function(type, callback, capture) {
-                var adv = Node.prototype.addEventListener;
-                if (type === "click") {
-                    adv.call(layer, type, callback.hijacked || (callback.hijacked = function(event) {
-                        if (!event.propagationStopped) {
-                            callback(event);
-                        }
-                    }), capture);
-                } else {
-                    adv.call(layer, type, callback, capture);
-                }
-            };
-        }
-        // If a handler is already declared in the element's onclick attribute, it will be fired before
-        // FastClick's onClick handler. Fix this by pulling out the user-defined handler function and
-        // adding it as listener.
-        if (typeof layer.onclick === "function") {
-            // Android browser on at least 3.2 requires a new reference to the function in layer.onclick
-            // - the old one won't work if passed to addEventListener directly.
-            oldOnClick = layer.onclick;
-            layer.addEventListener("click", function(event) {
-                oldOnClick(event);
-            }, false);
-            layer.onclick = null;
-        }
-    }
-    /**
-     * Android requires exceptions.
-     *
-     * @type boolean
-     */
-    var deviceIsAndroid = navigator.userAgent.indexOf("Android") > 0;
-    /**
-     * iOS requires exceptions.
-     *
-     * @type boolean
-     */
-    var deviceIsIOS = /iP(ad|hone|od)/.test(navigator.userAgent);
-    /**
-     * iOS 4 requires an exception for select elements.
-     *
-     * @type boolean
-     */
-    var deviceIsIOS4 = deviceIsIOS && /OS 4_\d(_\d)?/.test(navigator.userAgent);
-    /**
-     * iOS 6.0(+?) requires the target element to be manually derived
-     *
-     * @type boolean
-     */
-    var deviceIsIOSWithBadTarget = deviceIsIOS && /OS ([6-9]|\d{2})_\d/.test(navigator.userAgent);
-    /**
-     * Determine whether a given element requires a native click.
-     *
-     * @param {EventTarget|Element} target Target DOM element
-     * @returns {boolean} Returns true if the element needs a native click
-     */
-    FastClick.prototype.needsClick = function(target) {
-        "use strict";
-        switch (target.nodeName.toLowerCase()) {
-          // Don't send a synthetic click to disabled inputs (issue #62)
-            case "button":
-          case "select":
-          case "textarea":
-            if (target.disabled) {
-                return true;
-            }
-            break;
-
-          case "input":
-            // File inputs need real clicks on iOS 6 due to a browser bug (issue #68)
-            if (deviceIsIOS && target.type === "file" || target.disabled) {
-                return true;
-            }
-            break;
-
-          case "label":
-          case "video":
-            return true;
-        }
-        return /\bneedsclick\b/.test(target.className);
-    };
-    /**
-     * Determine whether a given element requires a call to focus to simulate click into element.
-     *
-     * @param {EventTarget|Element} target Target DOM element
-     * @returns {boolean} Returns true if the element requires a call to focus to simulate native click.
-     */
-    FastClick.prototype.needsFocus = function(target) {
-        "use strict";
-        switch (target.nodeName.toLowerCase()) {
-          case "textarea":
-            return true;
-
-          case "select":
-            return !deviceIsAndroid;
-
-          case "input":
-            switch (target.type) {
-              case "button":
-              case "checkbox":
-              case "file":
-              case "image":
-              case "radio":
-              case "submit":
-                return false;
-            }
-            // No point in attempting to focus disabled inputs
-            return !target.disabled && !target.readOnly;
-
-          default:
-            return /\bneedsfocus\b/.test(target.className);
-        }
-    };
-    /**
-     * Send a click event to the specified element.
-     *
-     * @param {EventTarget|Element} targetElement
-     * @param {Event} event
-     */
-    FastClick.prototype.sendClick = function(targetElement, event) {
-        "use strict";
-        var clickEvent, touch;
-        // On some Android devices activeElement needs to be blurred otherwise the synthetic click will have no effect (#24)
-        if (document.activeElement && document.activeElement !== targetElement) {
-            document.activeElement.blur();
-        }
-        touch = event.changedTouches[0];
-        // Synthesise a click event, with an extra attribute so it can be tracked
-        clickEvent = document.createEvent("MouseEvents");
-        clickEvent.initMouseEvent(this.determineEventType(targetElement), true, true, window, 1, touch.screenX, touch.screenY, touch.clientX, touch.clientY, false, false, false, false, 0, null);
-        clickEvent.forwardedTouchEvent = true;
-        targetElement.dispatchEvent(clickEvent);
-    };
-    FastClick.prototype.determineEventType = function(targetElement) {
-        "use strict";
-        //Issue #159: Android Chrome Select Box does not open with a synthetic click event
-        if (deviceIsAndroid && targetElement.tagName.toLowerCase() === "select") {
-            return "mousedown";
-        }
-        return "click";
-    };
-    /**
-     * @param {EventTarget|Element} targetElement
-     */
-    FastClick.prototype.focus = function(targetElement) {
-        "use strict";
-        var length;
-        // Issue #160: on iOS 7, some input elements (e.g. date datetime) throw a vague TypeError on setSelectionRange. These elements don't have an integer value for the selectionStart and selectionEnd properties, but unfortunately that can't be used for detection because accessing the properties also throws a TypeError. Just check the type instead. Filed as Apple bug #15122724.
-        if (deviceIsIOS && targetElement.setSelectionRange && targetElement.type.indexOf("date") !== 0 && targetElement.type !== "time") {
-            length = targetElement.value.length;
-            targetElement.setSelectionRange(length, length);
-        } else {
-            targetElement.focus();
-        }
-    };
-    /**
-     * Check whether the given target element is a child of a scrollable layer and if so, set a flag on it.
-     *
-     * @param {EventTarget|Element} targetElement
-     */
-    FastClick.prototype.updateScrollParent = function(targetElement) {
-        "use strict";
-        var scrollParent, parentElement;
-        scrollParent = targetElement.fastClickScrollParent;
-        // Attempt to discover whether the target element is contained within a scrollable layer. Re-check if the
-        // target element was moved to another parent.
-        if (!scrollParent || !scrollParent.contains(targetElement)) {
-            parentElement = targetElement;
-            do {
-                if (parentElement.scrollHeight > parentElement.offsetHeight) {
-                    scrollParent = parentElement;
-                    targetElement.fastClickScrollParent = parentElement;
-                    break;
-                }
-                parentElement = parentElement.parentElement;
-            } while (parentElement);
-        }
-        // Always update the scroll top tracker if possible.
-        if (scrollParent) {
-            scrollParent.fastClickLastScrollTop = scrollParent.scrollTop;
-        }
-    };
-    /**
-     * @param {EventTarget} targetElement
-     * @returns {Element|EventTarget}
-     */
-    FastClick.prototype.getTargetElementFromEventTarget = function(eventTarget) {
-        "use strict";
-        // On some older browsers (notably Safari on iOS 4.1 - see issue #56) the event target may be a text node.
-        if (eventTarget.nodeType === Node.TEXT_NODE) {
-            return eventTarget.parentNode;
-        }
-        return eventTarget;
-    };
-    /**
-     * On touch start, record the position and scroll offset.
-     *
-     * @param {Event} event
-     * @returns {boolean}
-     */
-    FastClick.prototype.onTouchStart = function(event) {
-        "use strict";
-        var targetElement, touch, selection;
-        // Ignore multiple touches, otherwise pinch-to-zoom is prevented if both fingers are on the FastClick element (issue #111).
-        if (event.targetTouches.length > 1) {
-            return true;
-        }
-        targetElement = this.getTargetElementFromEventTarget(event.target);
-        touch = event.targetTouches[0];
-        if (deviceIsIOS) {
-            // Only trusted events will deselect text on iOS (issue #49)
-            selection = window.getSelection();
-            if (selection.rangeCount && !selection.isCollapsed) {
-                return true;
-            }
-            if (!deviceIsIOS4) {
-                // Weird things happen on iOS when an alert or confirm dialog is opened from a click event callback (issue #23):
-                // when the user next taps anywhere else on the page, new touchstart and touchend events are dispatched
-                // with the same identifier as the touch event that previously triggered the click that triggered the alert.
-                // Sadly, there is an issue on iOS 4 that causes some normal touch events to have the same identifier as an
-                // immediately preceeding touch event (issue #52), so this fix is unavailable on that platform.
-                if (touch.identifier === this.lastTouchIdentifier) {
-                    event.preventDefault();
-                    return false;
-                }
-                this.lastTouchIdentifier = touch.identifier;
-                // If the target element is a child of a scrollable layer (using -webkit-overflow-scrolling: touch) and:
-                // 1) the user does a fling scroll on the scrollable layer
-                // 2) the user stops the fling scroll with another tap
-                // then the event.target of the last 'touchend' event will be the element that was under the user's finger
-                // when the fling scroll was started, causing FastClick to send a click event to that layer - unless a check
-                // is made to ensure that a parent layer was not scrolled before sending a synthetic click (issue #42).
-                this.updateScrollParent(targetElement);
-            }
-        }
-        this.trackingClick = true;
-        this.trackingClickStart = event.timeStamp;
-        this.targetElement = targetElement;
-        this.touchStartX = touch.pageX;
-        this.touchStartY = touch.pageY;
-        // Prevent phantom clicks on fast double-tap (issue #36)
-        if (event.timeStamp - this.lastClickTime < this.tapDelay) {
-            event.preventDefault();
-        }
-        return true;
-    };
-    /**
-     * Based on a touchmove event object, check whether the touch has moved past a boundary since it started.
-     *
-     * @param {Event} event
-     * @returns {boolean}
-     */
-    FastClick.prototype.touchHasMoved = function(event) {
-        "use strict";
-        var touch = event.changedTouches[0], boundary = this.touchBoundary;
-        if (Math.abs(touch.pageX - this.touchStartX) > boundary || Math.abs(touch.pageY - this.touchStartY) > boundary) {
-            return true;
-        }
-        return false;
-    };
-    /**
-     * Update the last position.
-     *
-     * @param {Event} event
-     * @returns {boolean}
-     */
-    FastClick.prototype.onTouchMove = function(event) {
-        "use strict";
-        if (!this.trackingClick) {
-            return true;
-        }
-        // If the touch has moved, cancel the click tracking
-        if (this.targetElement !== this.getTargetElementFromEventTarget(event.target) || this.touchHasMoved(event)) {
-            this.trackingClick = false;
-            this.targetElement = null;
-        }
-        return true;
-    };
-    /**
-     * Attempt to find the labelled control for the given label element.
-     *
-     * @param {EventTarget|HTMLLabelElement} labelElement
-     * @returns {Element|null}
-     */
-    FastClick.prototype.findControl = function(labelElement) {
-        "use strict";
-        // Fast path for newer browsers supporting the HTML5 control attribute
-        if (labelElement.control !== undefined) {
-            return labelElement.control;
-        }
-        // All browsers under test that support touch events also support the HTML5 htmlFor attribute
-        if (labelElement.htmlFor) {
-            return document.getElementById(labelElement.htmlFor);
-        }
-        // If no for attribute exists, attempt to retrieve the first labellable descendant element
-        // the list of which is defined here: http://www.w3.org/TR/html5/forms.html#category-label
-        return labelElement.querySelector("button, input:not([type=hidden]), keygen, meter, output, progress, select, textarea");
-    };
-    /**
-     * On touch end, determine whether to send a click event at once.
-     *
-     * @param {Event} event
-     * @returns {boolean}
-     */
-    FastClick.prototype.onTouchEnd = function(event) {
-        "use strict";
-        var forElement, trackingClickStart, targetTagName, scrollParent, touch, targetElement = this.targetElement;
-        if (!this.trackingClick) {
-            return true;
-        }
-        // Prevent phantom clicks on fast double-tap (issue #36)
-        if (event.timeStamp - this.lastClickTime < this.tapDelay) {
-            this.cancelNextClick = true;
-            return true;
-        }
-        // Reset to prevent wrong click cancel on input (issue #156).
-        this.cancelNextClick = false;
-        this.lastClickTime = event.timeStamp;
-        trackingClickStart = this.trackingClickStart;
-        this.trackingClick = false;
-        this.trackingClickStart = 0;
-        // On some iOS devices, the targetElement supplied with the event is invalid if the layer
-        // is performing a transition or scroll, and has to be re-detected manually. Note that
-        // for this to function correctly, it must be called *after* the event target is checked!
-        // See issue #57; also filed as rdar://13048589 .
-        if (deviceIsIOSWithBadTarget) {
-            touch = event.changedTouches[0];
-            // In certain cases arguments of elementFromPoint can be negative, so prevent setting targetElement to null
-            targetElement = document.elementFromPoint(touch.pageX - window.pageXOffset, touch.pageY - window.pageYOffset) || targetElement;
-            targetElement.fastClickScrollParent = this.targetElement.fastClickScrollParent;
-        }
-        targetTagName = targetElement.tagName.toLowerCase();
-        if (targetTagName === "label") {
-            forElement = this.findControl(targetElement);
-            if (forElement) {
-                this.focus(targetElement);
-                if (deviceIsAndroid) {
-                    return false;
-                }
-                targetElement = forElement;
-            }
-        } else if (this.needsFocus(targetElement)) {
-            // Case 1: If the touch started a while ago (best guess is 100ms based on tests for issue #36) then focus will be triggered anyway. Return early and unset the target element reference so that the subsequent click will be allowed through.
-            // Case 2: Without this exception for input elements tapped when the document is contained in an iframe, then any inputted text won't be visible even though the value attribute is updated as the user types (issue #37).
-            if (event.timeStamp - trackingClickStart > 100 || deviceIsIOS && window.top !== window && targetTagName === "input") {
-                this.targetElement = null;
-                return false;
-            }
-            this.focus(targetElement);
-            this.sendClick(targetElement, event);
-            // Select elements need the event to go through on iOS 4, otherwise the selector menu won't open.
-            // Also this breaks opening selects when VoiceOver is active on iOS6, iOS7 (and possibly others)
-            if (!deviceIsIOS || targetTagName !== "select") {
-                this.targetElement = null;
-                event.preventDefault();
-            }
-            return false;
-        }
-        if (deviceIsIOS && !deviceIsIOS4) {
-            // Don't send a synthetic click event if the target element is contained within a parent layer that was scrolled
-            // and this tap is being used to stop the scrolling (usually initiated by a fling - issue #42).
-            scrollParent = targetElement.fastClickScrollParent;
-            if (scrollParent && scrollParent.fastClickLastScrollTop !== scrollParent.scrollTop) {
-                return true;
-            }
-        }
-        // Prevent the actual click from going though - unless the target node is marked as requiring
-        // real clicks or if it is in the whitelist in which case only non-programmatic clicks are permitted.
-        if (!this.needsClick(targetElement)) {
-            event.preventDefault();
-            this.sendClick(targetElement, event);
-        }
-        return false;
-    };
-    /**
-     * On touch cancel, stop tracking the click.
-     *
-     * @returns {void}
-     */
-    FastClick.prototype.onTouchCancel = function() {
-        "use strict";
-        this.trackingClick = false;
-        this.targetElement = null;
-    };
-    /**
-     * Determine mouse events which should be permitted.
-     *
-     * @param {Event} event
-     * @returns {boolean}
-     */
-    FastClick.prototype.onMouse = function(event) {
-        "use strict";
-        // If a target element was never set (because a touch event was never fired) allow the event
-        if (!this.targetElement) {
-            return true;
-        }
-        if (event.forwardedTouchEvent) {
-            return true;
-        }
-        // Programmatically generated events targeting a specific element should be permitted
-        if (!event.cancelable) {
-            return true;
-        }
-        // Derive and check the target element to see whether the mouse event needs to be permitted;
-        // unless explicitly enabled, prevent non-touch click events from triggering actions,
-        // to prevent ghost/doubleclicks.
-        if (!this.needsClick(this.targetElement) || this.cancelNextClick) {
-            // Prevent any user-added listeners declared on FastClick element from being fired.
-            if (event.stopImmediatePropagation) {
-                event.stopImmediatePropagation();
-            } else {
-                // Part of the hack for browsers that don't support Event#stopImmediatePropagation (e.g. Android 2)
-                event.propagationStopped = true;
-            }
-            // Cancel the event
-            event.stopPropagation();
-            event.preventDefault();
-            return false;
-        }
-        // If the mouse event is permitted, return true for the action to go through.
-        return true;
-    };
-    /**
-     * On actual clicks, determine whether this is a touch-generated click, a click action occurring
-     * naturally after a delay after a touch (which needs to be cancelled to avoid duplication), or
-     * an actual click which should be permitted.
-     *
-     * @param {Event} event
-     * @returns {boolean}
-     */
-    FastClick.prototype.onClick = function(event) {
-        "use strict";
-        var permitted;
-        // It's possible for another FastClick-like library delivered with third-party code to fire a click event before FastClick does (issue #44). In that case, set the click-tracking flag back to false and return early. This will cause onTouchEnd to return early.
-        if (this.trackingClick) {
-            this.targetElement = null;
-            this.trackingClick = false;
-            return true;
-        }
-        // Very odd behaviour on iOS (issue #18): if a submit element is present inside a form and the user hits enter in the iOS simulator or clicks the Go button on the pop-up OS keyboard the a kind of 'fake' click event will be triggered with the submit-type input element as the target.
-        if (event.target.type === "submit" && event.detail === 0) {
-            return true;
-        }
-        permitted = this.onMouse(event);
-        // Only unset targetElement if the click is not permitted. This will ensure that the check for !targetElement in onMouse fails and the browser's click doesn't go through.
-        if (!permitted) {
-            this.targetElement = null;
-        }
-        // If clicks are permitted, return true for the action to go through.
-        return permitted;
-    };
-    /**
-     * Remove all FastClick's event listeners.
-     *
-     * @returns {void}
-     */
-    FastClick.prototype.destroy = function() {
-        "use strict";
-        var layer = this.layer;
-        if (deviceIsAndroid) {
-            layer.removeEventListener("mouseover", this.onMouse, true);
-            layer.removeEventListener("mousedown", this.onMouse, true);
-            layer.removeEventListener("mouseup", this.onMouse, true);
-        }
-        layer.removeEventListener("click", this.onClick, true);
-        layer.removeEventListener("touchstart", this.onTouchStart, false);
-        layer.removeEventListener("touchmove", this.onTouchMove, false);
-        layer.removeEventListener("touchend", this.onTouchEnd, false);
-        layer.removeEventListener("touchcancel", this.onTouchCancel, false);
-    };
-    /**
-     * Check whether FastClick is needed.
-     *
-     * @param {Element} layer The layer to listen on
-     */
-    FastClick.notNeeded = function(layer) {
-        "use strict";
-        var metaViewport;
-        var chromeVersion;
-        // Devices that don't support touch don't need FastClick
-        if (typeof window.ontouchstart === "undefined") {
-            return true;
-        }
-        // Chrome version - zero for other browsers
-        chromeVersion = +(/Chrome\/([0-9]+)/.exec(navigator.userAgent) || [ , 0 ])[1];
-        if (chromeVersion) {
-            if (deviceIsAndroid) {
-                metaViewport = document.querySelector("meta[name=viewport]");
-                if (metaViewport) {
-                    // Chrome on Android with user-scalable="no" doesn't need FastClick (issue #89)
-                    if (metaViewport.content.indexOf("user-scalable=no") !== -1) {
-                        return true;
-                    }
-                    // Chrome 32 and above with width=device-width or less don't need FastClick
-                    if (chromeVersion > 31 && document.documentElement.scrollWidth <= window.outerWidth) {
-                        return true;
-                    }
-                }
-            } else {
-                return true;
-            }
-        }
-        // IE10 with -ms-touch-action: none, which disables double-tap-to-zoom (issue #97)
-        if (layer.style.msTouchAction === "none") {
-            return true;
-        }
-        return false;
-    };
-    /**
-     * Factory method for creating a FastClick object
-     *
-     * @param {Element} layer The layer to listen on
-     * @param {Object} options The options to override the defaults
-     */
-    FastClick.attach = function(layer, options) {
-        "use strict";
-        return new FastClick(layer, options);
-    };
-    module.exports = FastClick;
 });
 define("util.fullscreen", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector" ], function(require, exports, module) {
     require("core");
@@ -6332,389 +8634,6 @@ define("util.qrcode", [], function(require, exports, module) {
         }
     };
 });
-define("zepto.extend.data", [], function(require, exports, module) {
-    var $ = window.Zepto;
-    //     Zepto.js
-    //     (c) 2010-2014 Thomas Fuchs
-    //     Zepto.js may be freely distributed under the MIT license.
-    // The following code is heavily inspired by jQuery's $.fn.data()
-    var data = {}, dataAttr = $.fn.data, camelize = $.camelCase, exp = $.expando = "Zepto" + +new Date(), emptyArray = [];
-    // Get value from node:
-    // 1. first try key as given,
-    // 2. then try camelized key,
-    // 3. fall back to reading "data-*" attribute.
-    function getData(node, name) {
-        var id = node[exp], store = id && data[id];
-        if (name === undefined) return store || setData(node); else {
-            if (store) {
-                if (name in store) return store[name];
-                var camelName = camelize(name);
-                if (camelName in store) return store[camelName];
-            }
-            return dataAttr.call($(node), name);
-        }
-    }
-    // Store value under camelized key on node
-    function setData(node, name, value) {
-        var id = node[exp] || (node[exp] = ++$.uuid), store = data[id] || (data[id] = attributeData(node));
-        if (name !== undefined) store[camelize(name)] = value;
-        return store;
-    }
-    // Read all "data-*" attributes from a node
-    function attributeData(node) {
-        var store = {};
-        $.each(node.attributes || emptyArray, function(i, attr) {
-            if (attr.name.indexOf("data-") == 0) store[camelize(attr.name.replace("data-", ""))] = $.zepto.deserializeValue(attr.value);
-        });
-        return store;
-    }
-    $.fn.data = function(name, value) {
-        return value === undefined ? // set multiple values via object
-        $.isPlainObject(name) ? this.each(function(i, node) {
-            $.each(name, function(key, value) {
-                setData(node, key, value);
-            });
-        }) : // get value from first element
-        0 in this ? getData(this[0], name) : undefined : // set value on all elements
-        this.each(function() {
-            setData(this, name, value);
-        });
-    };
-    $.fn.removeData = function(names) {
-        if (typeof names == "string") names = names.split(/\s+/);
-        return this.each(function() {
-            var id = this[exp], store = id && data[id];
-            if (store) $.each(names || store, function(key) {
-                delete store[names ? camelize(this) : key];
-            });
-        });
-    };
-    [ "remove", "empty" ].forEach(function(methodName) {
-        var origFn = $.fn[methodName];
-        $.fn[methodName] = function() {
-            var elements = this.find("*");
-            if (methodName === "remove") elements = elements.add(this);
-            elements.removeData();
-            return origFn.call(this);
-        };
-    });
-});
-define("zepto.extend.fx", [], function(require, exports, module) {
-    var $ = window.Zepto;
-    // Zepto.js
-    // (c) 2010-2014 Thomas Fuchs
-    // Zepto.js may be freely distributed under the MIT license.
-    var prefix = "", eventPrefix, endEventName, endAnimationName, vendors = {
-        Webkit: "webkit",
-        Moz: "",
-        O: "o"
-    }, document = window.document, testEl = document.createElement("div"), supportedTransforms = /^((translate|rotate|scale)(X|Y|Z|3d)?|matrix(3d)?|perspective|skew(X|Y)?)$/i, transform, transitionProperty, transitionDuration, transitionTiming, transitionDelay, animationName, animationDuration, animationTiming, animationDelay, cssReset = {};
-    function dasherize(str) {
-        return str.replace(/([a-z])([A-Z])/, "$1-$2").toLowerCase();
-    }
-    function normalizeEvent(name) {
-        return eventPrefix ? eventPrefix + name : name.toLowerCase();
-    }
-    $.each(vendors, function(vendor, event) {
-        if (testEl.style[vendor + "TransitionProperty"] !== undefined) {
-            prefix = "-" + vendor.toLowerCase() + "-";
-            eventPrefix = event;
-            return false;
-        }
-    });
-    transform = prefix + "transform";
-    cssReset[transitionProperty = prefix + "transition-property"] = cssReset[transitionDuration = prefix + "transition-duration"] = cssReset[transitionDelay = prefix + "transition-delay"] = cssReset[transitionTiming = prefix + "transition-timing-function"] = cssReset[animationName = prefix + "animation-name"] = cssReset[animationDuration = prefix + "animation-duration"] = cssReset[animationDelay = prefix + "animation-delay"] = cssReset[animationTiming = prefix + "animation-timing-function"] = "";
-    $.fx = {
-        off: eventPrefix === undefined && testEl.style.transitionProperty === undefined,
-        speeds: {
-            _default: 400,
-            fast: 200,
-            slow: 600
-        },
-        cssPrefix: prefix,
-        transitionEnd: normalizeEvent("TransitionEnd"),
-        animationEnd: normalizeEvent("AnimationEnd")
-    };
-    $.fn.animate = function(properties, duration, ease, callback, delay) {
-        if ($.isFunction(duration)) callback = duration, ease = undefined, duration = undefined;
-        if ($.isFunction(ease)) callback = ease, ease = undefined;
-        if ($.isPlainObject(duration)) ease = duration.easing, callback = duration.complete, 
-        delay = duration.delay, duration = duration.duration;
-        if (duration) duration = (typeof duration == "number" ? duration : $.fx.speeds[duration] || $.fx.speeds._default) / 1e3;
-        if (delay) delay = parseFloat(delay) / 1e3;
-        return this.anim(properties, duration, ease, callback, delay);
-    };
-    $.fn.anim = function(properties, duration, ease, callback, delay) {
-        var key, cssValues = {}, cssProperties, transforms = "", that = this, wrappedCallback, endEvent = $.fx.transitionEnd, fired = false;
-        if (duration === undefined) duration = $.fx.speeds._default / 1e3;
-        if (delay === undefined) delay = 0;
-        if ($.fx.off) duration = 0;
-        if (typeof properties == "string") {
-            // keyframe animation
-            cssValues[animationName] = properties;
-            cssValues[animationDuration] = duration + "s";
-            cssValues[animationDelay] = delay + "s";
-            cssValues[animationTiming] = ease || "linear";
-            endEvent = $.fx.animationEnd;
-        } else {
-            cssProperties = [];
-            // CSS transitions
-            for (key in properties) if (supportedTransforms.test(key)) transforms += key + "(" + properties[key] + ") "; else cssValues[key] = properties[key], 
-            cssProperties.push(dasherize(key));
-            if (transforms) cssValues[transform] = transforms, cssProperties.push(transform);
-            if (duration > 0 && typeof properties === "object") {
-                cssValues[transitionProperty] = cssProperties.join(", ");
-                cssValues[transitionDuration] = duration + "s";
-                cssValues[transitionDelay] = delay + "s";
-                cssValues[transitionTiming] = ease || "linear";
-            }
-        }
-        wrappedCallback = function(event) {
-            if (typeof event !== "undefined") {
-                if (event.target !== event.currentTarget) return;
-                // makes sure the event didn't bubble from "below"
-                $(event.target).unbind(endEvent, wrappedCallback);
-            } else $(this).unbind(endEvent, wrappedCallback);
-            // triggered by setTimeout
-            fired = true;
-            $(this).css(cssReset);
-            callback && callback.call(this);
-        };
-        if (duration > 0) {
-            this.bind(endEvent, wrappedCallback);
-            // transitionEnd is not always firing on older Android phones
-            // so make sure it gets fired
-            setTimeout(function() {
-                if (fired) return;
-                wrappedCallback.call(that);
-            }, duration * 1e3 + 25);
-        }
-        // trigger page reflow so new elements can animate
-        this.size() && this.get(0).clientLeft;
-        this.css(cssValues);
-        if (duration <= 0) setTimeout(function() {
-            that.each(function() {
-                wrappedCallback.call(this);
-            });
-        }, 0);
-        return this;
-    };
-    testEl = null;
-});
-define("zepto.extend.selector", [], function(require, exports, module) {
-    var $ = window.Zepto;
-    // Zepto.js
-    // (c) 2010-2014 Thomas Fuchs
-    // Zepto.js may be freely distributed under the MIT license.
-    var zepto = $.zepto, oldQsa = zepto.qsa, oldMatches = zepto.matches;
-    function visible(elem) {
-        elem = $(elem);
-        return !!(elem.width() || elem.height()) && elem.css("display") !== "none";
-    }
-    // Implements a subset from:
-    // http://api.jquery.com/category/selectors/jquery-selector-extensions/
-    //
-    // Each filter function receives the current index, all nodes in the
-    // considered set, and a value if there were parentheses. The value
-    // of `this` is the node currently being considered. The function returns the
-    // resulting node(s), null, or undefined.
-    //
-    // Complex selectors are not supported:
-    // li:has(label:contains("foo")) + li:has(label:contains("bar"))
-    // ul.inner:first > li
-    var filters = $.expr[":"] = {
-        visible: function() {
-            if (visible(this)) return this;
-        },
-        hidden: function() {
-            if (!visible(this)) return this;
-        },
-        selected: function() {
-            if (this.selected) return this;
-        },
-        checked: function() {
-            if (this.checked) return this;
-        },
-        parent: function() {
-            return this.parentNode;
-        },
-        first: function(idx) {
-            if (idx === 0) return this;
-        },
-        last: function(idx, nodes) {
-            if (idx === nodes.length - 1) return this;
-        },
-        eq: function(idx, _, value) {
-            if (idx === value) return this;
-        },
-        contains: function(idx, _, text) {
-            if ($(this).text().indexOf(text) > -1) return this;
-        },
-        has: function(idx, _, sel) {
-            if (zepto.qsa(this, sel).length) return this;
-        }
-    };
-    var filterRe = new RegExp("(.*):(\\w+)(?:\\(([^)]+)\\))?$\\s*"), childRe = /^\s*>/, classTag = "Zepto" + +new Date();
-    function process(sel, fn) {
-        // quote the hash in `a[href^=#]` expression
-        sel = sel.replace(/=#\]/g, '="#"]');
-        var filter, arg, match = filterRe.exec(sel);
-        if (match && match[2] in filters) {
-            filter = filters[match[2]], arg = match[3];
-            sel = match[1];
-            if (arg) {
-                var num = Number(arg);
-                if (isNaN(num)) arg = arg.replace(/^["']|["']$/g, ""); else arg = num;
-            }
-        }
-        return fn(sel, filter, arg);
-    }
-    zepto.qsa = function(node, selector) {
-        return process(selector, function(sel, filter, arg) {
-            try {
-                var taggedParent;
-                if (!sel && filter) sel = "*"; else if (childRe.test(sel)) // support "> *" child queries by tagging the parent node with a
-                // unique class and prepending that classname onto the selector
-                taggedParent = $(node).addClass(classTag), sel = "." + classTag + " " + sel;
-                var nodes = oldQsa(node, sel);
-            } catch (e) {
-                console.error("error performing selector: %o", selector);
-                throw e;
-            } finally {
-                if (taggedParent) taggedParent.removeClass(classTag);
-            }
-            return !filter ? nodes : zepto.uniq($.map(nodes, function(n, i) {
-                return filter.call(n, i, nodes, arg);
-            }));
-        });
-    };
-    zepto.matches = function(node, selector) {
-        return process(selector, function(sel, filter, arg) {
-            return (!sel || oldMatches(node, sel)) && (!filter || filter.call(node, null, arg) === node);
-        });
-    };
-});
-define("zepto.extend.touch", [], function(require, exports, module) {
-    // 2014.01.22  Support IE11 touch events.
-    var $ = window.Zepto;
-    // Zepto.js
-    // (c) 2010-2014 Thomas Fuchs
-    // Zepto.js may be freely distributed under the MIT license.
-    var touch = {}, touchTimeout, tapTimeout, swipeTimeout, longTapTimeout, longTapDelay = 750, gesture;
-    function swipeDirection(x1, x2, y1, y2) {
-        return Math.abs(x1 - x2) >= Math.abs(y1 - y2) ? x1 - x2 > 0 ? "Left" : "Right" : y1 - y2 > 0 ? "Up" : "Down";
-    }
-    function longTap() {
-        longTapTimeout = null;
-        if (touch.last) {
-            touch.el.trigger("longTap");
-            touch = {};
-        }
-    }
-    function cancelLongTap() {
-        if (longTapTimeout) clearTimeout(longTapTimeout);
-        longTapTimeout = null;
-    }
-    function cancelAll() {
-        if (touchTimeout) clearTimeout(touchTimeout);
-        if (tapTimeout) clearTimeout(tapTimeout);
-        if (swipeTimeout) clearTimeout(swipeTimeout);
-        if (longTapTimeout) clearTimeout(longTapTimeout);
-        touchTimeout = tapTimeout = swipeTimeout = longTapTimeout = null;
-        touch = {};
-    }
-    function isPrimaryTouch(event) {
-        return (event.pointerType == "touch" || event.pointerType == event.MSPOINTER_TYPE_TOUCH) && event.isPrimary;
-    }
-    function isPointerEventType(e, type) {
-        return e.type == "pointer" + type || e.type.toLowerCase() == "mspointer" + type;
-    }
-    $(document).ready(function() {
-        var now, delta, deltaX = 0, deltaY = 0, firstTouch, _isPointerType;
-        if ("MSGesture" in window) {
-            gesture = new MSGesture();
-            gesture.target = document.body;
-        }
-        $(document).bind("MSGestureEnd", function(e) {
-            var swipeDirectionFromVelocity = e.velocityX > 1 ? "Right" : e.velocityX < -1 ? "Left" : e.velocityY > 1 ? "Down" : e.velocityY < -1 ? "Up" : null;
-            if (swipeDirectionFromVelocity) {
-                touch.el.trigger("swipe");
-                touch.el.trigger("swipe" + swipeDirectionFromVelocity);
-            }
-        }).on("touchstart MSPointerDown pointerdown", function(e) {
-            if ((_isPointerType = isPointerEventType(e, "down")) && !isPrimaryTouch(e)) return;
-            firstTouch = _isPointerType ? e : e.touches[0];
-            if (e.touches && e.touches.length === 1 && touch.x2) {
-                // Clear out touch movement data if we have it sticking around
-                // This can occur if touchcancel doesn't fire due to preventDefault, etc.
-                touch.x2 = undefined;
-                touch.y2 = undefined;
-            }
-            now = Date.now();
-            delta = now - (touch.last || now);
-            touch.el = $("tagName" in firstTouch.target ? firstTouch.target : firstTouch.target.parentNode);
-            touchTimeout && clearTimeout(touchTimeout);
-            touch.x1 = firstTouch.pageX;
-            touch.y1 = firstTouch.pageY;
-            if (delta > 0 && delta <= 250) touch.isDoubleTap = true;
-            touch.last = now;
-            longTapTimeout = setTimeout(longTap, longTapDelay);
-            // adds the current touch contact for IE gesture recognition
-            if (gesture && _isPointerType) gesture.addPointer(e.pointerId);
-        }).on("touchmove MSPointerMove pointermove", function(e) {
-            if ((_isPointerType = isPointerEventType(e, "move")) && !isPrimaryTouch(e)) return;
-            firstTouch = _isPointerType ? e : e.touches[0];
-            cancelLongTap();
-            touch.x2 = firstTouch.pageX;
-            touch.y2 = firstTouch.pageY;
-            deltaX += Math.abs(touch.x1 - touch.x2);
-            deltaY += Math.abs(touch.y1 - touch.y2);
-        }).on("touchend MSPointerUp pointerup", function(e) {
-            if ((_isPointerType = isPointerEventType(e, "up")) && !isPrimaryTouch(e)) return;
-            cancelLongTap();
-            // swipe
-            if (touch.x2 && Math.abs(touch.x1 - touch.x2) > 30 || touch.y2 && Math.abs(touch.y1 - touch.y2) > 30) swipeTimeout = setTimeout(function() {
-                touch.el.trigger("swipe");
-                touch.el.trigger("swipe" + swipeDirection(touch.x1, touch.x2, touch.y1, touch.y2));
-                touch = {};
-            }, 0); else if ("last" in touch) // don't fire tap when delta position changed by more than 30 pixels,
-            // for instance when moving to a point and back to origin
-            if (deltaX < 30 && deltaY < 30) {
-                // delay by one tick so we can cancel the 'tap' event if 'scroll' fires
-                // ('tap' fires before 'scroll')
-                tapTimeout = setTimeout(function() {
-                    // trigger universal 'tap' with the option to cancelTouch()
-                    // (cancelTouch cancels processing of single vs double taps for faster 'tap' response)
-                    var event = $.Event("tap");
-                    event.cancelTouch = cancelAll;
-                    touch.el.trigger(event);
-                    // trigger double tap immediately
-                    if (touch.isDoubleTap) {
-                        if (touch.el) touch.el.trigger("doubleTap");
-                        touch = {};
-                    } else {
-                        touchTimeout = setTimeout(function() {
-                            touchTimeout = null;
-                            if (touch.el) touch.el.trigger("singleTap");
-                            touch = {};
-                        }, 250);
-                    }
-                }, 0);
-            } else {
-                touch = {};
-            }
-            deltaX = deltaY = 0;
-        }).on("touchcancel MSPointerCancel pointercancel", cancelAll);
-        // scrolling the window indicates intention of the user
-        // to scroll, not tap or swipe, so cancel all ongoing events
-        $(window).on("scroll", cancelAll);
-    });
-    [ "swipe", "swipeLeft", "swipeRight", "swipeUp", "swipeDown", "doubleTap", "tap", "singleTap", "longTap" ].forEach(function(eventName) {
-        $.fn[eventName] = function(callback) {
-            return this.on(eventName, callback);
-        };
-    });
-});
 define("zepto.flexslider", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector" ], function(require, exports, module) {
     var $ = window.Zepto;
     require("core");
@@ -7886,31 +9805,6 @@ define("zepto.flexslider", [ "core", "zepto.extend.fx", "zepto.extend.data", "ze
         }
     };
 });
-define("zepto.outerdemension", [], function(require, exports, module) {
-    var $ = window.Zepto;
-    // Create outerHeight and outerWidth methods
-    [ "width", "height" ].forEach(function(dimension) {
-        var offset, Dimension = dimension.replace(/./, function(m) {
-            return m[0].toUpperCase();
-        });
-        $.fn["outer" + Dimension] = function(margin) {
-            var elem = this;
-            if (elem) {
-                var size = elem[dimension]();
-                var sides = {
-                    width: [ "left", "right" ],
-                    height: [ "top", "bottom" ]
-                };
-                sides[dimension].forEach(function(side) {
-                    if (margin) size += parseInt(elem.css("margin-" + side), 10);
-                });
-                return size;
-            } else {
-                return null;
-            }
-        };
-    });
-});
 define("zepto.pinchzoom", [], function(require, exports, module) {
     /**
      * @via https://github.com/manuelstofer/pinchzoom/blob/master/src/pinchzoom.js
@@ -7950,7 +9844,7 @@ define("zepto.pinchzoom", [], function(require, exports, module) {
                 zoomOutFactor: 1.3,
                 animationDuration: 300,
                 animationInterval: 5,
-                maxZoom: 4,
+                maxZoom: 5,
                 minZoom: .5,
                 lockDragAxis: false,
                 use2d: false,
@@ -8527,238 +10421,584 @@ define("zepto.pinchzoom", [], function(require, exports, module) {
     };
     module.exports = definePinchZoom(window.Zepto);
 });
-define("zepto.touchgallery", [ "./zepto.extend.touch", "zepto.pinchzoom" ], function(require, exports, module) {
-    require("./zepto.extend.touch");
-    // PinchZoom Plugin
-    var PinchZoom = require("zepto.pinchzoom");
-    var $ = window.Zepto;
-    /**
-     * @name        jQuery touchTouch plugin
-     * @author        Martin Angelov
-     * @version    1.0
-     * @url            http://tutorialzine.com/2012/04/mobile-touch-gallery/
-     * @license        MIT License
-     */
-    /* Private variables */
-    var overlay = $('<div id="galleryOverlay">'), slider = $('<div id="gallerySlider">'), prevArrow = $('<a id="prevArrow"></a>'), nextArrow = $('<a id="nextArrow"></a>'), navControl = $('<ol class="nav-control"></ol>'), overlayVisible = false, msie = navigator.userAgent.indexOf("MSIE") > -1;
-    /* Creating the plugin */
-    $.fn.touchTouch = function() {
-        var placeholders = $([]), index = 0, allitems = this, items = allitems, navControlItems = $([]);
-        // Appending the markup to the page
-        if ($("[data-am-gallery]").length) {
-            overlay.hide().appendTo("body");
-            slider.appendTo(overlay);
-        }
-        // Creating a placeholder for each image
-        items.each(function(i) {
-            placeholders = placeholders.add($('<div class="placeholder">'));
-            navControlItems = navControlItems.add($("<li>" + (i + 1) + "</li>"));
+define("accordion", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "ui.collapse" ], function(require, exports, module) {
+    require("core");
+    require("ui.collapse");
+    var $ = window.Zepto, UI = $.AMUI, accordionInit = function() {
+        var $accordion = $('[data-am-widget="accordion"]'), selector = {
+            item: ".am-accordion-item",
+            title: ".am-accordion-title",
+            content: ".am-accordion-content"
+        };
+        $accordion.each(function(i, item) {
+            var options = UI.utils.parseOptions($(item).attr("data-am-accordion")), $title = $accordion.find(selector.title);
+            $title.on("click", function() {
+                var $content = $(this).next(selector.content), $parent = $(this).parent(selector.item), data = $content.data("amui.collapse");
+                $parent.toggleClass("am-active");
+                if (!data) {
+                    $content.collapse();
+                } else {
+                    $content.collapse("toggle");
+                }
+                !options.multiple && $(item).children(".am-active").not($parent).removeClass("am-active").find(".am-accordion-content.am-in").collapse("close");
+            });
         });
-        navControl.append(navControlItems);
-        overlay.append(navControl);
-        // Hide the gallery if the background is touched / clicked
-        slider.append(placeholders).on("click", function(e) {
-            if (!$(e.target).is("img")) {
-                hideOverlay();
+    };
+    // Init on DOM ready
+    $(function() {
+        accordionInit();
+    });
+    exports.init = accordionInit;
+});
+define("divider", [], function(require, exports, module) {});
+define("duoshuo", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector" ], function(require, exports, module) {
+    require("core");
+    var $ = window.Zepto;
+    function duoshuoInit() {
+        var $dsThread = $(".ds-thread"), dsShortName = $dsThread.parent('[data-am-widget="duoshuo"]').attr("data-ds-short-name"), dsSrc = (document.location.protocol == "https:" ? "https:" : "http:") + "//static.duoshuo.com/embed.js";
+        if (!$dsThread.length || !dsShortName) return;
+        window.duoshuoQuery = {
+            short_name: dsShortName
+        };
+        // 已经有多说脚本
+        if ($('script[src="' + dsSrc + '"]').length) return;
+        var $dsJS = $("<script>", {
+            async: true,
+            type: "text/javascript",
+            src: dsSrc,
+            charset: "utf-8"
+        });
+        $("body").append($dsJS);
+    }
+    $(window).on("load", duoshuoInit);
+    exports.init = duoshuoInit;
+});
+define("figure", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "ui.pureview", "zepto.pinchzoom", "util.hammer" ], function(require, exports, module) {
+    require("core");
+    require("ui.pureview");
+    var $ = window.Zepto, UI = $.AMUI;
+    /**
+     * Is Images zoomable
+     * @return {Boolean}
+     */
+    $.isImgZoomAble = function(element) {
+        var t = new Image();
+        t.src = element.src;
+        var zoomAble = $(element).width() < t.width;
+        if (zoomAble) {
+            $(element).parent(".am-figure").addClass("am-figure-zoomable");
+        }
+        return zoomAble;
+    };
+    var figureInit = function() {
+        $(".am-figure").each(function(i, item) {
+            var options = UI.utils.parseOptions($(item).attr("data-am-figure"));
+            if (options.pureview) {
+                $(item).addClass("am-figure-zoomable").pureview();
+            } else if (options.autoZoom) {
+                var zoomAble = $.isImgZoomAble($(item).find("img")[0]);
+                zoomAble && $(item).pureview();
             }
         });
-        // Listen for touch events on the body and check if they
-        // originated in #gallerySlider img - the images in the slider.
-        $("body").on("touchstart", "#gallerySlider img", function(e) {
-            var touch = e.originalEvent ? e.originalEvent : e, startX = touch.changedTouches[0].pageX;
-            slider.on("touchmove", function(e) {
-                e.preventDefault();
-                touch = e.touches[0] || e.changedTouches[0];
-                if (touch.pageX - startX > 10) {
-                    slider.off("touchmove");
-                    showPrevious();
-                } else if (touch.pageX - startX < -10) {
-                    slider.off("touchmove");
-                    showNext();
+    };
+    $(window).on("load", function() {
+        figureInit();
+    });
+    exports.init = figureInit;
+});
+define("footer", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "ui.add2home", "util.cookie", "ui.modal", "ui.dimmer" ], function(require, exports, module) {
+    require("core");
+    // add2home
+    var addToHS = require("ui.add2home");
+    var cookie = require("util.cookie"), modal = require("ui.modal"), $ = window.Zepto, footerInit = function() {
+        // modal mode
+        $(".am-footer-ysp").on("click", function() {
+            $("#am-footer-mode").modal();
+        });
+        addToHS();
+        // switch mode
+        // switch to desktop
+        $('[data-rel="desktop"]').on("click", function(e) {
+            e.preventDefault();
+            if (window.AMPlatform) {
+                // front end
+                AMPlatform.util.goDesktop();
+            } else {
+                // back end
+                cookie.set("allmobilize", "desktop", "", "/");
+                window.location = window.location;
+            }
+        });
+    };
+    $(window).on("load", function() {
+        footerInit();
+    });
+    exports.init = footerInit;
+});
+define("gallery", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "ui.pureview", "zepto.pinchzoom", "util.hammer" ], function(require, exports, module) {
+    require("core");
+    var PureView = require("ui.pureview");
+    var $ = window.Zepto, UI = $.AMUI;
+    var galleryInit = function() {
+        var $gallery = $('[data-am-widget="gallery"]'), $galleryOne = $gallery.filter(".am-gallery-one");
+        $gallery.each(function() {
+            var options = UI.utils.parseOptions($(this).attr("data-am-gallery"));
+            if (options.pureview) {
+                typeof options.pureview === "object" ? $(this).pureview(options.pureview) : $(this).pureview();
+            }
+        });
+        $galleryOne.each(function() {
+            galleryMore($(this));
+        });
+    };
+    function galleryMore(object) {
+        var moreData = $("<li class='am-gallery-more'><a href='javascript:;'>更多 &gt;&gt;</a></li>");
+        if (object.children().length > 6) {
+            object.children().each(function(index) {
+                if (index > 5) {
+                    $(this).hide();
                 }
             });
-            // Return false to prevent image
-            // highlighting on Android
-            return false;
-        }).on("touchend", function() {
-            slider.off("touchmove");
+            object.find(".am-gallery-more").remove();
+            object.append(moreData);
+        }
+        object.find(".am-gallery-more").on("click", function() {
+            object.children().show();
+            $(this).hide();
         });
-        // for IE 10+
-        if (window.PointerEvent || window.MSPointerEvent) {
-            $("body").on("swipe", "#gallerySlider img", function(e) {
-                e.preventDefault();
-            }).on("swipeRight", "#gallerySlider img", function(e) {
-                showPrevious();
-            }).on("swipeLeft", "#gallerySlider img", function(e) {
-                showNext();
-            });
-        }
-        // Listening for clicks on the thumbnails
-        items.on("click", function(e) {
-            e.preventDefault();
-            var $this = $(this), galleryName, selectorType, $closestGallery = $this.parent().closest("[data-gallery]");
-            // Find gallery name and change items object to only have
-            // that gallery
-            //If gallery name given to each item
-            if ($this.attr("data-gallery")) {
-                galleryName = $this.attr("data-gallery");
-                selectorType = "item";
-            } else if ($closestGallery.length) {
-                galleryName = $closestGallery.attr("data-gallery");
-                selectorType = "ancestor";
-            }
-            //These statements kept seperate in case elements have data-gallery on both
-            //items and ancestor. Ancestor will always win because of above statments.
-            if (galleryName && selectorType == "item") {
-                items = $("[data-gallery=" + galleryName + "]");
-            } else if (galleryName && selectorType == "ancestor") {
-                //Filter to check if item has an ancestory with data-gallery attribute
-                items = items.filter(function() {
-                    return $(this).parent().closest("[data-gallery]").length;
-                });
-            }
-            // Find the position of this image
-            // in the collection
-            index = items.index(this);
-            showOverlay(index);
-            showImage(index);
-            activeNavControl(index);
-            // Preload the next image
-            preload(index + 1);
-            // Preload the previous
-            preload(index - 1);
-        });
-        // If the browser does not have support
-        // for touch, display the arrows
-        if (!("ontouchstart" in window)) {
-            overlay.append(prevArrow).append(nextArrow);
-            prevArrow.click(function(e) {
-                e.preventDefault();
-                showPrevious();
-            });
-            nextArrow.click(function(e) {
-                e.preventDefault();
-                showNext();
-            });
-        }
-        // Listen for arrow keys
-        $(window).on("keydown", function(e) {
-            var keyCode = e.keyCode;
-            if (keyCode == 37) {
-                showPrevious();
-            } else if (keyCode == 39) {
-                showNext();
-            } else if (keyCode == 27) {
-                hideOverlay();
-            }
-        });
-        /* Private functions */
-        function showOverlay(index) {
-            // If the overlay is already shown, exit
-            if (overlayVisible) {
-                return false;
-            }
-            // Show the overlay
-            overlay.show();
-            setTimeout(function() {
-                // Trigger the opacity CSS transition
-                overlay.addClass("visible");
-            }, 100);
-            // Move the slider to the correct image
-            offsetSlider(index);
-            // Raise the visible flag
-            overlayVisible = true;
-        }
-        function hideOverlay() {
-            // If the overlay is not shown, exit
-            if (!overlayVisible) {
-                return false;
-            }
-            // Hide the overlay
-            overlay.animate({
-                opacity: 0,
-                display: "none"
-            }, 300).removeClass("visible");
-            overlayVisible = false;
-            //Clear preloaded items
-            $(".placeholder").empty();
-            //Reset possibly filtered items
-            items = allitems;
-        }
-        function offsetSlider(index) {
-            if (msie) {
-                // windows phone 8 IE 显示有问题，单独处理
-                slider.find(".placeholder").css({
-                    display: "none"
-                }).eq(index).css({
-                    display: "inline-block"
-                });
-            } else {
-                // This will trigger a smooth css transition
-                slider.css("left", -index * 100 + "%");
-            }
-        }
-        // Preload an image by its index in the items array
-        function preload(index) {
-            setTimeout(function() {
-                showImage(index);
-            }, 1e3);
-        }
-        // active nav control
-        function activeNavControl(index) {
-            var navItems = navControl.children("li");
-            navItems.removeClass().eq(index).addClass("nav-active");
-        }
-        // Show image in the slider
-        function showImage(index) {
-            // If the index is outside the bonds of the array
-            if (index < 0 || index >= items.length) {
-                return false;
-            }
-            // Call the load function with the href attribute of the item
-            loadImage(items.eq(index).attr("href"), function() {
-                placeholders.eq(index).html(this).wrapInner('<div class="pinch-zoom"></div>');
-                new PinchZoom(placeholders.eq(index).find(".pinch-zoom"), {});
-            });
-        }
-        // Load the image and execute a callback function.
-        // Returns a jQuery object
-        function loadImage(src, callback) {
-            var img = $("<img>").on("load", function() {
-                callback.call(img);
-            });
-            img.attr("src", src);
-        }
-        function showNext() {
-            // If this is not the last image
-            if (index + 1 < items.length) {
-                index++;
-                offsetSlider(index);
-                preload(index + 1);
-                activeNavControl(index);
-            } else {
-                // Trigger the spring animation
-                slider.addClass("rightSpring");
-                setTimeout(function() {
-                    slider.removeClass("rightSpring");
-                }, 500);
-            }
-        }
-        function showPrevious() {
-            // If this is not the first image
-            if (index > 0) {
-                index--;
-                offsetSlider(index);
-                preload(index - 1);
-                activeNavControl(index);
-            } else {
-                // Trigger the spring animation
-                slider.addClass("leftSpring");
-                setTimeout(function() {
-                    slider.removeClass("leftSpring");
-                }, 500);
-            }
-        }
-    };
+    }
+    $(function() {
+        galleryInit();
+    });
+    exports.init = galleryInit;
 });
-seajs.use(["accordion","core","divider","duoshuo","figure","footer","gallery","gotop","header","intro","list_news","map","mechat","menu","navbar","pagination","paragraph","slider","sohucs","tabs","titlebar","ui.add2home","ui.alert","ui.button","ui.collapse","ui.dimmer","ui.dropdown","ui.iscroll-lite","ui.modal","ui.offcanvas","ui.popover","ui.progress","ui.pureview","ui.scrollspy","ui.scrollspynav","ui.share","ui.smooth-scroll","ui.sticky","ui.tabs","util.cookie","util.fastclick","util.fullscreen","util.qrcode","zepto.extend.data","zepto.extend.fx","zepto.extend.selector","zepto.extend.touch","zepto.flexslider","zepto.outerdemension","zepto.pinchzoom","zepto.touchgallery"]);
+define("gotop", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "ui.smooth-scroll" ], function(require, exports, module) {
+    require("core");
+    require("ui.smooth-scroll");
+    var $ = window.Zepto;
+    var UI = $.AMUI;
+    var goTopInit = function() {
+        var $goTop = $('[data-am-widget="gotop"]'), $fixed = $goTop.filter(".am-gotop-fixed"), $win = $(window);
+        $goTop.find("a").on("click", function(e) {
+            e.preventDefault();
+            $win.smoothScroll();
+        });
+        function checkPosition() {
+            $fixed[($win.scrollTop() > 50 ? "add" : "remove") + "Class"]("am-active");
+        }
+        checkPosition();
+        $win.on("scroll.gotop.amui", $.AMUI.utils.debounce(checkPosition, 100));
+    };
+    $(function() {
+        goTopInit();
+    });
+    exports.init = goTopInit;
+});
+define("header", [], function(require, exports, module) {
+    var $ = window.Zepto;
+});
+define("intro", [], function(require, exports, module) {
+    var $ = window.Zepto;
+});
+define("list_news", [], function(require, exports, module) {
+    var $ = window.Zepto, listNewsInit = function() {
+        $(".am-list-news-one").each(function() {
+            amListNewsMore($(this));
+        });
+    };
+    function amListNewsMore(object) {
+        var $amList = object.find(".am-list");
+        var $listMore = "<a class='am-list-news-more am-btn am-btn-default' href='###'>更多 &gt;&gt;</a>";
+        if ($amList.children().length > 6) {
+            $amList.children().each(function(index) {
+                if (index > 5) {
+                    $(this).hide();
+                }
+            });
+            object.find(".am-list-news-more").remove();
+            object.append($listMore);
+        }
+        object.find(".am-list-news-more").on("click", function() {
+            $amList.children().show();
+            $(this).hide();
+        });
+    }
+    $(function() {
+        listNewsInit();
+    });
+    exports.init = listNewsInit;
+});
+define("map", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector" ], function(require, exports, module) {
+    require("core");
+    var $ = window.Zepto;
+    function addMapApi(callback) {
+        var $mapApi0 = $("<script/>", {
+            src: "http://api.map.baidu.com/getscript?type=quick&file=api&ak=WVAXZ05oyNRXS5egLImmentg&t=20140109092002"
+        });
+        $("body").append($mapApi0);
+        $mapApi0.on("load", function() {
+            var $mapApi1 = $("<script/>", {
+                src: "http://api.map.baidu.com/getscript?type=quick&file=feature&ak=WVAXZ05oyNRXS5egLImmentg&t=20140109092002"
+            });
+            $("body").append($mapApi1);
+            $mapApi1.on("load", function() {
+                var script = document.createElement("script");
+                script.textContent = "(" + callback.toString() + ")();";
+                $("body")[0].appendChild(script);
+            });
+        });
+    }
+    function addBdMap() {
+        // 如果使用 $ 选择符，minify 以后会报错: $ is undefined
+        // 即使传入 $ 也无效，改为使用原生方法
+        // 这个函数作为 callback 会插入到 body 以后才执行，应该是 $ 引用错误导致
+        var content = document.querySelector(".am-map"), defaultLng = 116.331398, //经度默认值
+        defaultLat = 39.897445, //纬度默认值
+        name = content.getAttribute("data-name"), address = content.getAttribute("data-address"), lng = content.getAttribute("data-longitude") || defaultLng, lat = content.getAttribute("data-latitude") || defaultLat;
+        var map = new BMap.Map("bd-map");
+        //实例化一个地理坐标点
+        var point = new BMap.Point(lng, lat);
+        //设初始化地图, options: 3-18
+        map.centerAndZoom(point, 18);
+        //添加地图缩放控件
+        map.addControl(new BMap.ZoomControl());
+        var opts = {
+            width: 200,
+            // 信息窗口宽度
+            //height: 'auto',     // 信息窗口高度
+            title: name
+        };
+        // 创建信息窗口对象
+        var infoWindow = new BMap.InfoWindow("地址：" + address, opts);
+        // 创建地址解析器实例
+        var myGeo = new BMap.Geocoder();
+        //判断有没有使用经纬度
+        if (lng == defaultLng && lat == defaultLat) {
+            // 使用地址反解析来设置地图
+            // 将地址解析结果显示在地图上,并调整地图视野
+            myGeo.getPoint(address, function(point) {
+                if (point) {
+                    map.centerAndZoom(point, 17);
+                    map.addOverlay(new BMap.Marker(point));
+                    map.openInfoWindow(infoWindow, point);
+                }
+            }, "");
+        } else {
+            // 使用经纬度来设置地图
+            myGeo.getLocation(point, function(result) {
+                map.centerAndZoom(point, 17);
+                map.addOverlay(new BMap.Marker(point));
+                if (address) {
+                    map.openInfoWindow(infoWindow, point);
+                } else {
+                    map.openInfoWindow(new BMap.InfoWindow(address, opts), point);
+                }
+            });
+        }
+    }
+    var mapInit = function() {
+        $(".am-map").length && addMapApi(addBdMap);
+    };
+    $(document).on("ready", mapInit);
+    exports.init = mapInit;
+});
+define("mechat", [], function(require, exports, module) {
+    var $ = window.Zepto;
+    var mechatInit = function() {
+        if (!$("#mechat").length) return;
+        var $mechat = $('[data-am-widget="mechat"]'), unitid = $mechat.data("am-mechat-unitid"), $mechatData = $("<script>", {
+            charset: "utf-8",
+            src: "http://mechatim.com/js/unit/button.js?id=" + unitid
+        });
+        $("body").append($mechatData);
+    };
+    // Lazy load
+    $(window).on("load", mechatInit);
+    exports.init = mechatInit;
+});
+define("menu", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "ui.offcanvas", "zepto.outerdemension", "ui.collapse", "ui.iscroll-lite" ], function(require, exports, module) {
+    require("core");
+    require("ui.offcanvas");
+    require("ui.collapse");
+    var IScroll = require("ui.iscroll-lite");
+    var $ = window.Zepto;
+    var UI = $.AMUI;
+    var menuInit = function() {
+        var $menus = $('[data-am-widget="menu"]');
+        $menus.find(".am-menu-nav .am-parent > a").on("click", function(e) {
+            e.preventDefault();
+            var $clicked = $(this), $parent = $clicked.parent(), $subMenu = $clicked.next(".am-menu-sub");
+            $parent.toggleClass("am-open");
+            $subMenu.collapse("toggle");
+            $parent.siblings(".am-parent").removeClass("am-open").children(".am-menu-sub.am-in").collapse("close");
+        });
+        // Dropdown/slidedown menu
+        $menus.filter("[data-am-menu-collapse]").find("> .am-menu-toggle").on("click", function(e) {
+            e.preventDefault();
+            var $this = $(this), $nav = $this.next(".am-menu-nav");
+            $this.toggleClass("am-active");
+            $nav.collapse("toggle");
+        });
+        // OffCanvas menu
+        $menus.filter("[data-am-menu-offcanvas]").find("> .am-menu-toggle").on("click", function(e) {
+            e.preventDefault();
+            var $this = $(this), $nav = $this.next(".am-offcanvas");
+            $this.toggleClass("am-active");
+            $nav.offCanvas("open");
+        });
+        // Close offCanvas when link clicked
+        var autoCloseOffCanvas = '.am-offcanvas[data-dismiss-on="click"]', $autoCloseOffCanvas = $(autoCloseOffCanvas);
+        $autoCloseOffCanvas.find("a").not(".am-parent>a").on("click", function(e) {
+            $(this).parents(autoCloseOffCanvas).offCanvas("close");
+        });
+        // one theme
+        $menus.filter(".am-menu-one").each(function(index) {
+            var $this = $(this), $wrap = $('<div class="am-menu-nav-sub-wrap"></div>'), allWidth = 0, prevIndex, $nav = $this.find(".am-menu-nav"), $navTopItem = $nav.children("li");
+            $navTopItem.filter(".am-parent").each(function(index) {
+                $(this).attr("data-rel", "#am-menu-sub-" + index);
+                $(this).find(".am-menu-sub").attr("id", "am-menu-sub-" + index).appendTo($wrap);
+            });
+            $this.append($wrap);
+            $nav.wrap('<div class="am-menu-nav-wrap" id="am-menu-' + index + '">');
+            // $navTopItem.eq(0).addClass('am-active');
+            // 计算出所有 li 宽度
+            $navTopItem.each(function(i) {
+                allWidth += parseFloat($(this).css("width"));
+            });
+            $nav.width(allWidth);
+            var menuScroll = new IScroll("#am-menu-" + index, {
+                eventPassthrough: true,
+                scrollX: true,
+                scrollY: false,
+                preventDefault: false
+            });
+            $navTopItem.on("click", function() {
+                var $clicked = $(this);
+                $clicked.addClass("am-active").siblings().removeClass("am-active");
+                $wrap.find(".am-menu-sub.am-in").collapse("close");
+                if ($clicked.is(".am-parent")) {
+                    !$clicked.hasClass(".am-open") && $wrap.find($clicked.attr("data-rel")).collapse("open");
+                } else {
+                    $clicked.siblings().removeClass("am-open");
+                }
+                // 第一次调用，没有prevIndex
+                if (prevIndex === undefined) {
+                    prevIndex = $(this).index() ? 0 : 1;
+                }
+                // 判断方向
+                var dir = $(this).index() > prevIndex;
+                var target = $(this)[dir ? "next" : "prev"]();
+                // 点击的按钮，显示一半
+                var offset = target.offset() || $(this).offset();
+                var within = $this.offset();
+                // 父类左边距
+                var listOffset, parentLeft = parseInt($this.css("padding-left"));
+                if (dir ? offset.left + offset.width > within.left + within.width : offset.left < within.left) {
+                    listOffset = $nav.offset();
+                    menuScroll.scrollTo(dir ? within.width - offset.left + listOffset.left - offset.width - parentLeft : listOffset.left - offset.left, 0, 400);
+                }
+                prevIndex = $(this).index();
+            });
+            $this.on("touchmove", function(event) {
+                event.preventDefault();
+            });
+        });
+    };
+    $(function() {
+        menuInit();
+    });
+    exports.init = menuInit;
+});
+define("navbar", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "util.qrcode", "ui.modal", "ui.dimmer", "ui.share" ], function(require, exports, module) {
+    require("core");
+    var $ = window.Zepto, UI = $.AMUI, QRCode = require("util.qrcode"), modal = require("ui.modal"), share = require("ui.share");
+    var navbarInit = function() {
+        var $navBar = $('[data-am-widget="navbar"]');
+        if (!$navBar.length) return;
+        var $win = $(window), $body = $("body"), $navBarNav = $navBar.find(".am-navbar-nav"), $navItems = $navBar.find("li"), navItemsCounter = $navItems.length;
+        configItems = $navBarNav.attr("class") && parseInt($navBarNav.attr("class").match(/sm-block-grid-(\d)/)[1]) || 3, 
+        navMinWidth = 60, //每个li最小宽度
+        offsetWidth = 16, $share = $navItems.filter("[data-am-navbar-share]"), $qrcode = $navItems.filter("[data-am-navbar-qrcode]"), 
+        activeStatus = "am-active", $moreActions = $('<ul class="am-navbar-actions"></ul>', {
+            id: UI.utils.generateGUID("am-navbar-actions")
+        }), $moreLink = $('<li class="am-navbar-labels am-navbar-more"><a href="javascript: void(0);"><span class="am-icon-angle-up"></span><span class="am-navbar-label">更多</span></a></li>');
+        // 如果有 Fix 的工具栏则设置 body 的 padding-bottom
+        if ($navBar.css("position") == "fixed") {
+            $body.addClass("am-with-fixed-navbar");
+        }
+        if ($qrcode.length) {
+            var qrId = "am-navbar-qrcode";
+            $qrModal = $("#" + qrId);
+            if (!$qrModal.length) {
+                var qrImg = $qrcode.attr("data-am-navbar-qrcode"), $qrModal = $('<div class="am-modal am-modal-no-btn" id="">' + '<div class="am-modal-dialog"><div class="am-modal-bd"></div></div>' + "</div>", {
+                    id: qrId
+                }), $qrContainer = $qrModal.find(".am-modal-bd");
+                // 判断上传自定义的二维码没有，否则生成二维码
+                if (qrImg) {
+                    $qrContainer.html('<img src="' + qrImg + '"/>');
+                } else {
+                    var qrnode = new QRCode({
+                        render: "canvas",
+                        correctLevel: 0,
+                        text: window.location.href,
+                        width: 200,
+                        height: 200,
+                        background: "#fff",
+                        foreground: "#000"
+                    });
+                    $qrContainer.html(qrnode);
+                }
+                $body.append($qrModal);
+            }
+            $qrcode.on("click", function(e) {
+                e.preventDefault();
+                $qrModal.modal();
+            });
+        }
+        if (navItemsCounter > configItems && navItemsCounter > calcSuiteItems()) {
+            initActions();
+        }
+        function initActions() {
+            $navBarNav.append($moreLink);
+            $navBarNav.find("li").not(".am-navbar-more").slice(calcSuiteItems() - 1).appendTo($moreActions);
+            // Append more actions
+            $navBar.append($moreActions);
+        }
+        function checkNavBarItems() {
+            // console.log('best: %d', calcSuiteItems());
+            if (calcSuiteItems() >= navItemsCounter) {
+                // 显示所有链接，隐藏 more
+                $moreLink.hide();
+                $moreActions.find("li").insertBefore($moreLink);
+                return;
+            }
+            !$navBar.find(".am-navbar-actions").length && initActions();
+            $moreLink.show();
+            if ($navBarNav.find("li").length < calcSuiteItems()) {
+                $moreActions.find("li").slice(0, calcSuiteItems() - $navBarNav.find("li").length).insertBefore($moreLink);
+            } else if ($navBarNav.find("li").length > calcSuiteItems()) {
+                if ($moreActions.find("li").length) {
+                    $navBarNav.find("li").not($moreLink).slice(calcSuiteItems() - 1).insertBefore($moreActions.find("li").first());
+                } else {
+                    $navBarNav.find("li").not($moreLink).slice(calcSuiteItems() - 1).appendTo($moreActions);
+                }
+            }
+        }
+        /**
+         * 计算最适合显示的条目个数
+         * @returns {number}
+         */
+        function calcSuiteItems() {
+            return Math.floor(($win.width() - offsetWidth) / navMinWidth);
+        }
+        $navBar.on("click.navbar.amui", ".am-navbar-more", function(e) {
+            e.preventDefault();
+            $moreLink[$moreActions.hasClass(activeStatus) ? "removeClass" : "addClass"](activeStatus);
+            $moreActions.toggleClass(activeStatus);
+        });
+        if ($share.length) {
+            $share.on("click.navbar.amui", function(e) {
+                e.preventDefault();
+                share.toggle();
+            });
+        }
+        $win.on("resize.navbar.amui orientationchange.navbar.amui", UI.utils.debounce(checkNavBarItems, 150));
+    };
+    // DOMContent ready
+    $(function() {
+        navbarInit();
+    });
+    exports.init = navbarInit;
+});
+define("pagination", [], function(require, exports, module) {
+    var $ = window.Zepto;
+});
+define("paragraph", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "ui.iscroll-lite" ], function(require, exports, module) {
+    require("core");
+    var $ = window.Zepto, UI = $.AMUI;
+    // Iscroll-lite Plugin
+    var IScroll = require("ui.iscroll-lite");
+    var paragraphInit;
+    /**
+     * 表格滚动
+     * @param index ID 标识，多个 paragraph 里面多个 table
+     */
+    $.fn.scrollTable = function(index) {
+        var $this = $(this), $parent;
+        $this.wrap("<div class='am-paragraph-table-container' id='am-paragraph-table-" + index + "'><div class='am-paragraph-table-scroller'></div></div>");
+        $parent = $this.parent();
+        $parent.width($this.width());
+        $parent.height($this.height());
+        var tableScroll = new IScroll("#am-paragraph-table-" + index, {
+            eventPassthrough: true,
+            scrollX: true,
+            scrollY: false,
+            preventDefault: false
+        });
+    };
+    paragraphInit = function() {
+        var $body = $("body"), $paragraph = $('[data-am-widget="paragraph"]');
+        $paragraph.each(function(index) {
+            var $this = $(this), options = UI.utils.parseOptions($this.attr("data-am-paragraph")), $index = index;
+            if (options.pureview) {
+                $this.pureview();
+            }
+            if (options.tableScrollable) {
+                $this.find("table").each(function(index) {
+                    if ($(this).width() > $(window).width()) {
+                        $(this).scrollTable($index + "-" + index);
+                    }
+                });
+            }
+        });
+    };
+    $(window).on("load", function() {
+        paragraphInit();
+    });
+    exports.init = paragraphInit;
+});
+define("slider", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "zepto.flexslider" ], function(require, exports, module) {
+    require("core");
+    require("zepto.flexslider");
+    var $ = window.Zepto, UI = $.AMUI;
+    var sliderInit = function() {
+        var $sliders = $('[data-am-widget="slider"]');
+        $sliders.not(".am-slider-manual").each(function(i, item) {
+            var options = UI.utils.parseOptions($(item).attr("data-am-slider"));
+            $(item).flexslider(options);
+        });
+    };
+    $(document).on("ready", sliderInit);
+    exports.init = sliderInit;
+});
+define("sohucs", [], function(require, exports, module) {
+    var $ = window.Zepto;
+    var sohuCSInit = function() {
+        if (!$("#SOHUCS").length) return;
+        var $sohucs = $('[data-am-widget="sohucs"]'), appid = $sohucs.attr("data-am-sohucs-appid"), conf = $sohucs.attr("data-am-sohucs-conf"), $cy = $("<script></script>", {
+            charset: "utf-8",
+            id: "changyan_mobile_js",
+            src: "http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=" + appid + "&conf=" + conf
+        });
+        $("body").append($cy);
+    };
+    // Lazy load
+    $(window).on("load", sohuCSInit);
+    exports.init = sohuCSInit;
+});
+define("tabs", [ "core", "zepto.extend.fx", "zepto.extend.data", "zepto.extend.selector", "ui.tabs", "util.hammer" ], function(require, exports, module) {
+    require("core");
+    require("ui.tabs");
+    var $ = window.Zepto;
+    var tabsInit = function() {
+        $('[data-am-widget="tabs"]').tabs();
+    };
+    $(function() {
+        tabsInit();
+    });
+    exports.init = tabsInit;
+});
+define("titlebar", [], function(require, exports, module) {
+    var $ = window.Zepto;
+});
+seajs.use(["core","util.fastclick","util.hammer","zepto.outerdemension","zepto.extend.data","zepto.extend.fx","zepto.extend.selector","ui.add2home","ui.alert","ui.button","ui.collapse","ui.dimmer","ui.dropdown","ui.iscroll-lite","ui.modal","ui.offcanvas","ui.popover","ui.progress","ui.pureview","ui.scrollspy","ui.scrollspynav","ui.share","ui.smooth-scroll","ui.sticky","ui.tabs","util.cookie","util.fullscreen","util.qrcode","zepto.flexslider","zepto.pinchzoom","accordion","divider","duoshuo","figure","footer","gallery","gotop","header","intro","list_news","map","mechat","menu","navbar","pagination","paragraph","slider","sohucs","tabs","titlebar"]);
