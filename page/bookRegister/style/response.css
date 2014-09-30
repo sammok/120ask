@@ -1,0 +1,11 @@
+/*
+ * author: sam mok 狼哥哥,
+ * begin at: 2014年9月30日 10:02:31 AM ;
+ * end at: ;
+*/
+
+/* 专科医院列表 */
+@media screen and (min-width: 480px) {
+    .m_hospitalList .more{ position: static; margin-left: 10px;}
+}
+/* 专科医院列表 end */

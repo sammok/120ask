@@ -5,7 +5,6 @@
 */
 /* Main Begain */
 
-
 /* Page: index */
 .body_greeting .title dt{ letter-spacing: 0.4rem;}
 .body_greeting dl:last-child{ width: 125px; text-align: right;}
@@ -20,21 +19,21 @@
 .entryList01_bd a:hover{text-decoration: none;}
 .entryList01_bd .item02 i,
 .entryList01_bd .item04 i{ right: 0;}
-.entryList01_bd i{ overflow: hidden; position: absolute; top: -6px; left:0; width: 65px; height: 65px; border: 4px solid #f8b551; border-radius: 65px; background: #fff; text-align: center;}
+.entryList01_bd i{ overflow: hidden; position: absolute; top: -6px; left:0; width: 65px; height: 65px; border: 2px solid #f8b551; border-radius: 65px; background: #fff; text-align: center;}
 .entryList01_bd i img{ width: 61px; height: 61px;}
 .entryList01_bd p{ height: 53px; line-height: 53px; color: #fff;}
 .entryList01_bd .item01 i{ border-color: #f8b551;}
 .entryList01_bd .item02 i{ border-color: #84ccc9; right: 0; left: auto;}
 .entryList01_bd .item03 i{ border-color: #89c997;}
 .entryList01_bd .item04 i{ border-color: #f29c9f; right: 0; left: auto;}
-.entryList01_bd .item01 p{padding: 0 14px 0 36px; margin-left: 30px; background: #f8b551;}
-.entryList01_bd .item02 p{ padding: 0 36px 0 14px; margin-left: 0; margin-right: 30px; background: #84ccc9;}
-.entryList01_bd .item03 p{padding: 0 14px 0 36px; margin-left: 30px; background: #89c997;}
-.entryList01_bd .item04 p{ padding: 0 36px 0 14px; margin-left: 0; margin-right: 30px; background:#f29c9f;}
+.entryList01_bd .item01 p{padding: 0 14px 0 0; margin-left: 30px; background: #f8b551;}
+.entryList01_bd .item02 p{ padding: 0 0 0 14px; margin-left: 0; margin-right: 30px; background: #84ccc9;}
+.entryList01_bd .item03 p{padding: 0 14px 0 0; margin-left: 30px; background: #89c997;}
+.entryList01_bd .item04 p{ padding: 0 0 0 14px; margin-left: 0; margin-right: 30px; background:#f29c9f;}
 .entryList01_bd .item01 p:after,
-.entryList01_bd .item03 p:after{ content: ""; width: 10px; height: 55px; background: #eee; position: absolute; right: -2px; top:-2px; -webkit-transform: rotate(-3deg);}
+.entryList01_bd .item03 p:after{ content: ""; width: 10px; height: 55px; background: #eee; position: absolute; right: -3px; top:-2px; -webkit-transform: rotate(-3deg);}
 .entryList01_bd .item02 p:after,
-.entryList01_bd .item04 p:after{ content: ""; width: 10px; height: 55px; background: #eee; position: absolute; left: -2px; top:-2px; -webkit-transform: rotate(3deg);}
+.entryList01_bd .item04 p:after{ content: ""; width: 10px; height: 55px; background: #eee; position: absolute; left: -3px; top:-2px; -webkit-transform: rotate(3deg);}
 /* 入口列表 e */
 
 /* 入口切换卡 */
@@ -44,7 +43,7 @@
 .entryTab_hd li.am-active{ background: #5db23d; border-color: #5db23d!important;}
 .entryTab_hd li:last-child{ border-right: 1px solid #ccc;}
 .entryTab_hd a{ display: block; height: 100%;}
-.entryTab_hd a:hover{ text-decoration: none;}
+.entryTab_hd a:hover{ text-decoration: none; color: #000;}
 .entryTab_hd li.am-active a{ color: #fff;}
 .entryTab_bd{ border: none!important;}
 .entryTab_bd .am-tab-panel{ padding: 0 !important;}
@@ -63,7 +62,7 @@
 .arclistTab_hd li:last-child{ border-right: 1px solid #ccc;}
 .arclistTab_hd li.am-active{ background: #5db23d; border-color: #5db23d!important;}
 .arclistTab_hd li.am-active a{ color: #fff;}
-.arclistTab_hd a:hover{ text-decoration: none;}
+.arclistTab_hd a:hover{ text-decoration: none; color: #000;}
 .m_arclistTab .am-tabs-bd{ border:none;}
 .m_arclistTab .am-tab-panel{ padding: 0;}
 /* 健康经验切换卡 e */
@@ -73,6 +72,7 @@
 .m_links img{ width: 20px; height: 20px; margin-top: 4px;}
 .m_links .followUs,.m_links .friendLink{ background: #fff; padding: 10px 0;}
 .m_links .tt{ width: 26%; border-right: 1px solid #eee;}
+.m_links .tt:hover{ color: #000; text-decoration: none;}
 .m_links .bd{ width: 74%; line-height: 28px; padding: 0 20px;}
 .m_links .bd a{ display: inline-block; width: 41.86%;}
 .m_links .followUs .bd{ line-height: 50px;}

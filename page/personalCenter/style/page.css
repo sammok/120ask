@@ -17,6 +17,7 @@
 .m_myZone{}
 .myZone_hd .userGreeting{ top: 15px ;left: 15px;}
 .myZone_hd .userGreeting a:hover, .myZone_hd .userGreeting a:active{ text-decoration: underline; color: #fff;}
+.myZone_bg img{ width: 100%;}
 .myZone_bd{ margin-top: -55px;}
 
 /* 我的问提 */

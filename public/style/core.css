@@ -4,7 +4,7 @@
  * end at: ;
 */
 *, *:before, *:after{ box-sizing: border-box; -webkit-box-sizing: border-box;}
-a:hover{ text-decoration: none;}
+a:hover{ text-decoration: underline; color: #5db23d;}
 .img50{ display: block; max-width: 100%;}
 .bg50{ background-size: 100%; background-repeat: no-repeat;}
 .bg_fff{ background: #fff;}
@@ -78,9 +78,11 @@ html, .bg_eee{ background: #eee;}
 
 
 /* button */
-.btn{ display: block; line-height: 30px; color: #595757; background: #fff; text-align: center;}
-.btn:active,
-.btn.am-active {
+.btn{ display: block; line-height: 30px; margin-bottom: 10px; text-align: center;}
+.btn:hover,
+.btn:active{ text-decoration: none;}
+.btn a{ display: block; margin: 0 5px; color: #595757; background: #fff; text-decoration: none;}
+.btn a:active{
     outline: 0;
     background-image: none;
     -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125);
@@ -90,15 +92,16 @@ html, .bg_eee{ background: #eee;}
 .btn_xlarge{ width: 100% !important;}
 .btn_single{ width: 9.59% !important;}
 .btn_short{ width: 18.965% !important;}
-.btn_long{ width: 29.98% !important;}
+.btn_long{ width: 33.3333% !important;}
 .btn_h30{ line-height: 30px !important;}
 /* button - background */
-.btn_white{ background: #fff;}
+.btn_white a{ background: #fff;}
 /* button - border */
-.btn_bd_a0a0a0{ border: 1px solid #a0a0a0;}
+.btn_bd_a0a0a0 a{ border: 1px solid #a0a0a0;}
 /* button -group */
 .btn_group{ margin-left: -5px; margin-right: -5px;}
-.btn_group .btn{ float:left; width: 29.7%; margin: 0 5px 10px  5px;}
+.btn_group .btn{ float:left; width: 33.3333%;}
+.btn_group .btn:hover{ color: #000; text-decoration: none;}
 .am-btn-green{ display: block; line-height: 40px; width: auto; padding: 0; font-size: 18px; background: #5db23d; color: #fff; border: none;}
 .am-btn-green:hover,.am-btn-green:active{ color: #fff; background: #63bf41;}
 .am-btn-gray{ display: block; line-height: 40px; width: 75%; padding: 0; font-size: 18px; background: #eee; color: #525050; border: none;}
@@ -109,3 +112,7 @@ html, .bg_eee{ background: #eee;}
 /* list style */
 .listStyle_trangle{}
 .listStyle_trangle [class*="_bd"] li{ padding-left: 18px; background: url("../images/bg_listStyle_trangle.png") no-repeat left center; background-size: 11px 11px;}
+
+/* focus effect */
+.e_active:hover,
+.e_active:active{ outline: 0; -webkit-box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.2); box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.2);}

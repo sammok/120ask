@@ -5,6 +5,8 @@
 .m_subMenu li:first-child{ border-left: none;}
 .m_subMenu li.current a{ padding-bottom: 0; border-bottom: 5px solid #5db23d;}
 .m_subMenu li a{ display:block; line-height: 30px; text-align: center; background: #fff; padding: 5px 0;}
+.m_subMenu li a:hover,
+.m_subMenu li a:active{ text-decoration: none;}
 /* 页面导航 end */
 
 /* Page:疾病自查 */
@@ -16,8 +18,7 @@
 .m_illnessBtnGroup2 .illnessBtnGroup_hd{ width: 100%; padding:  0 0 0 5%; border-left: 5px solid #5db23d; left: 0; top: 0;}
 .m_illnessBtnGroup2 .illnessBtnGroup_hd .more{ margin-top: 2px;}
 .m_illnessBtnGroup2 .illnessBtnGroup_bd { padding: 10px 10px 10px 10px;}
-.m_illnessBtnGroup2 .illnessBtnGroup_bd .btn_long{ width: 29.7%!important;}
-.m_illnessBtnGroup2 .illnessBtnGroup_bd .btn_single{ width: 10%!important;}
+.m_illnessBtnGroup2 .illnessBtnGroup_bd .btn_single{ width: 14.285%!important;}
 .illnessBtnGroup_bd .feature{ display: -webkit-box; background: #acd598; border: 1px solid #777;}
 .illnessBtnGroup_bd .feature li{ -webkit-box-flex: 1; line-height: 50px; text-align: center;}
 .illnessBtnGroup_bd .feature li:active{ background: #fff;}
@@ -82,7 +83,7 @@
 /* Page:简介 end */
 
 /* Page:经验 */
-.m_illnessArcList{ padding: 25px 5% 20px 5%; border-top: 1px solid #a0a0a0;}
+.m_illnessArcList{ padding: 25px 5% 10px 5%; border-top: 1px solid #a0a0a0;}
 .illnessArcList_bd{}
 .illnessArcList_bd .arcList{}
 .illnessArcList_bd .arcList li{ margin-bottom: 25px; border:1px solid #a6a6a6; background: #fff;}
@@ -98,9 +99,9 @@
 /* Page:经验 end */
 
 /* Page:问题 */
-.m_questionList{}
+.m_questionList{ border-top: 1px solid #a0a0a0;}
 .questionList_bd{}
-.questionList_bd dl{ padding: 15px 0 15px 15px; margin-bottom: 25px; border: 1px solid #a6a6a6;}
+.questionList_bd dl{ padding: 15px 0 15px 15px; margin-bottom: 25px; background: #fff; border: 1px solid #a6a6a6;}
 .questionList_bd dl:last-child{ margin-bottom: 0;}
 .questionList_bd dt{ color: #000; font-size: 1.5rem;}
 .questionList_bd dd{ color: #000; font-size: 1.2rem; line-height: 1.8em;}

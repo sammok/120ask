@@ -4,20 +4,21 @@
 .wechartConsult_hd .hd{ border-bottom: 1px solid #a0a0a0;}
 .wechartConsult_hd .wechartImg img{ width: 35px; height: 35px; margin-right: 3.444%;}
 .wechartConsult_hd .wechartImg{margin-right: 3.444%;}
-.wechartConsult_hd .bd .thumb{ border: 1px solid #cdcdcd; margin-right: 1.8666%;}
+.wechartConsult_hd .bd{ margin: 0 -3px;}
+.wechartConsult_hd .bd .thumb{ width: 14.285%; text-align: center;}
 .wechartConsult_hd .bd .thumb:last-child{ margin-right: 0;}
-.wechartConsult_hd .bd .thumb img{ width: 32px; height: 46px;}
+.wechartConsult_hd .bd .thumb img{ width: 32px; height: 46px; border: 1px solid #cdcdcd; margin: 0 3px;}
 .wechartConsult_bd{ padding: 15px 3.444%; background: #fff; }
-.wechartConsult_bd .wechartFollow{ width: 270px; margin: 0 auto;}
+.wechartConsult_bd .wechartFollow{}
 /* 图文咨询 */
     .messageWrap{ background: #fff;}
     .messageWrap_hd{ border-bottom: 1px dashed #a0a0a0;}
     .messageWrap .col-sm-2{ padding: 0; margin: 0;}
     .messageWrap .col-sm-10{ padding: 0; margin: 0;}
-    .messageWrap input[type='text']{ display: block; border: none; line-height: 20px; height: 20px; padding: 0;}
+    .messageWrap input[type='text']{ display: block; border: none; line-height: 20px; height: 20px; padding: 0 10px;}
     .messageWrap .am-form-label{ line-height: 20px; text-align: left;}
     .messageWrap .am-form-group{ margin-bottom: 0;}
-    .messageWrap textarea{ display: block; padding: 2%; height: 85px; line-height: 20px; overflow: auto; border: none; resize: none;}
+    .messageWrap textarea{ display: block; padding: 10px; height: 85px; line-height: 20px; overflow: auto; border: none; resize: none;}
     /* 图片上传 */
     .imgSend{}
     .imgSend .col-sm-4,

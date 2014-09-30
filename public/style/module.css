@@ -5,7 +5,7 @@
 */
 /* unit here */
 .m-lineTxt{ border-top: 1px solid #c9c9c9; margin: 29px 0 30px 0; position: relative;}
-.m-lineTxt p{ padding: 0 5.9%; margin-left: -95px; font-size: 9px; color: #9fa0a0; background: #eee; position: absolute; left: 50%; top: -14px;}
+.m-lineTxt p{ width: 200px; padding: 0 20px; margin-left: -100px; font-size: 9px; color: #9fa0a0; background: #eee; position: absolute; left: 50%; top: -9px;}
 
 /* 整站头部 */
 .screen_hd{ line-height: 30px; padding: 0; background: #5db23d; position: relative; height: 50px;}
@@ -16,8 +16,12 @@
 .header_logo{ width: 95px;}
 .screen_hd .header_menu{ width: 55px; height: 50px; margin: 0!important;}
 .header_menu.current{ background: #009944; width: 55px; height: 50px;}
-.header_menu .btn_switch{ display: block; width: 100%; height: 100%; background: url("../images/btn-headmenuSwitch.png") no-repeat center center; background-size: 30px; cursor: pointer; }
+.header_menu .btn_switch{ display: block; width: 100%; height: 100%; background: url("../images/btn-headmenuSwitch.png") no-repeat center center; background-size: 30px 22px; cursor: pointer; }
 .header_menu .btn_switchRectangle{ display:block; width: 100%; height: 100%; background: url("../images/btn-headmenuSwitch02.png") no-repeat center center; background-size: 30px 21px; cursor: pointer;}
+@media screen and ( min-width: 320px){
+    .screen_hd .header_menu{ margin-right: 5% !important; position: relative; right: -12px;}
+}
+
 
 /* header menu 菜单 */
 .header_menuBody{ width: 100%; background: #009944; position: relative;}
@@ -25,10 +29,13 @@
 .header_menuBody .entryList:first-child{ padding-top: 10px;}
 .header_menuBody .entryList li{ -webkit-box-flex:1; line-height: 2.4rem;}
 .header_menuBody .entryList a{ display: block; width: 100%; height: 100%; color: #fff; font-size: 15px;}
+.header_menuBody .entryList a:hover,
+.header_menuBody .entryList a:active{ text-decoration: none; font-weight: bold; }
 
 .header_menuBody .mainNav{ display: -webkit-box; margin: 10px 9.3% 0 9.3%; text-align: center; border-top: 1px solid #007130;}
 .header_menuBody .mainNav li{ -webkit-box-flex:1; line-height: 4.4rem; position: relative; z-index: 5;}
 .header_menuBody .mainNav a{ display: block; width: 100%; height: 100%; color: #fff; font-size: 15px;}
+.header_menuBody .mainNav a:hover, .header_menuBody .mainNav a:active{ text-decoration: none; font-weight: bold;}
 .header_menuBody .btn_showUp{ width: 40px; height: 20px; background: #009944 url("../images/header_menuSlideBtn.png") no-repeat center center; background-size: 7px 10px; position: absolute; bottom: -20px; left: 50%; z-index: 100; margin-left: -20px;border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}
 /* header menu 菜单 end */
 
@@ -44,12 +51,15 @@
 .screen_ft{}
 .footer_nav{ display: -webkit-box; line-height: 38px; background: #fff;}
 .footer_nav a{ display: block; -webkit-box-flex: 1; text-align: center;}
+.footer_nav a:hover{ text-decoration: none;}
 /* 整站底部 e */
 
 /* 头部面包屑按钮 */
 .screen_hd .nav_btn{  margin: 10px 15px 10px 0; background: #64c141;  border: 1px solid #296b10; border-radius: 4px;}
-.screen_hd .nav_btn a:active{ outline: 0; background-image: none; -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125); box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125); }
 .screen_hd .nav_btn a{ display: block; height: 28px; line-height: 28px; padding: 0 8px; color: #fff; font-size: 1.5rem;}
+.screen_hd .nav_btn a:active{ outline: 0; background-image: none; -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125); box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125); }
+.screen_hd .nav_btn a:hover{ text-decoration: none; }
+
 .screen_hd .nav_btn span{ position: relative; top: -2px;}
 
 
@@ -65,10 +75,13 @@
 .m_tab_borderBottom .am-tabs-nav a:hover{ text-decoration: none;}
 .m_tab_borderBottom .am-tabs-bd{ border: none;}
 .m_tab_borderBottom .am-tab-panel{ padding: 0 5%;}
+.m_tab_borderBottom .item_b{ display: block; background: #fff;}
+.m_tab_borderBottom .item_b:hover{ color: inherit; text-decoration: none;}
+.m_tab_borderBottom .item_b .am-panel{ background: none;}
 
 
 /* 搜索模块 */
-.m_search{}
+.m_search{ }
 .search_bd form{ display: -webkit-box; border: 1px solid #73bc57;}
 .search_bd form  *{display: block;}
 .search_bd .search_txt{-webkit-box-flex: 1; padding: 15px 0; height: 18px; line-height: 18px; font-size: 15px;  border:none; outline: none; box-sizing: content-box;}
@@ -77,6 +90,10 @@
 .search_bd .search_btn:active{ background: #4f9934;}
 .search_ft p{ padding: 0 0 0 15px;}
 .search_ft p a:hover{ text-decoration: underline;}
+@media screen and (min-width: 480px) {
+	.search_bd .search_icon{ width: 40px;}
+}
+
 
 /* 搜索模块扩展 - 低高度版 */
 .m_search_short{}

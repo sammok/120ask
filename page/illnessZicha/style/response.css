@@ -1,0 +1,18 @@
+/*
+ * author: sam mok 狼哥哥,
+ * begin at: 2014年9月30日 10:02:31 AM ;
+ * end at: ;
+*/
+
+/* 疾病自查 - 概述 */
+@media screen and (min-width: 480px){
+    .illnessGaishu_bd .hd .disc, .illnessIntro_hd .disc{ width: 75%;}
+    .illnessGaishu_bd .hd .disc a, .illnessIntro_hd .disc a{ position: relative; margin-left: 10px;}
+    .illnessArcList_bd .arcList .disc{ width: 70%;}
+}
+@media screen and (min-width: 640px){
+    .illnessGaishu_bd .hd .disc, .illnessIntro_hd .disc{ width: 75%;}
+    .illnessGaishu_bd .hd .disc a, .illnessIntro_hd .disc a{ position: relative; margin-left: 10px;}
+    .illnessArcList_bd .arcList .disc{ width: 80%;}
+}
+/* 疾病自查 - 概述 end */

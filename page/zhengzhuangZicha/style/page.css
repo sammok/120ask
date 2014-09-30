@@ -12,6 +12,8 @@
 .m_subMenu li:first-child{ border-left: none;}
 .m_subMenu li.current a{ padding-bottom: 0; border-bottom: 5px solid #5db23d;}
 .m_subMenu li a{ display:block; line-height: 30px; text-align: center; background: #fff; padding: 5px 0;}
+.m_subMenu li a:hover,
+.m_subMenu li a:active{ text-decoration: none;}
 /* 页面导航 end */
 
 /* Page:症状自查 */
@@ -75,7 +77,7 @@
 /* Page:概述 end */
 
 /* Page:介绍 end */
-.m_zhengzhuangIntro{}
+.m_zhengzhuangIntro{ border: 1px solid #a6a6a6;}
 .zhengzhuangIntro_hd{}
 .zhengzhuangIntro_hd .thumb{ width: 81px; height: 81px ; border:1px solid #a6a6a6; background: #fff;}
 .zhengzhuangIntro_hd .thumb img{ display: block;}
@@ -116,10 +118,13 @@
 /* Page:经验 end */
 
 /* Page:问题 */
-.m_questionList{}
+.m_questionList{ border-top: 1px solid #a6a6a6;}
 .questionList_bd{}
-.questionList_bd dl{ padding: 15px 0 15px 15px; margin-bottom: 25px; border: 1px solid #a6a6a6;}
-.questionList_bd dl:last-child{ margin-bottom: 0;}
+.questionList_bd a{ margin-bottom: 25px; background: #fff; border: 1px solid #a6a6a6;}
+.questionList_bd a:hover,
+.questionList_bd a:active{ text-decoration: none;}
+.questionList_bd a:last-child{ margin-bottom: 0;}
+.questionList_bd dl{ padding: 15px 0 15px 15px;}
 .questionList_bd dt{ color: #000; font-size: 1.5rem;}
 .questionList_bd dd{ color: #000; font-size: 1.2rem; line-height: 1.8em;}
 .questionList_bd dt h2{ padding: 0 0 0 11px; margin-left: -16px; border-left: 5px solid #5db23d;}

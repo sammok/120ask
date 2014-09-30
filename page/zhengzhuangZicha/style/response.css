@@ -1,0 +1,10 @@
+/*
+ * author: sam mok 狼哥哥,
+ * begin at: 2014年9月30日 10:02:31 AM ;
+ * end at: ;
+*/
+
+@media screen and (min-width: 480px){
+    .categoryFind_hd h2{  padding-right: 3.5%;}
+    .zhengzhuangIntro_hd .disc a{ position: static; margin-left: 10px;}
+}
