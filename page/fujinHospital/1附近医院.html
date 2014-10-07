@@ -15,6 +15,8 @@
 <link href="style/page.css" rel="stylesheet" type="text/css" />
 <link href="style/response.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../../public/script/zepto.min.js"></script>
+<script type="text/javascript" src="../../public/script/iscroll.min.js"></script>
+<script type="text/javascript" src="script/front.js"></script>
 <script type="text/javascript" src="../../public/script/public.js"></script>
 <script type="text/javascript" src="../../public/script/amui.js"></script>
 <script type="text/javascript" src="../../public/script/amui.widget.helper.js"></script>
@@ -29,12 +31,13 @@
 </head>
 
 <body>
+
 <div class="mAuto bg_fff" >
     <header class="screen_hd clearfix">
         <div class="nav_btn fl mr15 mt10 mb10 mlp_5">
             <a class="c_fff f15" href="javascript:void(0);" target="_blank">首页</a>
         </div>
-        <div class="nav_btn fl mr15">
+        <div class="nav_btn cityNavigatorBtn fl mr15">
             <a class="c_fff f15" href="javascript:void(0);" target="_blank">上海市<span class="ml5 f12">▼</span></a>
         </div>
         <div class="header_menu fr tr" data-am-collapse="{target: '#header_menuBody'}">
@@ -80,6 +83,260 @@
         <i class="btn_showUp" data-am-collapse="{target: '#header_menuBody'}"></i>
     </nav>
     <!-- 头部主下拉菜单 end -->
+
+    <!-- 头部城市导航 -->
+    <div class="cityNavigator headerSelectNavigator">
+        <div class="bd">
+            <div class="tt ml25 mr25">
+                <h2 class="f24 pt15 pb15 mb0">选择城市</h2>
+                <p class="disc f15 pb20">附近医院</p>
+            </div>
+            <div class="scrollWrap">
+                <dl>
+                    <dt>北京</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                        </ul>
+                    </dd>
+                    <dt>湖南</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                        </ul>
+                    </dd>
+                    <dt>广州</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                        </ul>
+                    </dd>
+                    <dt>四川</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                        </ul>
+                    </dd>
+                    <dt>湖北</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                        </ul>
+                    </dd>
+                    <dt>西藏</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                        </ul>
+                    </dd>
+                    <dt>北京</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                        </ul>
+                    </dd>
+                    <dt>北京</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                        </ul>
+                    </dd>
+                    <dt>北京</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                        </ul>
+                    </dd>
+                    <dt>北京</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                        </ul>
+                    </dd>
+                    <dt>北京</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                        </ul>
+                    </dd>
+                    <dt>北京</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                        </ul>
+                    </dd>
+                    <dt>北京</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                        </ul>
+                    </dd>
+                    <dt>山东</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                            <li><a href="javascript:void(0);" target="_blank">朝阳路</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="bg"></div>
+    </div>
+    <!-- 头部城市导航 end -->
     <!-- 主体头部 end -->
 
     <!-- 医院列表 -->
@@ -87,7 +344,7 @@
         <div class="hospitalList_bd">
             <ul class="listWrap">
                 <li class="item ">
-                    <a class="show" href="javascript:void(0);" target="_blank">
+                    <a class="show e_active" href="javascript:void(0);" target="_blank">
                         <i class="icon"></i>
                         <dl>
                             <dt>上海市第五人民医院</dt>
@@ -97,7 +354,7 @@
                     </a>
                 </li>
                 <li class="item ">
-                    <a class="show" href="javascript:void(0);" target="_blank">
+                    <a class="show e_active" href="javascript:void(0);" target="_blank">
                         <i class="icon"></i>
                         <dl>
                             <dt>上海市第五人民医院</dt>
@@ -107,7 +364,7 @@
                     </a>
                 </li>
                 <li class="item ">
-                    <a class="show" href="javascript:void(0);" target="_blank">
+                    <a class="show e_active" href="javascript:void(0);" target="_blank">
                         <i class="icon"></i>
                         <dl>
                             <dt>上海市第五人民医院</dt>
@@ -117,7 +374,7 @@
                     </a>
                 </li>
                 <li class="item ">
-                    <a class="show" href="javascript:void(0);" target="_blank">
+                    <a class="show e_active" href="javascript:void(0);" target="_blank">
                         <i class="icon"></i>
                         <dl>
                             <dt>上海市第五人民医院</dt>
@@ -127,7 +384,7 @@
                     </a>
                 </li>
                 <li class="item ">
-                    <a class="show" href="javascript:void(0);" target="_blank">
+                    <a class="show e_active" href="javascript:void(0);" target="_blank">
                         <i class="icon"></i>
                         <dl>
                             <dt>上海市第五人民医院</dt>

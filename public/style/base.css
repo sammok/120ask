@@ -11,7 +11,7 @@ caption,th{text-align:left;}
 q:before, q:after{content:' '}
 abbr,acronym{border:0;}
 a{text-decoration:none; color:#333;}
-a:hover{text-decoration:underline}
+a:hover{text-decoration:none;}
 :active {outline:none}
 /* font preset*/
 .f8{font-size:0.8rem !important; -webkit-text-size-adjust:none;}

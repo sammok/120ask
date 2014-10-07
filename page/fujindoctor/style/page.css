@@ -3,6 +3,7 @@
 .m_docList{}
 .m_docList .item{margin: 18px 0 0 0; background: #fff;}
 .m_docList a{ padding: 15px 5%;}
+.m_docList a:active{ outline: 0; background-image: none; -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125); box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125); }
 .m_docList .am-thumbnail{ width: 56px; height: 71px; margin-bottom: 0;}
 .m_docList .am-thumbnail img{ width: 50px;}
 .m_docList dl{ margin-left: 25px; width: 70%;}

@@ -11,7 +11,7 @@
 .m_tab_myZone .am-tabs-nav li.am-active a:before{ content: ' '; width:0;height:0; line-height:0; border-width:14px; border-style:solid; border-color: #78b62c transparent transparent transparent; position: absolute; left: 50%; top: 40px; margin-left: -14px; z-index: 10;}
 .m_tab_myZone .am-tabs-nav a:hover{ text-decoration: none;}
 .m_tab_myZone .am-tabs-bd{ border: none; margin-top: 15px; background: #fff;}
-.m_tab_myZone .am-tabs-bd .am-tab-panel{ padding: 15px 0 0 0;}
+.m_tab_myZone .am-tabs-bd .am-tab-panel{ margin-top: -10px;}
 /* 主切换卡 end */
 
 .m_myZone{}
@@ -22,7 +22,8 @@
 
 /* 我的问提 */
 .questionList{}
-.questionList .item{ padding: 0 5% 15px 7.8125%; border-bottom: 1px solid #a0a0a0;}
+.questionList .item { border-bottom: 1px solid #a0a0a0;}
+.questionList .item a{ padding: 30px 5% 15px 7.8125%;}
 .questionList [class^='col-']{ padding: 0;}
 .questionList .moreArrow{ height: 42px; cursor: pointer;}
 .questionList .moreArrow img{ display: block; width: 11px; height: 26px; max-width: 50px;}
@@ -40,6 +41,9 @@
 .questionResultList{ margin-top: -30px;}
 .questionResultList [class^='col-']{ padding: 0;}
 .questionResultList .item{ border-bottom: 1px solid #a0a0a0; padding: 30px 0 15px 5%;}
+.questionResultList .item a{ text-decoration: none;}
+.questionResultList .item dt{ display: -webkit-box;}
+.questionResultList .item .askBd{ display: block; -webkit-box-flex: 1;  margin-right: 20px;}
 .questionResultList .item:active{ background: #eee;}
 .questionResultList dt .pubdate{ right: 14px; bottom: 0;}
 .questionResultList dt,

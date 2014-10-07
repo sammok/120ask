@@ -16,8 +16,8 @@
 .header_logo{ width: 95px;}
 .screen_hd .header_menu{ width: 55px; height: 50px; margin: 0!important;}
 .header_menu.current{ background: #009944; width: 55px; height: 50px;}
-.header_menu .btn_switch{ display: block; width: 100%; height: 100%; background: url("../images/btn-headmenuSwitch.png") no-repeat center center; background-size: 30px 22px; cursor: pointer; }
-.header_menu .btn_switchRectangle{ display:block; width: 100%; height: 100%; background: url("../images/btn-headmenuSwitch02.png") no-repeat center center; background-size: 30px 21px; cursor: pointer;}
+.header_menu .btn_switch{ display: block; width: 100%; height: 100%; background: url("../images/btn-headmenuSwitch.png") no-repeat center center; background-size: 30px 30px; cursor: pointer; }
+.header_menu .btn_switchRectangle{ display:block; width: 100%; height: 100%; background: url("../images/btn-headmenuSwitch02.png") no-repeat center center; background-size: 30px 22px; cursor: pointer;}
 @media screen and ( min-width: 320px){
     .screen_hd .header_menu{ margin-right: 5% !important; position: relative; right: -12px;}
 }

@@ -7,7 +7,7 @@
 .m_hospitalList .am-thumbnail img{ width: 50px; height: 60px;}
 .m_hospitalList dl{ margin-left: 20px; width: 70%;}
 .m_hospitalList dd{ margin-top: 10px; color: #898989;}
-.m_hospitalList .more{ right:0; bottom: 0; position: absolute;}
+.m_hospitalList .more{ right:10px; bottom: 0; position: absolute;}
 /* 医院列表 end */
 
 /* 医院详情 */
