@@ -77,7 +77,7 @@
 /* Page:概述 end */
 
 /* Page:介绍 end */
-.m_zhengzhuangIntro{ border: 1px solid #a6a6a6;}
+.m_zhengzhuangIntro{ border-top: 1px solid #a6a6a6;}
 .zhengzhuangIntro_hd{}
 .zhengzhuangIntro_hd .thumb{ width: 81px; height: 81px ; border:1px solid #a6a6a6; background: #fff;}
 .zhengzhuangIntro_hd .thumb img{ display: block;}

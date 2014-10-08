@@ -25,14 +25,14 @@
 
 /* header menu 菜单 */
 .header_menuBody{ width: 100%; background: #009944; position: relative;}
-.header_menuBody .entryList{ display: -webkit-box; padding: 0 9.3% 0 9.3%; text-align: center;}
+.header_menuBody .entryList{ display: -webkit-box; padding: 0 5% 0 5%; text-align: center;}
 .header_menuBody .entryList:first-child{ padding-top: 10px;}
 .header_menuBody .entryList li{ -webkit-box-flex:1; line-height: 2.4rem;}
 .header_menuBody .entryList a{ display: block; width: 100%; height: 100%; color: #fff; font-size: 15px;}
 .header_menuBody .entryList a:hover,
 .header_menuBody .entryList a:active{ text-decoration: none; font-weight: bold; }
 
-.header_menuBody .mainNav{ display: -webkit-box; margin: 10px 9.3% 0 9.3%; text-align: center; border-top: 1px solid #007130;}
+.header_menuBody .mainNav{ display: -webkit-box; margin: 10px 5% 0 5%; text-align: center; border-top: 1px solid #007130;}
 .header_menuBody .mainNav li{ -webkit-box-flex:1; line-height: 4.4rem; position: relative; z-index: 5;}
 .header_menuBody .mainNav a{ display: block; width: 100%; height: 100%; color: #fff; font-size: 15px;}
 .header_menuBody .mainNav a:hover, .header_menuBody .mainNav a:active{ text-decoration: none; font-weight: bold;}

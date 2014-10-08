@@ -15,7 +15,9 @@
 <link href="style/page.css" rel="stylesheet" type="text/css" />
 <link href="style/response.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../../public/script/zepto.min.js"></script>
+<script type="text/javascript" src="../../public/script/iscroll.min.js"></script>
 <script type="text/javascript" src="../../public/script/public.js"></script>
+<script type="text/javascript" src="script/front.js"></script>
 <script type="text/javascript" src="../../public/script/amui.js"></script>
 <script type="text/javascript" src="../../public/script/amui.widget.helper.js"></script>
 <script type="text/javascript">
@@ -76,6 +78,21 @@
         <i class="btn_showUp" data-am-collapse="{target: '#header_menuBody'}"></i>
     </nav>
     <!-- 头部主下拉菜单 end -->
+    <!-- 头部疾病选择菜单 -->
+    <div class="illnessNavigator illnessSelectNavigator">
+        <div class="bd">
+            <div class="tt ml25 mr25">
+                <h2 class="f24 pt15 pb20 mb0">背部</h2>
+            </div>
+            <div class="scrollWrap ml25 mr25">
+                <ul>
+                    <li><a href="javascript:void(0);" target="_blank">脊髓炎</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bg"></div>
+    </div>
+    <!-- 头部疾病选择菜单 end -->
     <!-- 主体头部 end -->
 
     <div class="screen_bd">
@@ -103,9 +120,10 @@
             </div>
             <div class="illnessBtnGroup_bd bg_fff mlp_5 mrp_5">
                 <div class="btn_group clearfix">
-                    <span class="btn btn_white btn_long btn_bd_a0a0a0"><a href="javascript:void(0);" target="_blank">咽喉</a></span>
-                    <span class="btn btn_white btn_long btn_bd_a0a0a0"><a href="javascript:void(0);" target="_blank">咽喉</a></span>
-                    <span class="btn btn_white btn_long btn_bd_a0a0a0"><a href="javascript:void(0);" target="_blank">咽喉</a></span>
+                    <!-- 这一块数据是用JSON输出的，做这一块的时候请联系我 -->
+                    <span class="btn btn_white btn_long btn_bd_a0a0a0"><a href="javascript:void(0);" target="_blank" onclick="printIllnessData(0);">背部</a></span>
+                    <span class="btn btn_white btn_long btn_bd_a0a0a0"><a href="javascript:void(0);" target="_blank" onclick="printIllnessData(1);">头部</a></span>
+                    <span class="btn btn_white btn_long btn_bd_a0a0a0"><a href="javascript:void(0);" target="_blank" onclick="printIllnessData(2);">鼻部</a></span>
                     <span class="btn btn_white btn_long btn_bd_a0a0a0"><a href="javascript:void(0);" target="_blank">咽喉</a></span>
                     <span class="btn btn_white btn_long btn_bd_a0a0a0"><a href="javascript:void(0);" target="_blank">咽喉</a></span>
                     <span class="btn btn_white btn_long btn_bd_a0a0a0"><a href="javascript:void(0);" target="_blank">咽喉</a></span>
@@ -131,7 +149,7 @@
     </div>
 
     <!-- public footer -->
-    <footer class="screen-ft mt15 pb50">
+    <footer class="screen-ft mt20 pb50">
         <div class="footer_hd">
             <div class="footer_nav f12 plp_5 prp_5">
                 <a class="c_000" href="javascript:void(0);" target="_blank">我要咨询医生</a>

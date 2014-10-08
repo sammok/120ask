@@ -6,7 +6,7 @@
 /* Main Begain */
 
 /* 头部城市选择 */
-.cityNavigator{ position: fixed; width: 100%; height: 100%; right: -100%; top: 0; z-index: 200;}
+.cityNavigator{ position: fixed; width: 100%; height: 100%; right: -100%; top: 0; z-index: 200; -webkit-transition: all 1s; transition: all 1s;}
 .cityNavigator .bg{ width: 100%; height: 100%;}
 .cityNavigator .bd{ position: absolute;top: 0; right: 0; width: 76.5%; height: 100%; background: #fff; box-shadow: 0 0 5px #a8a6a6;}
 .cityNavigator .bd .scrollWrap{ overflow: hidden; }

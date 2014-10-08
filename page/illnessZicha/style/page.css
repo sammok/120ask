@@ -9,6 +9,19 @@
 .m_subMenu li a:active{ text-decoration: none;}
 /* 页面导航 end */
 
+/* 头部疾病选择菜单 */
+.illnessNavigator{ position: fixed; width: 100%; height: 100%; right: -100%; top: 0; z-index: 200; -webkit-transition: all 1s; transition: all 1s;}
+.illnessNavigator .bg{ width: 100%; height: 100%;}
+.illnessNavigator .bd{ position: absolute;top: 0; right: 0; width: 76.5%; height: 100%; background: #fff; box-shadow: 0 0 5px #a8a6a6;}
+.illnessNavigator .bd .scrollWrap{ overflow: hidden; }
+.illnessNavigator .bd .scrollWrap li{}
+.illnessNavigator .bd .scrollWrap li a{ display: block; height: 50px; line-height: 50px; font-size: 15px; margin-bottom: 3px; border-bottom: 1px dashed #ababab;}
+.illnessNavigator .bd .scrollWrap li a:hover{ text-decoration: none; color: #000;}
+.illnessNavigator .bd .scrollWrap li a:active{ outline: 0; -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125); box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125);}
+.illnessNavigator_show{ right:0;}
+/* 头部疾病选择菜单 end */
+
+
 /* Page:疾病自查 */
 /* 疾病按钮组*/
 .m_illnessBtnGroup{ padding: 10px 0 0 0;}
@@ -101,7 +114,9 @@
 /* Page:问题 */
 .m_questionList{ border-top: 1px solid #a0a0a0;}
 .questionList_bd{}
-.questionList_bd dl{ padding: 15px 0 15px 15px; margin-bottom: 25px; background: #fff; border: 1px solid #a6a6a6;}
+.questionList_bd a:hover{ text-decoration: none;}
+.questionList_bd a:active{ outline: 0; -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125); box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.125); background-color: #eee}
+.questionList_bd dl{ padding: 15px 0 15px 15px; background: #fff; border: 1px solid #a6a6a6;}
 .questionList_bd dl:last-child{ margin-bottom: 0;}
 .questionList_bd dt{ color: #000; font-size: 1.5rem;}
 .questionList_bd dd{ color: #000; font-size: 1.2rem; line-height: 1.8em;}
