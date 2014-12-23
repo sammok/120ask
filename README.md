@@ -1,7 +1,7 @@
-120ask
+问病网 移动站
 ======
 
-visit this mobile site via: http://sammok.github.io/120ask.
+visit this mobile site via:  http://sammok.github.io/wenbing_mobile.
 
 
 Sam 前端团队规范
